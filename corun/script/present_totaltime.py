@@ -32,14 +32,22 @@ for file in os.listdir(co_dir):
 		lines = open(query, "r").readlines()
 		if lines is None:
 			print 'error',
-			continue
+			break
+		# we only count for lines 2,3,4  for fully overlap
 		for line in lines:
 			if line[:12] == 'Total Time: ':
-				time += float(line[12:])
 				num += 1
+				if num == 1:
+					continue # we donot count the first
+				if num > 4:
+					break
+				time += float(line[12:])
 		if num == 0:
 			print 'deadlock',
-			continue
+			break
+		if num != 5:
+			print 'supposed to be 5 times'
+			break
 		speedup_right += 1/(time/num)
 		speedup_left += solo_dict[query]
 		speedup += solo_dict[query]/(time/num)

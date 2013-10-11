@@ -7,7 +7,10 @@ outpath=r'/home/kai/projects/corun/output'
 querypath=r'/home/kai/projects/corun/query_progs'
 datapath=r'/home/kai/projects/gpudb/data_10'
 preloadlib=r'/home/kai/projects/lib-intercept/libicept.so'
-rep = '3'
+rep = '7'
+
+if not os.path.exists(outpath):
+	os.mkdir(outpath)
 
 plans = open(plan_file, "r").readlines()
 
@@ -28,9 +31,9 @@ for plan in plans:
 		#print cmd
 		os.system(cmd)
 
-	time.sleep(5)
+	time.sleep(10)
 	cmd=''
-	os.system(cmd)
+	os.system(cmd) # like press an enter for the last '&'
 	for query in querys:
 		cmd = r'ps -C ' + query + ' -o pid=|xargs'
 		pid = os.popen(cmd).read().strip()
@@ -41,4 +44,3 @@ for plan in plans:
 			print oo
 		#cmd = oo+ ' > ' + output + '/'
 		#os.system(oo)
-

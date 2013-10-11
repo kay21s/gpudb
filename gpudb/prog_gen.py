@@ -15,5 +15,5 @@ for file in os.listdir("/home/kai/projects/gpudb/test/ssb_test/"):
 		cmd = r'cp GPUDATABASE /home/kai/projects/corun/query_progs/' + file[:-4]
 		os.system(cmd)
 		output = file[0:-3] + 'solo'
-		cmd = r'LD_PRELOAD=/home/kai/projects/lib-intercept/libicept.so /home/kai/projects/gpudb/src/cuda/GPUDATABASE --datadir /home/kai/projects/gpudb/data_10' + r' > ' + r'/home/kai/projects/trace/file/' + output
+		cmd = r'/home/kai/projects/gpudb/src/cuda/GPUDATABASE 1 --datadir /home/kai/projects/gpudb/data_10' + r' > ' + r'/home/kai/projects/trace/file/' + output
 		os.system(cmd)
