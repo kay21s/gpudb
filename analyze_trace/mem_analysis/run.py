@@ -1,5 +1,14 @@
 #!/usr/bin/python
 import os
+if not os.path.exists('result'):
+	os.mkdir('result')
+if not os.path.exists('immediate'):
+	os.mkdir('immediate')
+if not os.path.exists('vis'):
+	os.mkdir('vis')
+if not os.path.exists('png'):
+	os.mkdir('png')
+
 
 cmd = r'./anal.py'
 os.system(cmd)
