@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/588/trunk/src/cuda
+END
+tableScan.cu
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/583/trunk/src/cuda/tableScan.cu
+END
+scanLargeArray_kernel.cu
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/588/trunk/src/cuda/scanLargeArray_kernel.cu
+END
+cuckoo.cu
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/553/trunk/src/cuda/cuckoo.cu
+END
+hashJoin.cu
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/582/trunk/src/cuda/hashJoin.cu
+END
+scan.cu
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/588/trunk/src/cuda/scan.cu
+END
+inviJoin.cu
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/553/trunk/src/cuda/inviJoin.cu
+END
+materialize.cu
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/565/trunk/src/cuda/materialize.cu
+END
+orderBy.cu
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/588/trunk/src/cuda/orderBy.cu
+END
+scanImpl.cu
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/203/trunk/src/cuda/scanImpl.cu
+END
+groupby.cu
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/564/trunk/src/cuda/groupby.cu
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/556/trunk/src/cuda/Makefile
+END

@@ -1,0 +1,7 @@
+set xlabel "Time (ms)"
+set ylabel "Bytes"
+
+set terminal png size 1200, 500
+
+set output "copy.png"
+plot "memcpy.vis" using 1:2 title "copy" with lines

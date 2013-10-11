@@ -1,0 +1,7 @@
+set xlabel "Time (ms)"
+set ylabel "Bytes"
+
+set terminal png size 1200, 400
+
+set output "space.png"
+plot "memspace.vis" using 1:2 title "space" with lines

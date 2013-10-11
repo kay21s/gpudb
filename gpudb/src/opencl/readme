@@ -1,0 +1,1 @@
+The OpenCL engine is ported from the CUDA engine. Its main logic is similar as the CUDA engine. 

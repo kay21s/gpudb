@@ -1,0 +1,20 @@
+The library is based on Kaibo's libicept.so
+
+It features a daemon thread and works in two steps:
+
+A. intercept all functions calls below, and put them (call and arguments) into an FIFO queue
+	cudaMemcpy		(is replaced with cudaMemcpyAsync inside interception)
+	cudaMalloc		(since cudaMalloc takes **devPtr, the allocation is delay-able)
+	cudaFree
+	cudaConfigureCall
+	cudaLaunch
+	cudaSetupArgument
+	cudaThreadSynchronize
+	cudaMemset
+	
+B. upon the first interception, a daemon thread is spawned which 
+	1. checks the FIFO queue every 65ms, and
+	2. performs the function calls in an FIFO way
+
+
+By the above design, all intercepted calls become asynchronous calls. 

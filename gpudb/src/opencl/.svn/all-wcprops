@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/588/trunk/src/opencl
+END
+hashJoin.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/584/trunk/src/opencl/hashJoin.cpp
+END
+scan.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/588/trunk/src/opencl/scan.cpp
+END
+materialize.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/553/trunk/src/opencl/materialize.cpp
+END
+orderBy.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/574/trunk/src/opencl/orderBy.cpp
+END
+scanImpl.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/228/trunk/src/opencl/scanImpl.cpp
+END
+groupby.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/553/trunk/src/opencl/groupby.cpp
+END
+parseKernel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/553/trunk/src/opencl/parseKernel.cpp
+END
+tableScan.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/584/trunk/src/opencl/tableScan.cpp
+END
+kernel.cl
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/588/trunk/src/opencl/kernel.cl
+END
+readme
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/566/trunk/src/opencl/readme
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/532/trunk/src/opencl/Makefile
+END

@@ -1,0 +1,48 @@
+Below I explain how mm_swap works.
+#################################
+
+It intercepts:
+CudaMalloc(void ** devPtr, size_t size)
+CudaFree(void *devPtr)
+
+
+In Malloc, the allocated gpu memory(object) has address *devPtr(GPU_address), which is in turn stored in devPtr(GPU_address_store)
+So the simple IDEA is that
+	mm_swap maintains the connection between the GPU_address and the GPU_address_store
+	so once we swap out&in certain gpu object, the GPU_address will be changed, while we can update it inside GPU_address_store
+
+Here lies an assumption
+	the code will use(memcpy, launch) the *devPtr, where devPtr is used for malloc, to access the address
+
+I know this sucks, so it rolls out along with two fixes
+1.If Malloc takes a devPtr that happens to be the same devPtr that is used by a previous Malloc (but not freed), than the previous Malloc-ed object cannot be swapped out
+2.When Malloc is returned, no swapped-out object exisits in current process
+
+
+#############
+The swapping policy
+
+process i is given a unique priority number P(i) 
+If any j cannot malloc due to lack of memory 
+	&& P(j) > P(i)
+Then there are two cases:
+1. P(i) has in-gpu-mem objs && P(i) has the lowest priority of all SUCH processes
+	swap out things one by one
+2. else, just wait
+
+Else, swap in everything, then finish the malloc. If anything fails, just WAIT
+
+
+
+
+
+
+
+
+
+The mm_swap2 will introduce more of the traditional virtual memory ideas
+############
+It takes full control over the MEM system, which indicates
+
+When Malloc, return a unique address (or ID) 
+WHen Launch (or memCpy, or memset, or ...), replace this ID with the proper VM address

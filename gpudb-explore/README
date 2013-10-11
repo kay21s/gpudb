@@ -1,0 +1,36 @@
+###########
+##analysis/
+###########
+Bash scripts and R scripts for data analysis and visualization
+
+
+############
+##exec_plan/
+############
+Query (co-run) execution plans for testing
+
+
+##########
+##mm*/
+##########
+Source
+
+In mm_swap2/
+	gmm_core.c		core logic of memory management
+	gmm_core.h
+	gmm_core_interface.h	functions exposed to user program
+
+	gmm_server.c		user program to setup shared memory
+	gmm_client.c		user program to dump memory usage info
+	
+	gmm_type.h		types used in mm
+	gmm_type_func.h		methods of types
+	intercept_gmm.c		injects code before and after main()
+
+##########
+##utility/
+##########
+Setup mm*/ binding in util/gpudb_env.sh 
+
+Gadgets for data collection, query generation, and testing
+[Example] ./qrun.sh -i /tmp/gpudb_exec/ -r 16 -p ../exec_plan/test.plan -o /tmp/test_plan/

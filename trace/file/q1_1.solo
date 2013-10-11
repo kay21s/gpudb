@@ -1,0 +1,26 @@
+------------------------[gvm] 1381412642.213370 BEGIN
+[gvm] 1381412642.213623 intercepting diskIO
+[gvm] 1381412642.213632 intercepted diskIO
+[INFO]Number of selection results: 365
+[gvm] 1381412642.213945 intercepting diskIO
+[gvm] 1381412642.213951 intercepted diskIO
+TableScan Time: 0.675655
+[gvm] 1381412642.214722 intercepting diskIO
+[gvm] 1381412642.362192 intercepted diskIO
+[gvm] 1381412642.414249 intercepting diskIO
+[gvm] 1381412642.494389 intercepted diskIO
+[INFO]Number of selection results: 7854023
+[gvm] 1381412642.545022 intercepting diskIO
+[gvm] 1381412642.624619 intercepted diskIO
+[gvm] 1381412642.667944 intercepting diskIO
+[gvm] 1381412642.747991 intercepted diskIO
+TableScan Time: 597.205916
+[INFO]Number of join results: 1191603
+HashJoin Time: 4.110906
+[INFO]Number of groupBy results: 1
+GroupBy Time: 2.403092
+Materialization Time: 0.064313
+Disk Load Time: 33.860946
+PCIe Time: 0.000000
+Kernel Time: 0.000000
+Total Time: 638.545882

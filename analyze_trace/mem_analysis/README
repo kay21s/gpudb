@@ -1,0 +1,6 @@
+copy .solo files into directory "file"
+
+./run.py to convert all trace files to memory consumption/ memcpy/ kernel usage graph
+
+make clean to clear files in all directories except file
+

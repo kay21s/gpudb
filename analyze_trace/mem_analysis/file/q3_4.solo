@@ -1,0 +1,2082 @@
+[gvm] 1381327133.372623 intercepting cudaMalloc at 7fff50c4de38
+[gvm] 1381327133.414340 intercepted cudaMalloc( 500100000 4 ) = 0
+[gvm] 1381327133.414350 intercepting cudaFree
+[gvm] 1381327133.414412 intercepted cudaFree( 500100000 ) = 0
+[gvm] 1381327133.414416 BEGIN
+[gvm] 1381327133.414476 intercepting cudaMalloc at 7fff50c4b9c0
+[gvm] 1381327133.414562 intercepted cudaMalloc( 500100000 1200000 ) = 0
+[gvm] 1381327133.414565 intercepting cudaMalloc at 7fff50c4b9b8
+[gvm] 1381327133.414642 intercepted cudaMalloc( 500240000 1200128 ) = 0
+[gvm] 1381327133.414645 intercepting cudaMalloc at 7fff50c4b9c8
+[gvm] 1381327133.414721 intercepted cudaMalloc( 500380000 1200128 ) = 0
+[gvm] 1381327133.414723 intercepting cudaMalloc at 7fff50c4b980
+[gvm] 1381327133.414804 intercepted cudaMalloc( 5004c0000 40 ) = 0
+[gvm] 1381327133.414809 intercepting cudaMemcpy
+[gvm] 1381327133.414837 intercepted cudaMemcpy( 5004c0000 9530a0 40 1 ) = 0
+[gvm] 1381327133.414840 intercepting cudaMalloc at 9fdd30
+[gvm] 1381327133.414928 intercepted cudaMalloc( 5005c0000 3000000 ) = 0
+[gvm] 1381327133.414931 intercepting diskIO
+[gvm] 1381327133.416505 intercepted diskIO
+[gvm] 1381327133.416509 intercepting cudaMemcpy
+[gvm] 1381327133.417123 intercepted cudaMemcpy( 5005c0000 7f92525ab010 3000000 1 ) = 0
+[gvm] 1381327133.417136 intercepting cudaConfigureCall
+[gvm] 1381327133.417142 intercepted cudaConfigureCall
+[gvm] 1381327133.417145 intercepting cudaSetupArgument
+[gvm] 1381327133.417151 intercepted cudaSetupArgument( 8 0 0 5c 0 5 0 0 0 ) = 0
+[gvm] 1381327133.417154 intercepting cudaSetupArgument
+[gvm] 1381327133.417155 intercepted cudaSetupArgument( 4 a 0 0 0 ) = 0
+[gvm] 1381327133.417156 intercepting cudaSetupArgument
+[gvm] 1381327133.417159 intercepted cudaSetupArgument( 8 e0 93 4 0 0 0 0 0 ) = 0
+[gvm] 1381327133.417161 intercepting cudaSetupArgument
+[gvm] 1381327133.417162 intercepted cudaSetupArgument( 8 0 0 4c 0 5 0 0 0 ) = 0
+[gvm] 1381327133.417163 intercepting cudaSetupArgument
+[gvm] 1381327133.417164 intercepted cudaSetupArgument( 8 0 0 10 0 5 0 0 0 ) = 0
+[gvm] 1381327133.417167 intercepting cudaLaunch
+[gvm] 1381327133.417189 intercepting cudaThreadSynchronize
+[gvm] 1381327133.417435 intercepted cudaThreadSynchronize
+[gvm] 1381327133.417436 intercepted cudaLaunch
+[gvm] 1381327133.417437 intercepting cudaThreadSynchronize
+[gvm] 1381327133.417439 intercepted cudaThreadSynchronize
+[gvm] 1381327133.417441 intercepting cudaMemcpy
+[gvm] 1381327133.417447 intercepted cudaMemcpy( 5004c0000 9530c8 40 1 ) = 0
+[gvm] 1381327133.417451 intercepting cudaConfigureCall
+[gvm] 1381327133.417452 intercepted cudaConfigureCall
+[gvm] 1381327133.417453 intercepting cudaSetupArgument
+[gvm] 1381327133.417454 intercepted cudaSetupArgument( 8 0 0 5c 0 5 0 0 0 ) = 0
+[gvm] 1381327133.417456 intercepting cudaSetupArgument
+[gvm] 1381327133.417457 intercepted cudaSetupArgument( 4 a 0 0 0 ) = 0
+[gvm] 1381327133.417459 intercepting cudaSetupArgument
+[gvm] 1381327133.417460 intercepted cudaSetupArgument( 8 e0 93 4 0 0 0 0 0 ) = 0
+[gvm] 1381327133.417462 intercepting cudaSetupArgument
+[gvm] 1381327133.417463 intercepted cudaSetupArgument( 8 0 0 4c 0 5 0 0 0 ) = 0
+[gvm] 1381327133.417464 intercepting cudaSetupArgument
+[gvm] 1381327133.417465 intercepted cudaSetupArgument( 8 0 0 10 0 5 0 0 0 ) = 0
+[gvm] 1381327133.417467 intercepting cudaLaunch
+[gvm] 1381327133.417472 intercepting cudaThreadSynchronize
+[gvm] 1381327133.417629 intercepted cudaThreadSynchronize
+[gvm] 1381327133.417631 intercepted cudaLaunch
+[gvm] 1381327133.417631 intercepting cudaThreadSynchronize
+[gvm] 1381327133.417633 intercepted cudaThreadSynchronize
+[gvm] 1381327133.417635 intercepting cudaFree
+[gvm] 1381327133.417740 intercepted cudaFree( 5004c0000 ) = 0
+[gvm] 1381327133.417743 intercepting cudaConfigureCall
+[gvm] 1381327133.417744 intercepted cudaConfigureCall
+[gvm] 1381327133.417747 intercepting cudaSetupArgument
+[gvm] 1381327133.417748 intercepted cudaSetupArgument( 8 0 0 10 0 5 0 0 0 ) = 0
+[gvm] 1381327133.417750 intercepting cudaSetupArgument
+[gvm] 1381327133.417751 intercepted cudaSetupArgument( 8 e0 93 4 0 0 0 0 0 ) = 0
+[gvm] 1381327133.417779 intercepting cudaSetupArgument
+[gvm] 1381327133.417781 intercepted cudaSetupArgument( 8 0 0 38 0 5 0 0 0 ) = 0
+[gvm] 1381327133.417782 intercepting cudaLaunch
+[gvm] 1381327133.417791 intercepting cudaThreadSynchronize
+[gvm] 1381327133.417826 intercepted cudaThreadSynchronize
+[gvm] 1381327133.417828 intercepted cudaLaunch
+[gvm] 1381327133.417829 intercepting cudaThreadSynchronize
+[gvm] 1381327133.417831 intercepted cudaThreadSynchronize
+[gvm] 1381327133.417838 intercepting cudaMalloc at 98da40
+[gvm] 1381327133.417935 intercepted cudaMalloc( 5004c0000 2344 ) = 0
+[gvm] 1381327133.417938 intercepting cudaMalloc at 98da48
+[gvm] 1381327133.418017 intercepted cudaMalloc( 5008a0000 8 ) = 0
+[gvm] 1381327133.418021 intercepting cudaConfigureCall
+[gvm] 1381327133.418022 intercepted cudaConfigureCall
+[gvm] 1381327133.418025 intercepting cudaSetupArgument
+[gvm] 1381327133.418026 intercepted cudaSetupArgument( 8 0 0 24 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418028 intercepting cudaSetupArgument
+[gvm] 1381327133.418029 intercepted cudaSetupArgument( 8 0 0 38 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418031 intercepting cudaSetupArgument
+[gvm] 1381327133.418032 intercepted cudaSetupArgument( 8 0 0 4c 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418034 intercepting cudaSetupArgument
+[gvm] 1381327133.418035 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327133.418036 intercepting cudaSetupArgument
+[gvm] 1381327133.418037 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.418039 intercepting cudaSetupArgument
+[gvm] 1381327133.418040 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.418041 intercepting cudaLaunch
+[gvm] 1381327133.418049 intercepting cudaThreadSynchronize
+[gvm] 1381327133.418150 intercepted cudaThreadSynchronize
+[gvm] 1381327133.418151 intercepted cudaLaunch
+[gvm] 1381327133.418152 intercepting cudaThreadSynchronize
+[gvm] 1381327133.418154 intercepted cudaThreadSynchronize
+[gvm] 1381327133.418158 intercepting cudaConfigureCall
+[gvm] 1381327133.418159 intercepted cudaConfigureCall
+[gvm] 1381327133.418160 intercepting cudaSetupArgument
+[gvm] 1381327133.418161 intercepted cudaSetupArgument( 8 0 0 4c 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418163 intercepting cudaSetupArgument
+[gvm] 1381327133.418164 intercepted cudaSetupArgument( 8 0 0 4c 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418166 intercepting cudaSetupArgument
+[gvm] 1381327133.418167 intercepted cudaSetupArgument( 8 0 0 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418169 intercepting cudaSetupArgument
+[gvm] 1381327133.418170 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327133.418171 intercepting cudaSetupArgument
+[gvm] 1381327133.418172 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.418174 intercepting cudaSetupArgument
+[gvm] 1381327133.418175 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.418176 intercepting cudaLaunch
+[gvm] 1381327133.418181 intercepting cudaThreadSynchronize
+[gvm] 1381327133.418194 intercepted cudaThreadSynchronize
+[gvm] 1381327133.418195 intercepted cudaLaunch
+[gvm] 1381327133.418196 intercepting cudaThreadSynchronize
+[gvm] 1381327133.418198 intercepted cudaThreadSynchronize
+[gvm] 1381327133.418199 intercepting cudaConfigureCall
+[gvm] 1381327133.418200 intercepted cudaConfigureCall
+[gvm] 1381327133.418201 intercepting cudaSetupArgument
+[gvm] 1381327133.418202 intercepted cudaSetupArgument( 8 0 0 4c 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418204 intercepting cudaSetupArgument
+[gvm] 1381327133.418205 intercepted cudaSetupArgument( 8 0 0 4c 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418207 intercepting cudaSetupArgument
+[gvm] 1381327133.418208 intercepted cudaSetupArgument( 8 0 0 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418209 intercepting cudaSetupArgument
+[gvm] 1381327133.418210 intercepted cudaSetupArgument( 4 4a 0 0 0 ) = 0
+[gvm] 1381327133.418212 intercepting cudaSetupArgument
+[gvm] 1381327133.418213 intercepted cudaSetupArgument( 4 1 0 0 0 ) = 0
+[gvm] 1381327133.418215 intercepting cudaSetupArgument
+[gvm] 1381327133.418216 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327133.418217 intercepting cudaLaunch
+[gvm] 1381327133.418232 intercepting cudaThreadSynchronize
+[gvm] 1381327133.418244 intercepted cudaThreadSynchronize
+[gvm] 1381327133.418245 intercepted cudaLaunch
+[gvm] 1381327133.418246 intercepting cudaThreadSynchronize
+[gvm] 1381327133.418248 intercepted cudaThreadSynchronize
+[gvm] 1381327133.418249 intercepting cudaConfigureCall
+[gvm] 1381327133.418250 intercepted cudaConfigureCall
+[gvm] 1381327133.418252 intercepting cudaSetupArgument
+[gvm] 1381327133.418253 intercepted cudaSetupArgument( 8 0 0 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418255 intercepting cudaSetupArgument
+[gvm] 1381327133.418256 intercepted cudaSetupArgument( 8 0 0 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418258 intercepting cudaSetupArgument
+[gvm] 1381327133.418259 intercepted cudaSetupArgument( 8 0 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.418261 intercepting cudaSetupArgument
+[gvm] 1381327133.418262 intercepted cudaSetupArgument( 4 2 0 0 0 ) = 0
+[gvm] 1381327133.418263 intercepting cudaSetupArgument
+[gvm] 1381327133.418264 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.418266 intercepting cudaSetupArgument
+[gvm] 1381327133.418266 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.418268 intercepting cudaLaunch
+[gvm] 1381327133.418272 intercepting cudaThreadSynchronize
+[gvm] 1381327133.418279 intercepted cudaThreadSynchronize
+[gvm] 1381327133.418281 intercepted cudaLaunch
+[gvm] 1381327133.418282 intercepting cudaThreadSynchronize
+[gvm] 1381327133.418283 intercepted cudaThreadSynchronize
+[gvm] 1381327133.418284 intercepting cudaConfigureCall
+[gvm] 1381327133.418285 intercepted cudaConfigureCall
+[gvm] 1381327133.418286 intercepting cudaSetupArgument
+[gvm] 1381327133.418287 intercepted cudaSetupArgument( 8 0 0 4c 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418289 intercepting cudaSetupArgument
+[gvm] 1381327133.418290 intercepted cudaSetupArgument( 8 0 0 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418292 intercepting cudaSetupArgument
+[gvm] 1381327133.418293 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327133.418295 intercepting cudaSetupArgument
+[gvm] 1381327133.418296 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.418297 intercepting cudaSetupArgument
+[gvm] 1381327133.418298 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.418300 intercepting cudaLaunch
+[gvm] 1381327133.418304 intercepting cudaThreadSynchronize
+[gvm] 1381327133.418311 intercepted cudaThreadSynchronize
+[gvm] 1381327133.418312 intercepted cudaLaunch
+[gvm] 1381327133.418313 intercepting cudaThreadSynchronize
+[gvm] 1381327133.418315 intercepted cudaThreadSynchronize
+[gvm] 1381327133.418316 intercepting cudaConfigureCall
+[gvm] 1381327133.418317 intercepted cudaConfigureCall
+[gvm] 1381327133.418318 intercepting cudaSetupArgument
+[gvm] 1381327133.418319 intercepted cudaSetupArgument( 8 0 0 4c 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418321 intercepting cudaSetupArgument
+[gvm] 1381327133.418322 intercepted cudaSetupArgument( 8 0 0 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418324 intercepting cudaSetupArgument
+[gvm] 1381327133.418325 intercepted cudaSetupArgument( 4 4a 0 0 0 ) = 0
+[gvm] 1381327133.418326 intercepting cudaSetupArgument
+[gvm] 1381327133.418327 intercepted cudaSetupArgument( 4 1 0 0 0 ) = 0
+[gvm] 1381327133.418329 intercepting cudaSetupArgument
+[gvm] 1381327133.418330 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327133.418331 intercepting cudaLaunch
+[gvm] 1381327133.418335 intercepting cudaThreadSynchronize
+[gvm] 1381327133.418341 intercepted cudaThreadSynchronize
+[gvm] 1381327133.418343 intercepted cudaLaunch
+[gvm] 1381327133.418344 intercepting cudaThreadSynchronize
+[gvm] 1381327133.418345 intercepted cudaThreadSynchronize
+[gvm] 1381327133.418346 intercepting cudaConfigureCall
+[gvm] 1381327133.418347 intercepted cudaConfigureCall
+[gvm] 1381327133.418348 intercepting cudaSetupArgument
+[gvm] 1381327133.418349 intercepted cudaSetupArgument( 8 0 0 24 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418351 intercepting cudaSetupArgument
+[gvm] 1381327133.418352 intercepted cudaSetupArgument( 8 0 0 4c 0 5 0 0 0 ) = 0
+[gvm] 1381327133.418354 intercepting cudaSetupArgument
+[gvm] 1381327133.418360 intercepted cudaSetupArgument( 4 0 92 4 0 ) = 0
+[gvm] 1381327133.418362 intercepting cudaSetupArgument
+[gvm] 1381327133.418363 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.418365 intercepting cudaSetupArgument
+[gvm] 1381327133.418366 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.418367 intercepting cudaLaunch
+[gvm] 1381327133.418372 intercepting cudaThreadSynchronize
+[gvm] 1381327133.418395 intercepted cudaThreadSynchronize
+[gvm] 1381327133.418396 intercepted cudaLaunch
+[gvm] 1381327133.418397 intercepting cudaThreadSynchronize
+[gvm] 1381327133.418399 intercepted cudaThreadSynchronize
+[gvm] 1381327133.418400 intercepting cudaFree
+[gvm] 1381327133.418457 intercepted cudaFree( 5004c0000 ) = 0
+[gvm] 1381327133.418460 intercepting cudaFree
+[gvm] 1381327133.418512 intercepted cudaFree( 5008a0000 ) = 0
+[gvm] 1381327133.418516 intercepting cudaMemcpy
+[gvm] 1381327133.418535 intercepted cudaMemcpy( 7fff50c4b98c 5004a4ffc 4 2 ) = 0
+[gvm] 1381327133.418537 intercepting cudaMemcpy
+[gvm] 1381327133.418548 intercepted cudaMemcpy( 7fff50c4b988 500364ffc 4 2 ) = 0
+[INFO]Number of selection results: 2370
+[gvm] 1381327133.418550 intercepting cudaFree
+[gvm] 1381327133.418605 intercepted cudaFree( 500380000 ) = 0
+attrNum == 2 ++++++++++++++++++++
+[gvm] 1381327133.418608 intercepting cudaMalloc at 987430
+[gvm] 1381327133.418687 intercepted cudaMalloc( 500380000 23700 ) = 0
+[gvm] 1381327133.418690 intercepting cudaMalloc at 987388
+[gvm] 1381327133.418766 intercepted cudaMalloc( 500480000 1200000 ) = 0
+index = 1, size = 1200000 ==================================
+[gvm] 1381327133.418769 intercepting diskIO
+[gvm] 1381327133.419179 intercepted diskIO
+[gvm] 1381327133.419181 intercepting cudaMemcpy
+[gvm] 1381327133.419363 intercepted cudaMemcpy( 500480000 7f92525ab010 1200000 1 ) = 0
+[gvm] 1381327133.419366 intercepting cudaMalloc at 987438
+[gvm] 1381327133.419453 intercepted cudaMalloc( 5008a0000 9480 ) = 0
+[gvm] 1381327133.419456 intercepting cudaConfigureCall
+[gvm] 1381327133.419457 intercepted cudaConfigureCall
+[gvm] 1381327133.419458 intercepting cudaSetupArgument
+[gvm] 1381327133.419460 intercepted cudaSetupArgument( 8 0 0 5c 0 5 0 0 0 ) = 0
+[gvm] 1381327133.419462 intercepting cudaSetupArgument
+[gvm] 1381327133.419463 intercepted cudaSetupArgument( 4 a 0 0 0 ) = 0
+[gvm] 1381327133.419464 intercepting cudaSetupArgument
+[gvm] 1381327133.419465 intercepted cudaSetupArgument( 8 e0 93 4 0 0 0 0 0 ) = 0
+[gvm] 1381327133.419467 intercepting cudaSetupArgument
+[gvm] 1381327133.419468 intercepted cudaSetupArgument( 8 0 0 24 0 5 0 0 0 ) = 0
+[gvm] 1381327133.419470 intercepting cudaSetupArgument
+[gvm] 1381327133.419471 intercepted cudaSetupArgument( 8 42 9 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.419473 intercepting cudaSetupArgument
+[gvm] 1381327133.419474 intercepted cudaSetupArgument( 8 0 0 10 0 5 0 0 0 ) = 0
+[gvm] 1381327133.419476 intercepting cudaSetupArgument
+[gvm] 1381327133.419477 intercepted cudaSetupArgument( 8 0 0 38 0 5 0 0 0 ) = 0
+[gvm] 1381327133.419479 intercepting cudaLaunch
+[gvm] 1381327133.419487 intercepting cudaThreadSynchronize
+[gvm] 1381327133.419579 intercepted cudaThreadSynchronize
+[gvm] 1381327133.419580 intercepted cudaLaunch
+[gvm] 1381327133.419581 intercepting cudaThreadSynchronize
+[gvm] 1381327133.419582 intercepted cudaThreadSynchronize
+[gvm] 1381327133.419584 intercepting cudaConfigureCall
+[gvm] 1381327133.419585 intercepted cudaConfigureCall
+[gvm] 1381327133.419586 intercepting cudaSetupArgument
+[gvm] 1381327133.419587 intercepted cudaSetupArgument( 8 0 0 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.419589 intercepting cudaSetupArgument
+[gvm] 1381327133.419590 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327133.419592 intercepting cudaSetupArgument
+[gvm] 1381327133.419593 intercepted cudaSetupArgument( 8 e0 93 4 0 0 0 0 0 ) = 0
+[gvm] 1381327133.419595 intercepting cudaSetupArgument
+[gvm] 1381327133.419596 intercepted cudaSetupArgument( 8 0 0 24 0 5 0 0 0 ) = 0
+[gvm] 1381327133.419597 intercepting cudaSetupArgument
+[gvm] 1381327133.419598 intercepted cudaSetupArgument( 8 42 9 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.419610 intercepting cudaSetupArgument
+[gvm] 1381327133.419612 intercepted cudaSetupArgument( 8 0 0 10 0 5 0 0 0 ) = 0
+[gvm] 1381327133.419614 intercepting cudaSetupArgument
+[gvm] 1381327133.419615 intercepted cudaSetupArgument( 8 0 0 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.419616 intercepting cudaLaunch
+[gvm] 1381327133.419623 intercepting cudaThreadSynchronize
+[gvm] 1381327133.419653 intercepted cudaThreadSynchronize
+[gvm] 1381327133.419654 intercepted cudaLaunch
+[gvm] 1381327133.419655 intercepting cudaThreadSynchronize
+[gvm] 1381327133.419657 intercepted cudaThreadSynchronize
+[gvm] 1381327133.419658 intercepting cudaFree
+[gvm] 1381327133.419714 intercepted cudaFree( 5005c0000 ) = 0
+[gvm] 1381327133.419717 intercepting cudaFree
+[gvm] 1381327133.419769 intercepted cudaFree( 500480000 ) = 0
+[gvm] 1381327133.419771 intercepting cudaFree
+[gvm] 1381327133.419829 intercepted cudaFree( 500240000 ) = 0
+[gvm] 1381327133.419832 intercepting cudaFree
+[gvm] 1381327133.419885 intercepted cudaFree( 500100000 ) = 0
+TableScan Time: 5.414077
+[gvm] 1381327133.420071 intercepting cudaMalloc at 7fff50c4b9c0
+[gvm] 1381327133.420159 intercepted cudaMalloc( 500100000 80000 ) = 0
+[gvm] 1381327133.420162 intercepting cudaMalloc at 7fff50c4b9b8
+[gvm] 1381327133.420169 intercepted cudaMalloc( 500113a00 80896 ) = 0
+[gvm] 1381327133.420171 intercepting cudaMalloc at 7fff50c4b9c8
+[gvm] 1381327133.420175 intercepted cudaMalloc( 500127600 80896 ) = 0
+[gvm] 1381327133.420177 intercepting cudaMalloc at 7fff50c4b980
+[gvm] 1381327133.420253 intercepted cudaMalloc( 500200000 40 ) = 0
+[gvm] 1381327133.420256 intercepting cudaMemcpy
+[gvm] 1381327133.420265 intercepted cudaMemcpy( 500200000 97e350 40 1 ) = 0
+[gvm] 1381327133.420267 intercepting cudaMalloc at 9fdd30
+[gvm] 1381327133.420273 intercepted cudaMalloc( 50013b200 200000 ) = 0
+[gvm] 1381327133.420274 intercepting diskIO
+[gvm] 1381327133.420403 intercepted diskIO
+[gvm] 1381327133.420405 intercepting cudaMemcpy
+[gvm] 1381327133.420435 intercepted cudaMemcpy( 50013b200 7f92348d4010 200000 1 ) = 0
+[gvm] 1381327133.420438 intercepting cudaConfigureCall
+[gvm] 1381327133.420439 intercepted cudaConfigureCall
+[gvm] 1381327133.420440 intercepting cudaSetupArgument
+[gvm] 1381327133.420441 intercepted cudaSetupArgument( 8 0 b2 13 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420443 intercepting cudaSetupArgument
+[gvm] 1381327133.420444 intercepted cudaSetupArgument( 4 a 0 0 0 ) = 0
+[gvm] 1381327133.420446 intercepting cudaSetupArgument
+[gvm] 1381327133.420447 intercepted cudaSetupArgument( 8 20 4e 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.420449 intercepting cudaSetupArgument
+[gvm] 1381327133.420450 intercepted cudaSetupArgument( 8 0 0 20 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420452 intercepting cudaSetupArgument
+[gvm] 1381327133.420453 intercepted cudaSetupArgument( 8 0 0 10 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420454 intercepting cudaLaunch
+[gvm] 1381327133.420461 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420488 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420489 intercepted cudaLaunch
+[gvm] 1381327133.420490 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420491 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420493 intercepting cudaMemcpy
+[gvm] 1381327133.420497 intercepted cudaMemcpy( 500200000 97e378 40 1 ) = 0
+[gvm] 1381327133.420499 intercepting cudaConfigureCall
+[gvm] 1381327133.420500 intercepted cudaConfigureCall
+[gvm] 1381327133.420501 intercepting cudaSetupArgument
+[gvm] 1381327133.420502 intercepted cudaSetupArgument( 8 0 b2 13 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420504 intercepting cudaSetupArgument
+[gvm] 1381327133.420505 intercepted cudaSetupArgument( 4 a 0 0 0 ) = 0
+[gvm] 1381327133.420507 intercepting cudaSetupArgument
+[gvm] 1381327133.420508 intercepted cudaSetupArgument( 8 20 4e 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.420510 intercepting cudaSetupArgument
+[gvm] 1381327133.420511 intercepted cudaSetupArgument( 8 0 0 20 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420512 intercepting cudaSetupArgument
+[gvm] 1381327133.420513 intercepted cudaSetupArgument( 8 0 0 10 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420525 intercepting cudaLaunch
+[gvm] 1381327133.420531 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420549 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420550 intercepted cudaLaunch
+[gvm] 1381327133.420551 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420552 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420554 intercepting cudaFree
+[gvm] 1381327133.420613 intercepted cudaFree( 500200000 ) = 0
+[gvm] 1381327133.420615 intercepting cudaConfigureCall
+[gvm] 1381327133.420617 intercepted cudaConfigureCall
+[gvm] 1381327133.420618 intercepting cudaSetupArgument
+[gvm] 1381327133.420619 intercepted cudaSetupArgument( 8 0 0 10 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420621 intercepting cudaSetupArgument
+[gvm] 1381327133.420622 intercepted cudaSetupArgument( 8 20 4e 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.420624 intercepting cudaSetupArgument
+[gvm] 1381327133.420625 intercepted cudaSetupArgument( 8 0 76 12 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420627 intercepting cudaLaunch
+[gvm] 1381327133.420634 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420642 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420643 intercepted cudaLaunch
+[gvm] 1381327133.420644 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420646 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420647 intercepting cudaMalloc at 98daf0
+[gvm] 1381327133.420729 intercepted cudaMalloc( 500200000 160 ) = 0
+[gvm] 1381327133.420732 intercepting cudaConfigureCall
+[gvm] 1381327133.420734 intercepted cudaConfigureCall
+[gvm] 1381327133.420735 intercepting cudaSetupArgument
+[gvm] 1381327133.420736 intercepted cudaSetupArgument( 8 0 3a 11 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420738 intercepting cudaSetupArgument
+[gvm] 1381327133.420739 intercepted cudaSetupArgument( 8 0 76 12 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420741 intercepting cudaSetupArgument
+[gvm] 1381327133.420742 intercepted cudaSetupArgument( 8 0 0 20 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420744 intercepting cudaSetupArgument
+[gvm] 1381327133.420745 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327133.420746 intercepting cudaSetupArgument
+[gvm] 1381327133.420747 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.420749 intercepting cudaSetupArgument
+[gvm] 1381327133.420750 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.420751 intercepting cudaLaunch
+[gvm] 1381327133.420759 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420775 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420776 intercepted cudaLaunch
+[gvm] 1381327133.420777 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420779 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420780 intercepting cudaConfigureCall
+[gvm] 1381327133.420781 intercepted cudaConfigureCall
+[gvm] 1381327133.420782 intercepting cudaSetupArgument
+[gvm] 1381327133.420783 intercepted cudaSetupArgument( 8 0 3a 11 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420785 intercepting cudaSetupArgument
+[gvm] 1381327133.420786 intercepted cudaSetupArgument( 8 0 76 12 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420788 intercepting cudaSetupArgument
+[gvm] 1381327133.420789 intercepted cudaSetupArgument( 8 0 0 20 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420790 intercepting cudaSetupArgument
+[gvm] 1381327133.420791 intercepted cudaSetupArgument( 4 0 1 0 0 ) = 0
+[gvm] 1381327133.420793 intercepting cudaSetupArgument
+[gvm] 1381327133.420794 intercepted cudaSetupArgument( 4 27 0 0 0 ) = 0
+[gvm] 1381327133.420795 intercepting cudaSetupArgument
+[gvm] 1381327133.420796 intercepted cudaSetupArgument( 4 0 4e 0 0 ) = 0
+[gvm] 1381327133.420798 intercepting cudaLaunch
+[gvm] 1381327133.420802 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420814 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420815 intercepted cudaLaunch
+[gvm] 1381327133.420823 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420825 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420826 intercepting cudaConfigureCall
+[gvm] 1381327133.420828 intercepted cudaConfigureCall
+[gvm] 1381327133.420829 intercepting cudaSetupArgument
+[gvm] 1381327133.420830 intercepted cudaSetupArgument( 8 0 0 20 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420841 intercepting cudaSetupArgument
+[gvm] 1381327133.420842 intercepted cudaSetupArgument( 8 0 0 20 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420844 intercepting cudaSetupArgument
+[gvm] 1381327133.420845 intercepted cudaSetupArgument( 8 0 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.420847 intercepting cudaSetupArgument
+[gvm] 1381327133.420848 intercepted cudaSetupArgument( 4 28 0 0 0 ) = 0
+[gvm] 1381327133.420849 intercepting cudaSetupArgument
+[gvm] 1381327133.420850 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.420852 intercepting cudaSetupArgument
+[gvm] 1381327133.420853 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.420854 intercepting cudaLaunch
+[gvm] 1381327133.420860 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420871 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420872 intercepted cudaLaunch
+[gvm] 1381327133.420873 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420875 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420876 intercepting cudaConfigureCall
+[gvm] 1381327133.420877 intercepted cudaConfigureCall
+[gvm] 1381327133.420878 intercepting cudaSetupArgument
+[gvm] 1381327133.420879 intercepted cudaSetupArgument( 8 0 3a 11 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420881 intercepting cudaSetupArgument
+[gvm] 1381327133.420882 intercepted cudaSetupArgument( 8 0 0 20 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420884 intercepting cudaSetupArgument
+[gvm] 1381327133.420885 intercepted cudaSetupArgument( 4 0 4e 0 0 ) = 0
+[gvm] 1381327133.420886 intercepting cudaSetupArgument
+[gvm] 1381327133.420887 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.420889 intercepting cudaSetupArgument
+[gvm] 1381327133.420890 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.420891 intercepting cudaLaunch
+[gvm] 1381327133.420896 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420903 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420904 intercepted cudaLaunch
+[gvm] 1381327133.420905 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420907 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420908 intercepting cudaConfigureCall
+[gvm] 1381327133.420909 intercepted cudaConfigureCall
+[gvm] 1381327133.420910 intercepting cudaSetupArgument
+[gvm] 1381327133.420911 intercepted cudaSetupArgument( 8 0 3a 11 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420913 intercepting cudaSetupArgument
+[gvm] 1381327133.420914 intercepted cudaSetupArgument( 8 0 0 20 0 5 0 0 0 ) = 0
+[gvm] 1381327133.420915 intercepting cudaSetupArgument
+[gvm] 1381327133.420916 intercepted cudaSetupArgument( 4 0 1 0 0 ) = 0
+[gvm] 1381327133.420918 intercepting cudaSetupArgument
+[gvm] 1381327133.420919 intercepted cudaSetupArgument( 4 27 0 0 0 ) = 0
+[gvm] 1381327133.420920 intercepting cudaSetupArgument
+[gvm] 1381327133.420921 intercepted cudaSetupArgument( 4 0 4e 0 0 ) = 0
+[gvm] 1381327133.420923 intercepting cudaLaunch
+[gvm] 1381327133.420926 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420933 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420934 intercepted cudaLaunch
+[gvm] 1381327133.420935 intercepting cudaThreadSynchronize
+[gvm] 1381327133.420937 intercepted cudaThreadSynchronize
+[gvm] 1381327133.420938 intercepting cudaFree
+[gvm] 1381327133.420995 intercepted cudaFree( 500200000 ) = 0
+[gvm] 1381327133.420998 intercepting cudaMemcpy
+[gvm] 1381327133.421012 intercepted cudaMemcpy( 7fff50c4b98c 50013b1fc 4 2 ) = 0
+[gvm] 1381327133.421014 intercepting cudaMemcpy
+[gvm] 1381327133.421024 intercepted cudaMemcpy( 7fff50c4b988 5001275fc 4 2 ) = 0
+[INFO]Number of selection results: 164
+[gvm] 1381327133.421026 intercepting cudaFree
+[gvm] 1381327133.421030 intercepted cudaFree( 500127600 ) = 0
+attrNum == 2 ++++++++++++++++++++
+[gvm] 1381327133.421032 intercepting cudaMalloc at 9f2440
+[gvm] 1381327133.421113 intercepted cudaMalloc( 500200000 1640 ) = 0
+[gvm] 1381327133.421116 intercepting cudaMalloc at 98daf8
+[gvm] 1381327133.421123 intercepted cudaMalloc( 500127600 80000 ) = 0
+index = 1, size = 80000 ==================================
+[gvm] 1381327133.421124 intercepting diskIO
+[gvm] 1381327133.421151 intercepted diskIO
+[gvm] 1381327133.421161 intercepting cudaMemcpy
+[gvm] 1381327133.421180 intercepted cudaMemcpy( 500127600 7f92348d4010 80000 1 ) = 0
+[gvm] 1381327133.421182 intercepting cudaMalloc at 9f2448
+[gvm] 1381327133.421267 intercepted cudaMalloc( 500480000 656 ) = 0
+[gvm] 1381327133.421270 intercepting cudaConfigureCall
+[gvm] 1381327133.421272 intercepted cudaConfigureCall
+[gvm] 1381327133.421273 intercepting cudaSetupArgument
+[gvm] 1381327133.421274 intercepted cudaSetupArgument( 8 0 b2 13 0 5 0 0 0 ) = 0
+[gvm] 1381327133.421276 intercepting cudaSetupArgument
+[gvm] 1381327133.421277 intercepted cudaSetupArgument( 4 a 0 0 0 ) = 0
+[gvm] 1381327133.421279 intercepting cudaSetupArgument
+[gvm] 1381327133.421280 intercepted cudaSetupArgument( 8 20 4e 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.421282 intercepting cudaSetupArgument
+[gvm] 1381327133.421283 intercepted cudaSetupArgument( 8 0 3a 11 0 5 0 0 0 ) = 0
+[gvm] 1381327133.421285 intercepting cudaSetupArgument
+[gvm] 1381327133.421286 intercepted cudaSetupArgument( 8 a4 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.421288 intercepting cudaSetupArgument
+[gvm] 1381327133.421289 intercepted cudaSetupArgument( 8 0 0 10 0 5 0 0 0 ) = 0
+[gvm] 1381327133.421290 intercepting cudaSetupArgument
+[gvm] 1381327133.421291 intercepted cudaSetupArgument( 8 0 0 20 0 5 0 0 0 ) = 0
+[gvm] 1381327133.421293 intercepting cudaLaunch
+[gvm] 1381327133.421301 intercepting cudaThreadSynchronize
+[gvm] 1381327133.421311 intercepted cudaThreadSynchronize
+[gvm] 1381327133.421312 intercepted cudaLaunch
+[gvm] 1381327133.421313 intercepting cudaThreadSynchronize
+[gvm] 1381327133.421315 intercepted cudaThreadSynchronize
+[gvm] 1381327133.421316 intercepting cudaConfigureCall
+[gvm] 1381327133.421317 intercepted cudaConfigureCall
+[gvm] 1381327133.421319 intercepting cudaSetupArgument
+[gvm] 1381327133.421320 intercepted cudaSetupArgument( 8 0 76 12 0 5 0 0 0 ) = 0
+[gvm] 1381327133.421322 intercepting cudaSetupArgument
+[gvm] 1381327133.421323 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327133.421324 intercepting cudaSetupArgument
+[gvm] 1381327133.421325 intercepted cudaSetupArgument( 8 20 4e 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.421327 intercepting cudaSetupArgument
+[gvm] 1381327133.421328 intercepted cudaSetupArgument( 8 0 3a 11 0 5 0 0 0 ) = 0
+[gvm] 1381327133.421330 intercepting cudaSetupArgument
+[gvm] 1381327133.421331 intercepted cudaSetupArgument( 8 a4 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.421333 intercepting cudaSetupArgument
+[gvm] 1381327133.421334 intercepted cudaSetupArgument( 8 0 0 10 0 5 0 0 0 ) = 0
+[gvm] 1381327133.421336 intercepting cudaSetupArgument
+[gvm] 1381327133.421337 intercepted cudaSetupArgument( 8 0 0 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.421338 intercepting cudaLaunch
+[gvm] 1381327133.421343 intercepting cudaThreadSynchronize
+[gvm] 1381327133.421350 intercepted cudaThreadSynchronize
+[gvm] 1381327133.421351 intercepted cudaLaunch
+[gvm] 1381327133.421352 intercepting cudaThreadSynchronize
+[gvm] 1381327133.421354 intercepted cudaThreadSynchronize
+[gvm] 1381327133.421355 intercepting cudaFree
+[gvm] 1381327133.421362 intercepted cudaFree( 50013b200 ) = 0
+[gvm] 1381327133.421364 intercepting cudaFree
+[gvm] 1381327133.421369 intercepted cudaFree( 500127600 ) = 0
+[gvm] 1381327133.421370 intercepting cudaFree
+[gvm] 1381327133.421375 intercepted cudaFree( 500113a00 ) = 0
+[gvm] 1381327133.421377 intercepting cudaFree
+[gvm] 1381327133.421430 intercepted cudaFree( 500100000 ) = 0
+TableScan Time: 1.362877
+[gvm] 1381327133.437572 intercepting cudaMalloc at 7fff50c4b9c0
+[gvm] 1381327133.437644 intercepted cudaMalloc( 5008a2600 10224 ) = 0
+[gvm] 1381327133.437651 intercepting cudaMalloc at 7fff50c4b9b8
+[gvm] 1381327133.437672 intercepted cudaMalloc( 5008a4e00 10240 ) = 0
+[gvm] 1381327133.437676 intercepting cudaMalloc at 7fff50c4b9c8
+[gvm] 1381327133.437689 intercepted cudaMalloc( 5008a7600 10240 ) = 0
+[gvm] 1381327133.437693 intercepting cudaMalloc at 7fff50c4b980
+[gvm] 1381327133.437726 intercepted cudaMalloc( 500480400 40 ) = 0
+[gvm] 1381327133.437731 intercepting cudaMemcpy
+[gvm] 1381327133.437752 intercepted cudaMemcpy( 500480400 9fdd30 40 1 ) = 0
+[gvm] 1381327133.437812 intercepting cudaMalloc at 98de90
+[gvm] 1381327133.437840 intercepted cudaMalloc( 500385e00 17892 ) = 0
+[gvm] 1381327133.437845 intercepting diskIO
+[gvm] 1381327133.438186 intercepted diskIO
+[gvm] 1381327133.438192 intercepting cudaMemcpy
+[gvm] 1381327133.438220 intercepted cudaMemcpy( 500385e00 7f9216bfd010 17892 1 ) = 0
+[gvm] 1381327133.438227 intercepting cudaConfigureCall
+[gvm] 1381327133.438231 intercepted cudaConfigureCall
+[gvm] 1381327133.438234 intercepting cudaSetupArgument
+[gvm] 1381327133.438237 intercepted cudaSetupArgument( 8 0 5e 38 0 5 0 0 0 ) = 0
+[gvm] 1381327133.438243 intercepting cudaSetupArgument
+[gvm] 1381327133.438246 intercepted cudaSetupArgument( 4 7 0 0 0 ) = 0
+[gvm] 1381327133.438251 intercepting cudaSetupArgument
+[gvm] 1381327133.438254 intercepted cudaSetupArgument( 8 fc 9 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.438259 intercepting cudaSetupArgument
+[gvm] 1381327133.438262 intercepted cudaSetupArgument( 8 0 4 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.438267 intercepting cudaSetupArgument
+[gvm] 1381327133.438270 intercepted cudaSetupArgument( 8 0 26 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.438276 intercepting cudaLaunch
+[gvm] 1381327133.438293 intercepting cudaThreadSynchronize
+[gvm] 1381327133.438304 intercepted cudaThreadSynchronize
+[gvm] 1381327133.438307 intercepted cudaLaunch
+[gvm] 1381327133.438310 intercepting cudaThreadSynchronize
+[gvm] 1381327133.438315 intercepted cudaThreadSynchronize
+[gvm] 1381327133.438319 intercepting cudaFree
+[gvm] 1381327133.438340 intercepted cudaFree( 500385e00 ) = 0
+[gvm] 1381327133.438344 intercepting cudaFree
+[gvm] 1381327133.438361 intercepted cudaFree( 500480400 ) = 0
+[gvm] 1381327133.438365 intercepting cudaConfigureCall
+[gvm] 1381327133.438368 intercepted cudaConfigureCall
+[gvm] 1381327133.438371 intercepting cudaSetupArgument
+[gvm] 1381327133.438374 intercepted cudaSetupArgument( 8 0 26 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.438380 intercepting cudaSetupArgument
+[gvm] 1381327133.438382 intercepted cudaSetupArgument( 8 fc 9 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.438388 intercepting cudaSetupArgument
+[gvm] 1381327133.438391 intercepted cudaSetupArgument( 8 0 76 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.438396 intercepting cudaLaunch
+[gvm] 1381327133.438409 intercepting cudaThreadSynchronize
+[gvm] 1381327133.438416 intercepted cudaThreadSynchronize
+[gvm] 1381327133.438419 intercepted cudaLaunch
+[gvm] 1381327133.438422 intercepting cudaThreadSynchronize
+[gvm] 1381327133.438427 intercepted cudaThreadSynchronize
+[gvm] 1381327133.438431 intercepting cudaMalloc at 98daf0
+[gvm] 1381327133.438453 intercepted cudaMalloc( 500480400 20 ) = 0
+[gvm] 1381327133.438458 intercepting cudaConfigureCall
+[gvm] 1381327133.438461 intercepted cudaConfigureCall
+[gvm] 1381327133.438464 intercepting cudaSetupArgument
+[gvm] 1381327133.438467 intercepted cudaSetupArgument( 8 0 4e 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.438473 intercepting cudaSetupArgument
+[gvm] 1381327133.438476 intercepted cudaSetupArgument( 8 0 76 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.438481 intercepting cudaSetupArgument
+[gvm] 1381327133.438484 intercepted cudaSetupArgument( 8 0 4 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.438489 intercepting cudaSetupArgument
+[gvm] 1381327133.438493 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327133.438497 intercepting cudaSetupArgument
+[gvm] 1381327133.438500 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.438504 intercepting cudaSetupArgument
+[gvm] 1381327133.438507 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.438511 intercepting cudaLaunch
+[gvm] 1381327133.438523 intercepting cudaThreadSynchronize
+[gvm] 1381327133.438537 intercepted cudaThreadSynchronize
+[gvm] 1381327133.438540 intercepted cudaLaunch
+[gvm] 1381327133.438543 intercepting cudaThreadSynchronize
+[gvm] 1381327133.438548 intercepted cudaThreadSynchronize
+[gvm] 1381327133.438552 intercepting cudaConfigureCall
+[gvm] 1381327133.438555 intercepted cudaConfigureCall
+[gvm] 1381327133.438558 intercepting cudaSetupArgument
+[gvm] 1381327133.438581 intercepted cudaSetupArgument( 8 0 4 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.438588 intercepting cudaSetupArgument
+[gvm] 1381327133.438591 intercepted cudaSetupArgument( 8 0 4 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.438596 intercepting cudaSetupArgument
+[gvm] 1381327133.438599 intercepted cudaSetupArgument( 8 0 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.438604 intercepting cudaSetupArgument
+[gvm] 1381327133.438607 intercepted cudaSetupArgument( 4 5 0 0 0 ) = 0
+[gvm] 1381327133.438611 intercepting cudaSetupArgument
+[gvm] 1381327133.438614 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.438619 intercepting cudaSetupArgument
+[gvm] 1381327133.438622 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.438626 intercepting cudaLaunch
+[gvm] 1381327133.438640 intercepting cudaThreadSynchronize
+[gvm] 1381327133.438649 intercepted cudaThreadSynchronize
+[gvm] 1381327133.438652 intercepted cudaLaunch
+[gvm] 1381327133.438655 intercepting cudaThreadSynchronize
+[gvm] 1381327133.438660 intercepted cudaThreadSynchronize
+[gvm] 1381327133.438663 intercepting cudaConfigureCall
+[gvm] 1381327133.438666 intercepted cudaConfigureCall
+[gvm] 1381327133.438669 intercepting cudaSetupArgument
+[gvm] 1381327133.438672 intercepted cudaSetupArgument( 8 0 4e 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.438678 intercepting cudaSetupArgument
+[gvm] 1381327133.438681 intercepted cudaSetupArgument( 8 0 4 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.438686 intercepting cudaSetupArgument
+[gvm] 1381327133.438689 intercepted cudaSetupArgument( 4 0 8 0 0 ) = 0
+[gvm] 1381327133.438693 intercepting cudaSetupArgument
+[gvm] 1381327133.438696 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.438700 intercepting cudaSetupArgument
+[gvm] 1381327133.438703 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.438708 intercepting cudaLaunch
+[gvm] 1381327133.438718 intercepting cudaThreadSynchronize
+[gvm] 1381327133.438726 intercepted cudaThreadSynchronize
+[gvm] 1381327133.438730 intercepted cudaLaunch
+[gvm] 1381327133.438732 intercepting cudaThreadSynchronize
+[gvm] 1381327133.438737 intercepted cudaThreadSynchronize
+[gvm] 1381327133.438741 intercepting cudaFree
+[gvm] 1381327133.438771 intercepted cudaFree( 500480400 ) = 0
+[gvm] 1381327133.438777 intercepting cudaMemcpy
+[gvm] 1381327133.438799 intercepted cudaMemcpy( 7fff50c4b98c 5008a9dfc 4 2 ) = 0
+[gvm] 1381327133.438805 intercepting cudaMemcpy
+[gvm] 1381327133.438823 intercepted cudaMemcpy( 7fff50c4b988 5008a75fc 4 2 ) = 0
+[INFO]Number of selection results: 31
+[gvm] 1381327133.438829 intercepting cudaFree
+[gvm] 1381327133.438845 intercepted cudaFree( 5008a7600 ) = 0
+attrNum == 2 ++++++++++++++++++++
+[gvm] 1381327133.438851 intercepting cudaMalloc at 98daf0
+[gvm] 1381327133.438866 intercepted cudaMalloc( 5008a7600 10224 ) = 0
+index = 0, size = 10224 ==================================
+[gvm] 1381327133.438872 intercepting diskIO
+[gvm] 1381327133.438885 intercepted diskIO
+[gvm] 1381327133.438888 intercepting cudaMemcpy
+[gvm] 1381327133.438906 intercepted cudaMemcpy( 5008a7600 7f9216bfd010 10224 1 ) = 0
+[gvm] 1381327133.438911 intercepting cudaMalloc at 9f5330
+[gvm] 1381327133.438933 intercepted cudaMalloc( 500480400 124 ) = 0
+[gvm] 1381327133.438937 intercepting cudaMalloc at 98daf8
+[gvm] 1381327133.438957 intercepted cudaMalloc( 5008a9e00 10224 ) = 0
+index = 1, size = 10224 ==================================
+[gvm] 1381327133.438962 intercepting diskIO
+[gvm] 1381327133.438974 intercepted diskIO
+[gvm] 1381327133.438977 intercepting cudaMemcpy
+[gvm] 1381327133.438992 intercepted cudaMemcpy( 5008a9e00 7f9216bfd010 10224 1 ) = 0
+[gvm] 1381327133.438997 intercepting cudaMalloc at 9f5338
+[gvm] 1381327133.439019 intercepted cudaMalloc( 500480600 124 ) = 0
+[gvm] 1381327133.439024 intercepting cudaConfigureCall
+[gvm] 1381327133.439027 intercepted cudaConfigureCall
+[gvm] 1381327133.439030 intercepting cudaSetupArgument
+[gvm] 1381327133.439033 intercepted cudaSetupArgument( 8 0 76 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439040 intercepting cudaSetupArgument
+[gvm] 1381327133.439043 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327133.439067 intercepting cudaSetupArgument
+[gvm] 1381327133.439071 intercepted cudaSetupArgument( 8 fc 9 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.439076 intercepting cudaSetupArgument
+[gvm] 1381327133.439079 intercepted cudaSetupArgument( 8 0 4e 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439084 intercepting cudaSetupArgument
+[gvm] 1381327133.439087 intercepted cudaSetupArgument( 8 1f 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.439092 intercepting cudaSetupArgument
+[gvm] 1381327133.439095 intercepted cudaSetupArgument( 8 0 26 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439100 intercepting cudaSetupArgument
+[gvm] 1381327133.439103 intercepted cudaSetupArgument( 8 0 4 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439109 intercepting cudaLaunch
+[gvm] 1381327133.439125 intercepting cudaThreadSynchronize
+[gvm] 1381327133.439133 intercepted cudaThreadSynchronize
+[gvm] 1381327133.439137 intercepted cudaLaunch
+[gvm] 1381327133.439139 intercepting cudaThreadSynchronize
+[gvm] 1381327133.439144 intercepted cudaThreadSynchronize
+[gvm] 1381327133.439148 intercepting cudaConfigureCall
+[gvm] 1381327133.439151 intercepted cudaConfigureCall
+[gvm] 1381327133.439154 intercepting cudaSetupArgument
+[gvm] 1381327133.439157 intercepted cudaSetupArgument( 8 0 9e 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439163 intercepting cudaSetupArgument
+[gvm] 1381327133.439166 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327133.439170 intercepting cudaSetupArgument
+[gvm] 1381327133.439173 intercepted cudaSetupArgument( 8 fc 9 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.439179 intercepting cudaSetupArgument
+[gvm] 1381327133.439182 intercepted cudaSetupArgument( 8 0 4e 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439187 intercepting cudaSetupArgument
+[gvm] 1381327133.439190 intercepted cudaSetupArgument( 8 1f 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.439195 intercepting cudaSetupArgument
+[gvm] 1381327133.439198 intercepted cudaSetupArgument( 8 0 26 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439203 intercepting cudaSetupArgument
+[gvm] 1381327133.439206 intercepted cudaSetupArgument( 8 0 6 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439211 intercepting cudaLaunch
+[gvm] 1381327133.439222 intercepting cudaThreadSynchronize
+[gvm] 1381327133.439229 intercepted cudaThreadSynchronize
+[gvm] 1381327133.439232 intercepted cudaLaunch
+[gvm] 1381327133.439235 intercepting cudaThreadSynchronize
+[gvm] 1381327133.439239 intercepted cudaThreadSynchronize
+[gvm] 1381327133.439243 intercepting cudaFree
+[gvm] 1381327133.439259 intercepted cudaFree( 5008a7600 ) = 0
+[gvm] 1381327133.439264 intercepting cudaFree
+[gvm] 1381327133.439281 intercepted cudaFree( 5008a9e00 ) = 0
+[gvm] 1381327133.439285 intercepting cudaFree
+[gvm] 1381327133.439300 intercepted cudaFree( 5008a4e00 ) = 0
+[gvm] 1381327133.439304 intercepting cudaFree
+[gvm] 1381327133.439319 intercepted cudaFree( 5008a2600 ) = 0
+TableScan Time: 1.754049
+[gvm] 1381327133.439501 intercepting cudaMalloc at 7fff50c4b970
+[gvm] 1381327133.439531 intercepted cudaMalloc( 5008a2600 16384 ) = 0
+[gvm] 1381327133.439561 intercepting cudaMalloc at 7fff50c4b980
+[gvm] 1381327133.439577 intercepted cudaMalloc( 5008a6600 16384 ) = 0
+[gvm] 1381327133.439581 intercepting cudaMalloc at 7fff50c4b9a0
+[gvm] 1381327133.439602 intercepted cudaMalloc( 500385e00 18960 ) = 0
+[gvm] 1381327133.439606 intercepting cudaMalloc at 7fff50c4b948
+[gvm] 1381327133.439620 intercepted cudaMalloc( 5008aa600 16384 ) = 0
+[gvm] 1381327133.439624 intercepting cudaConfigureCall
+[gvm] 1381327133.439628 intercepted cudaConfigureCall
+[gvm] 1381327133.439635 intercepting cudaSetupArgument
+[gvm] 1381327133.439639 intercepted cudaSetupArgument( 8 0 0 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439644 intercepting cudaSetupArgument
+[gvm] 1381327133.439647 intercepted cudaSetupArgument( 8 42 9 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.439653 intercepting cudaSetupArgument
+[gvm] 1381327133.439656 intercepted cudaSetupArgument( 8 0 26 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439661 intercepting cudaSetupArgument
+[gvm] 1381327133.439664 intercepted cudaSetupArgument( 4 0 10 0 0 ) = 0
+[gvm] 1381327133.439668 intercepting cudaLaunch
+[gvm] 1381327133.439703 intercepting cudaThreadSynchronize
+[gvm] 1381327133.439726 intercepted cudaThreadSynchronize
+[gvm] 1381327133.439729 intercepted cudaLaunch
+[gvm] 1381327133.439732 intercepting cudaThreadSynchronize
+[gvm] 1381327133.439737 intercepted cudaThreadSynchronize
+[gvm] 1381327133.439742 intercepting cudaMalloc at 99f6e0
+[gvm] 1381327133.439789 intercepted cudaMalloc( 500480800 32 ) = 0
+[gvm] 1381327133.439795 intercepting cudaConfigureCall
+[gvm] 1381327133.439798 intercepted cudaConfigureCall
+[gvm] 1381327133.439802 intercepting cudaSetupArgument
+[gvm] 1381327133.439805 intercepted cudaSetupArgument( 8 0 66 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439811 intercepting cudaSetupArgument
+[gvm] 1381327133.439813 intercepted cudaSetupArgument( 8 0 26 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439819 intercepting cudaSetupArgument
+[gvm] 1381327133.439822 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439827 intercepting cudaSetupArgument
+[gvm] 1381327133.439830 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327133.439834 intercepting cudaSetupArgument
+[gvm] 1381327133.439837 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.439842 intercepting cudaSetupArgument
+[gvm] 1381327133.439845 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.439849 intercepting cudaLaunch
+[gvm] 1381327133.439865 intercepting cudaThreadSynchronize
+[gvm] 1381327133.439878 intercepted cudaThreadSynchronize
+[gvm] 1381327133.439881 intercepted cudaLaunch
+[gvm] 1381327133.439884 intercepting cudaThreadSynchronize
+[gvm] 1381327133.439889 intercepted cudaThreadSynchronize
+[gvm] 1381327133.439893 intercepting cudaConfigureCall
+[gvm] 1381327133.439896 intercepted cudaConfigureCall
+[gvm] 1381327133.439899 intercepting cudaSetupArgument
+[gvm] 1381327133.439902 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439908 intercepting cudaSetupArgument
+[gvm] 1381327133.439911 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439916 intercepting cudaSetupArgument
+[gvm] 1381327133.439919 intercepted cudaSetupArgument( 8 0 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.439925 intercepting cudaSetupArgument
+[gvm] 1381327133.439928 intercepted cudaSetupArgument( 4 8 0 0 0 ) = 0
+[gvm] 1381327133.439932 intercepting cudaSetupArgument
+[gvm] 1381327133.439935 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.439940 intercepting cudaSetupArgument
+[gvm] 1381327133.439943 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.439947 intercepting cudaLaunch
+[gvm] 1381327133.439958 intercepting cudaThreadSynchronize
+[gvm] 1381327133.439967 intercepted cudaThreadSynchronize
+[gvm] 1381327133.439970 intercepted cudaLaunch
+[gvm] 1381327133.439973 intercepting cudaThreadSynchronize
+[gvm] 1381327133.439978 intercepted cudaThreadSynchronize
+[gvm] 1381327133.439981 intercepting cudaConfigureCall
+[gvm] 1381327133.439984 intercepted cudaConfigureCall
+[gvm] 1381327133.439987 intercepting cudaSetupArgument
+[gvm] 1381327133.439990 intercepted cudaSetupArgument( 8 0 66 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.439996 intercepting cudaSetupArgument
+[gvm] 1381327133.439999 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.440004 intercepting cudaSetupArgument
+[gvm] 1381327133.440007 intercepted cudaSetupArgument( 4 0 e 0 0 ) = 0
+[gvm] 1381327133.440012 intercepting cudaSetupArgument
+[gvm] 1381327133.440014 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.440019 intercepting cudaSetupArgument
+[gvm] 1381327133.440021 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.440026 intercepting cudaLaunch
+[gvm] 1381327133.440036 intercepting cudaThreadSynchronize
+[gvm] 1381327133.440044 intercepted cudaThreadSynchronize
+[gvm] 1381327133.440047 intercepted cudaLaunch
+[gvm] 1381327133.440050 intercepting cudaThreadSynchronize
+[gvm] 1381327133.440055 intercepted cudaThreadSynchronize
+[gvm] 1381327133.440058 intercepting cudaFree
+[gvm] 1381327133.440076 intercepted cudaFree( 500480800 ) = 0
+[gvm] 1381327133.440081 intercepting cudaMemcpy
+[gvm] 1381327133.440104 intercepted cudaMemcpy( 5008aa600 5008a6600 16384 3 ) = 0
+[gvm] 1381327133.440129 intercepting cudaConfigureCall
+[gvm] 1381327133.440132 intercepted cudaConfigureCall
+[gvm] 1381327133.440136 intercepting cudaSetupArgument
+[gvm] 1381327133.440139 intercepted cudaSetupArgument( 8 0 0 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.440145 intercepting cudaSetupArgument
+[gvm] 1381327133.440148 intercepted cudaSetupArgument( 8 42 9 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.440153 intercepting cudaSetupArgument
+[gvm] 1381327133.440156 intercepted cudaSetupArgument( 8 0 a6 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.440161 intercepting cudaSetupArgument
+[gvm] 1381327133.440164 intercepted cudaSetupArgument( 8 0 5e 38 0 5 0 0 0 ) = 0
+[gvm] 1381327133.440169 intercepting cudaSetupArgument
+[gvm] 1381327133.440172 intercepted cudaSetupArgument( 4 0 10 0 0 ) = 0
+[gvm] 1381327133.440176 intercepting cudaLaunch
+[gvm] 1381327133.440191 intercepting cudaThreadSynchronize
+[gvm] 1381327133.440215 intercepted cudaThreadSynchronize
+[gvm] 1381327133.440218 intercepted cudaLaunch
+[gvm] 1381327133.440221 intercepting cudaThreadSynchronize
+[gvm] 1381327133.440226 intercepted cudaThreadSynchronize
+[gvm] 1381327133.440229 intercepting cudaFree
+[gvm] 1381327133.440246 intercepted cudaFree( 5008aa600 ) = 0
+[gvm] 1381327133.440250 intercepting cudaMalloc at 7fff50c4b988
+[gvm] 1381327133.440438 intercepted cudaMalloc( 5009a0000 4194304 ) = 0
+[gvm] 1381327133.440446 intercepting cudaMalloc at 7fff50c4b978
+[gvm] 1381327133.440599 intercepted cudaMalloc( 500da0000 4194304 ) = 0
+[gvm] 1381327133.440606 intercepting cudaMalloc at 7fff50c4b998
+[gvm] 1381327133.440955 intercepted cudaMalloc( 5011a0000 239944856 ) = 0
+[gvm] 1381327133.440967 intercepting diskIO
+[gvm] 1381327133.594135 intercepted diskIO
+[gvm] 1381327133.594143 intercepting cudaMemcpy
+[gvm] 1381327133.636897 intercepted cudaMemcpy( 5011a0000 7f9193a27010 239944856 1 ) = 0
+[gvm] 1381327133.636907 intercepting cudaMalloc at 7fff50c4b940
+[gvm] 1381327133.637173 intercepted cudaMalloc( 50f680000 239944856 ) = 0
+[gvm] 1381327133.637192 intercepting cudaConfigureCall
+[gvm] 1381327133.637194 intercepted cudaConfigureCall
+[gvm] 1381327133.637195 intercepting cudaSetupArgument
+[gvm] 1381327133.637197 intercepted cudaSetupArgument( 8 0 26 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.637199 intercepting cudaSetupArgument
+[gvm] 1381327133.637201 intercepted cudaSetupArgument( 8 0 66 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.637202 intercepting cudaSetupArgument
+[gvm] 1381327133.637203 intercepted cudaSetupArgument( 8 0 5e 38 0 5 0 0 0 ) = 0
+[gvm] 1381327133.637205 intercepting cudaSetupArgument
+[gvm] 1381327133.637206 intercepted cudaSetupArgument( 8 0 0 1a 1 5 0 0 0 ) = 0
+[gvm] 1381327133.637208 intercepting cudaSetupArgument
+[gvm] 1381327133.637209 intercepted cudaSetupArgument( 8 26 51 93 3 0 0 0 0 ) = 0
+[gvm] 1381327133.637211 intercepting cudaSetupArgument
+[gvm] 1381327133.637212 intercepted cudaSetupArgument( 8 0 0 9a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.637214 intercepting cudaSetupArgument
+[gvm] 1381327133.637215 intercepted cudaSetupArgument( 8 0 0 68 f 5 0 0 0 ) = 0
+[gvm] 1381327133.637216 intercepting cudaSetupArgument
+[gvm] 1381327133.637217 intercepted cudaSetupArgument( 4 0 10 0 0 ) = 0
+[gvm] 1381327133.637219 intercepting cudaLaunch
+[gvm] 1381327133.637226 intercepting cudaThreadSynchronize
+[gvm] 1381327133.650128 intercepted cudaThreadSynchronize
+[gvm] 1381327133.650130 intercepted cudaLaunch
+[gvm] 1381327133.650131 intercepting cudaThreadSynchronize
+[gvm] 1381327133.650133 intercepted cudaThreadSynchronize
+[gvm] 1381327133.650135 intercepting cudaMemcpy
+[gvm] 1381327133.650150 intercepted cudaMemcpy( 7fff50c4b93c 500d9fffc 4 2 ) = 0
+[gvm] 1381327133.650153 intercepting cudaMalloc at 9b67b0
+[gvm] 1381327133.650162 intercepted cudaMalloc( 5008aa600 8192 ) = 0
+[gvm] 1381327133.650164 intercepting cudaMalloc at 9b67b8
+[gvm] 1381327133.650173 intercepted cudaMalloc( 500480800 16 ) = 0
+[gvm] 1381327133.650175 intercepting cudaConfigureCall
+[gvm] 1381327133.650177 intercepted cudaConfigureCall
+[gvm] 1381327133.650178 intercepting cudaSetupArgument
+[gvm] 1381327133.650204 intercepted cudaSetupArgument( 8 0 0 da 0 5 0 0 0 ) = 0
+[gvm] 1381327133.650206 intercepting cudaSetupArgument
+[gvm] 1381327133.650207 intercepted cudaSetupArgument( 8 0 0 9a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.650209 intercepting cudaSetupArgument
+[gvm] 1381327133.650210 intercepted cudaSetupArgument( 8 0 a6 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.650212 intercepting cudaSetupArgument
+[gvm] 1381327133.650213 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327133.650214 intercepting cudaSetupArgument
+[gvm] 1381327133.650215 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.650217 intercepting cudaSetupArgument
+[gvm] 1381327133.650218 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.650219 intercepting cudaLaunch
+[gvm] 1381327133.650227 intercepting cudaThreadSynchronize
+[gvm] 1381327133.650551 intercepted cudaThreadSynchronize
+[gvm] 1381327133.650552 intercepted cudaLaunch
+[gvm] 1381327133.650553 intercepting cudaThreadSynchronize
+[gvm] 1381327133.650555 intercepted cudaThreadSynchronize
+[gvm] 1381327133.650556 intercepting cudaConfigureCall
+[gvm] 1381327133.650557 intercepted cudaConfigureCall
+[gvm] 1381327133.650558 intercepting cudaSetupArgument
+[gvm] 1381327133.650559 intercepted cudaSetupArgument( 8 0 a6 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.650562 intercepting cudaSetupArgument
+[gvm] 1381327133.650563 intercepted cudaSetupArgument( 8 0 a6 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.650564 intercepting cudaSetupArgument
+[gvm] 1381327133.650565 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.650567 intercepting cudaSetupArgument
+[gvm] 1381327133.650568 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327133.650570 intercepting cudaSetupArgument
+[gvm] 1381327133.650571 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.650572 intercepting cudaSetupArgument
+[gvm] 1381327133.650573 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.650575 intercepting cudaLaunch
+[gvm] 1381327133.650579 intercepting cudaThreadSynchronize
+[gvm] 1381327133.650592 intercepted cudaThreadSynchronize
+[gvm] 1381327133.650593 intercepted cudaLaunch
+[gvm] 1381327133.650594 intercepting cudaThreadSynchronize
+[gvm] 1381327133.650596 intercepted cudaThreadSynchronize
+[gvm] 1381327133.650597 intercepting cudaConfigureCall
+[gvm] 1381327133.650598 intercepted cudaConfigureCall
+[gvm] 1381327133.650599 intercepting cudaSetupArgument
+[gvm] 1381327133.650600 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.650602 intercepting cudaSetupArgument
+[gvm] 1381327133.650603 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.650605 intercepting cudaSetupArgument
+[gvm] 1381327133.650606 intercepted cudaSetupArgument( 8 0 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327133.650608 intercepting cudaSetupArgument
+[gvm] 1381327133.650609 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327133.650610 intercepting cudaSetupArgument
+[gvm] 1381327133.650611 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.650613 intercepting cudaSetupArgument
+[gvm] 1381327133.650614 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.650615 intercepting cudaLaunch
+[gvm] 1381327133.650619 intercepting cudaThreadSynchronize
+[gvm] 1381327133.650627 intercepted cudaThreadSynchronize
+[gvm] 1381327133.650628 intercepted cudaLaunch
+[gvm] 1381327133.650629 intercepting cudaThreadSynchronize
+[gvm] 1381327133.650631 intercepted cudaThreadSynchronize
+[gvm] 1381327133.650632 intercepting cudaConfigureCall
+[gvm] 1381327133.650633 intercepted cudaConfigureCall
+[gvm] 1381327133.650634 intercepting cudaSetupArgument
+[gvm] 1381327133.650635 intercepted cudaSetupArgument( 8 0 a6 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.650637 intercepting cudaSetupArgument
+[gvm] 1381327133.650638 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327133.650640 intercepting cudaSetupArgument
+[gvm] 1381327133.650641 intercepted cudaSetupArgument( 4 0 6 0 0 ) = 0
+[gvm] 1381327133.650642 intercepting cudaSetupArgument
+[gvm] 1381327133.650643 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.650650 intercepting cudaSetupArgument
+[gvm] 1381327133.650651 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.650653 intercepting cudaLaunch
+[gvm] 1381327133.650658 intercepting cudaThreadSynchronize
+[gvm] 1381327133.650665 intercepted cudaThreadSynchronize
+[gvm] 1381327133.650666 intercepted cudaLaunch
+[gvm] 1381327133.650667 intercepting cudaThreadSynchronize
+[gvm] 1381327133.650669 intercepted cudaThreadSynchronize
+[gvm] 1381327133.650670 intercepting cudaConfigureCall
+[gvm] 1381327133.650671 intercepted cudaConfigureCall
+[gvm] 1381327133.650672 intercepting cudaSetupArgument
+[gvm] 1381327133.650673 intercepted cudaSetupArgument( 8 0 0 da 0 5 0 0 0 ) = 0
+[gvm] 1381327133.650675 intercepting cudaSetupArgument
+[gvm] 1381327133.650676 intercepted cudaSetupArgument( 8 0 a6 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327133.650678 intercepting cudaSetupArgument
+[gvm] 1381327133.650679 intercepted cudaSetupArgument( 4 0 fe f 0 ) = 0
+[gvm] 1381327133.650681 intercepting cudaSetupArgument
+[gvm] 1381327133.650682 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.650683 intercepting cudaSetupArgument
+[gvm] 1381327133.650684 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327133.650686 intercepting cudaLaunch
+[gvm] 1381327133.650689 intercepting cudaThreadSynchronize
+[gvm] 1381327133.650754 intercepted cudaThreadSynchronize
+[gvm] 1381327133.650755 intercepted cudaLaunch
+[gvm] 1381327133.650756 intercepting cudaThreadSynchronize
+[gvm] 1381327133.650758 intercepted cudaThreadSynchronize
+[gvm] 1381327133.650759 intercepting cudaFree
+[gvm] 1381327133.650771 intercepted cudaFree( 5008aa600 ) = 0
+[gvm] 1381327133.650773 intercepting cudaFree
+[gvm] 1381327133.650779 intercepted cudaFree( 500480800 ) = 0
+[gvm] 1381327133.650781 intercepting cudaMemcpy
+[gvm] 1381327133.650793 intercepted cudaMemcpy( 7fff50c4b938 50119fffc 4 2 ) = 0
+[INFO]Number of join results: 465398
+[gvm] 1381327133.650796 intercepting cudaFree
+[gvm] 1381327133.650922 intercepted cudaFree( 5011a0000 ) = 0
+[gvm] 1381327133.650925 intercepting cudaFree
+[gvm] 1381327133.650935 intercepted cudaFree( 500385e00 ) = 0
+[gvm] 1381327133.650937 intercepting cudaMalloc at 7fff50c4b9a8
+[gvm] 1381327133.651017 intercepted cudaMalloc( 5011a0000 4653980 ) = 0
+[gvm] 1381327133.651025 intercepting cudaConfigureCall
+[gvm] 1381327133.651027 intercepted cudaConfigureCall
+[gvm] 1381327133.651028 intercepting cudaSetupArgument
+[gvm] 1381327133.651029 intercepted cudaSetupArgument( 8 0 0 da 0 5 0 0 0 ) = 0
+[gvm] 1381327133.651031 intercepting cudaSetupArgument
+[gvm] 1381327133.651032 intercepted cudaSetupArgument( 8 0 0 38 0 5 0 0 0 ) = 0
+[gvm] 1381327133.651034 intercepting cudaSetupArgument
+[gvm] 1381327133.651035 intercepted cudaSetupArgument( 4 a 0 0 0 ) = 0
+[gvm] 1381327133.651037 intercepting cudaSetupArgument
+[gvm] 1381327133.651037 intercepted cudaSetupArgument( 8 26 51 93 3 0 0 0 0 ) = 0
+[gvm] 1381327133.651039 intercepting cudaSetupArgument
+[gvm] 1381327133.651040 intercepted cudaSetupArgument( 8 0 0 68 f 5 0 0 0 ) = 0
+[gvm] 1381327133.651042 intercepting cudaSetupArgument
+[gvm] 1381327133.651043 intercepted cudaSetupArgument( 8 0 0 1a 1 5 0 0 0 ) = 0
+[gvm] 1381327133.651045 intercepting cudaLaunch
+[gvm] 1381327133.651053 intercepting cudaThreadSynchronize
+[gvm] 1381327133.653727 intercepted cudaThreadSynchronize
+[gvm] 1381327133.653729 intercepted cudaLaunch
+[gvm] 1381327133.653730 intercepting cudaThreadSynchronize
+[gvm] 1381327133.653732 intercepted cudaThreadSynchronize
+[gvm] 1381327133.653734 intercepting cudaMalloc at 7fff50c4b9a8
+[gvm] 1381327133.653826 intercepted cudaMalloc( 500580000 1861592 ) = 0
+[gvm] 1381327133.653829 intercepting cudaMalloc at 7fff50c4b998
+[gvm] 1381327133.654017 intercepted cudaMalloc( 51db60000 239944856 ) = 0
+[gvm] 1381327133.654020 intercepting diskIO
+[gvm] 1381327133.734485 intercepted diskIO
+[gvm] 1381327133.734493 intercepting cudaMemcpy
+[gvm] 1381327133.776875 intercepted cudaMemcpy( 51db60000 7f9193a27010 239944856 1 ) = 0
+[gvm] 1381327133.776884 intercepting cudaConfigureCall
+[gvm] 1381327133.776915 intercepted cudaConfigureCall
+[gvm] 1381327133.776917 intercepting cudaSetupArgument
+[gvm] 1381327133.776919 intercepted cudaSetupArgument( 8 0 0 da 0 5 0 0 0 ) = 0
+[gvm] 1381327133.776921 intercepting cudaSetupArgument
+[gvm] 1381327133.776922 intercepted cudaSetupArgument( 8 0 0 b6 1d 5 0 0 0 ) = 0
+[gvm] 1381327133.776924 intercepting cudaSetupArgument
+[gvm] 1381327133.776925 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327133.776927 intercepting cudaSetupArgument
+[gvm] 1381327133.776928 intercepted cudaSetupArgument( 8 26 51 93 3 0 0 0 0 ) = 0
+[gvm] 1381327133.776930 intercepting cudaSetupArgument
+[gvm] 1381327133.776931 intercepted cudaSetupArgument( 8 0 0 68 f 5 0 0 0 ) = 0
+[gvm] 1381327133.776932 intercepting cudaSetupArgument
+[gvm] 1381327133.776933 intercepted cudaSetupArgument( 8 0 0 58 0 5 0 0 0 ) = 0
+[gvm] 1381327133.776935 intercepting cudaLaunch
+[gvm] 1381327133.776952 intercepting cudaThreadSynchronize
+[gvm] 1381327133.779099 intercepted cudaThreadSynchronize
+[gvm] 1381327133.779101 intercepted cudaLaunch
+[gvm] 1381327133.779102 intercepting cudaThreadSynchronize
+[gvm] 1381327133.779104 intercepted cudaThreadSynchronize
+[gvm] 1381327133.779105 intercepting cudaFree
+[gvm] 1381327133.779452 intercepted cudaFree( 51db60000 ) = 0
+[gvm] 1381327133.779456 intercepting cudaMalloc at 7fff50c4b9a8
+[gvm] 1381327133.779557 intercepted cudaMalloc( 501620000 1861592 ) = 0
+[gvm] 1381327133.779559 intercepting cudaMalloc at 7fff50c4b998
+[gvm] 1381327133.779716 intercepted cudaMalloc( 51db60000 239944856 ) = 0
+[gvm] 1381327133.779719 intercepting diskIO
+[gvm] 1381327133.860242 intercepted diskIO
+[gvm] 1381327133.860250 intercepting cudaMemcpy
+[gvm] 1381327133.902802 intercepted cudaMemcpy( 51db60000 7f9193a27010 239944856 1 ) = 0
+[gvm] 1381327133.902811 intercepting cudaConfigureCall
+[gvm] 1381327133.902813 intercepted cudaConfigureCall
+[gvm] 1381327133.902815 intercepting cudaSetupArgument
+[gvm] 1381327133.902817 intercepted cudaSetupArgument( 8 0 0 da 0 5 0 0 0 ) = 0
+[gvm] 1381327133.902819 intercepting cudaSetupArgument
+[gvm] 1381327133.902820 intercepted cudaSetupArgument( 8 0 0 b6 1d 5 0 0 0 ) = 0
+[gvm] 1381327133.902822 intercepting cudaSetupArgument
+[gvm] 1381327133.902823 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327133.902824 intercepting cudaSetupArgument
+[gvm] 1381327133.902825 intercepted cudaSetupArgument( 8 26 51 93 3 0 0 0 0 ) = 0
+[gvm] 1381327133.902827 intercepting cudaSetupArgument
+[gvm] 1381327133.902828 intercepted cudaSetupArgument( 8 0 0 68 f 5 0 0 0 ) = 0
+[gvm] 1381327133.902830 intercepting cudaSetupArgument
+[gvm] 1381327133.902831 intercepted cudaSetupArgument( 8 0 0 62 1 5 0 0 0 ) = 0
+[gvm] 1381327133.902833 intercepting cudaLaunch
+[gvm] 1381327133.902849 intercepting cudaThreadSynchronize
+[gvm] 1381327133.905035 intercepted cudaThreadSynchronize
+[gvm] 1381327133.905036 intercepted cudaLaunch
+[gvm] 1381327133.905037 intercepting cudaThreadSynchronize
+[gvm] 1381327133.905039 intercepted cudaThreadSynchronize
+[gvm] 1381327133.905041 intercepting cudaFree
+[gvm] 1381327133.905217 intercepted cudaFree( 51db60000 ) = 0
+[gvm] 1381327133.905221 intercepting cudaMalloc at 7fff50c4b9a8
+[gvm] 1381327133.905322 intercepted cudaMalloc( 501800000 1861592 ) = 0
+[gvm] 1381327133.905325 intercepting cudaMalloc at 7fff50c4b998
+[gvm] 1381327133.905480 intercepted cudaMalloc( 51db60000 239944856 ) = 0
+[gvm] 1381327133.905482 intercepting diskIO
+[gvm] 1381327133.986213 intercepted diskIO
+[gvm] 1381327133.986221 intercepting cudaMemcpy
+[gvm] 1381327134.028749 intercepted cudaMemcpy( 51db60000 7f9193a27010 239944856 1 ) = 0
+[gvm] 1381327134.028765 intercepting cudaConfigureCall
+[gvm] 1381327134.028768 intercepted cudaConfigureCall
+[gvm] 1381327134.028769 intercepting cudaSetupArgument
+[gvm] 1381327134.028771 intercepted cudaSetupArgument( 8 0 0 da 0 5 0 0 0 ) = 0
+[gvm] 1381327134.028774 intercepting cudaSetupArgument
+[gvm] 1381327134.028775 intercepted cudaSetupArgument( 8 0 0 b6 1d 5 0 0 0 ) = 0
+[gvm] 1381327134.028776 intercepting cudaSetupArgument
+[gvm] 1381327134.028805 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327134.028807 intercepting cudaSetupArgument
+[gvm] 1381327134.028808 intercepted cudaSetupArgument( 8 26 51 93 3 0 0 0 0 ) = 0
+[gvm] 1381327134.028810 intercepting cudaSetupArgument
+[gvm] 1381327134.028811 intercepted cudaSetupArgument( 8 0 0 68 f 5 0 0 0 ) = 0
+[gvm] 1381327134.028813 intercepting cudaSetupArgument
+[gvm] 1381327134.028814 intercepted cudaSetupArgument( 8 0 0 80 1 5 0 0 0 ) = 0
+[gvm] 1381327134.028816 intercepting cudaLaunch
+[gvm] 1381327134.028834 intercepting cudaThreadSynchronize
+[gvm] 1381327134.030982 intercepted cudaThreadSynchronize
+[gvm] 1381327134.030983 intercepted cudaLaunch
+[gvm] 1381327134.030984 intercepting cudaThreadSynchronize
+[gvm] 1381327134.030986 intercepted cudaThreadSynchronize
+[gvm] 1381327134.030988 intercepting cudaFree
+[gvm] 1381327134.031163 intercepted cudaFree( 51db60000 ) = 0
+[gvm] 1381327134.031166 intercepting cudaFree
+[gvm] 1381327134.031287 intercepted cudaFree( 50f680000 ) = 0
+[gvm] 1381327134.031291 intercepting cudaThreadSynchronize
+[gvm] 1381327134.031295 intercepted cudaThreadSynchronize
+[gvm] 1381327134.031296 intercepting cudaFree
+[gvm] 1381327134.031350 intercepted cudaFree( 5009a0000 ) = 0
+[gvm] 1381327134.031353 intercepting cudaFree
+[gvm] 1381327134.031362 intercepted cudaFree( 5008a2600 ) = 0
+[gvm] 1381327134.031363 intercepting cudaFree
+[gvm] 1381327134.031370 intercepted cudaFree( 5008a6600 ) = 0
+[gvm] 1381327134.031371 intercepting cudaFree
+[gvm] 1381327134.031422 intercepted cudaFree( 500da0000 ) = 0
+HashJoin Time: 591.926331
+[gvm] 1381327134.031443 intercepting cudaMalloc at 7fff50c4b970
+[gvm] 1381327134.031457 intercepted cudaMalloc( 500480800 1024 ) = 0
+[gvm] 1381327134.031466 intercepting cudaMalloc at 7fff50c4b980
+[gvm] 1381327134.031473 intercepted cudaMalloc( 500480c00 1024 ) = 0
+[gvm] 1381327134.031474 intercepting cudaMalloc at 7fff50c4b9a0
+[gvm] 1381327134.031483 intercepted cudaMalloc( 500200800 1312 ) = 0
+[gvm] 1381327134.031484 intercepting cudaMalloc at 7fff50c4b948
+[gvm] 1381327134.031489 intercepted cudaMalloc( 500481000 1024 ) = 0
+[gvm] 1381327134.031490 intercepting cudaConfigureCall
+[gvm] 1381327134.031492 intercepted cudaConfigureCall
+[gvm] 1381327134.031493 intercepting cudaSetupArgument
+[gvm] 1381327134.031494 intercepted cudaSetupArgument( 8 0 0 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.031496 intercepting cudaSetupArgument
+[gvm] 1381327134.031497 intercepted cudaSetupArgument( 8 a4 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.031499 intercepting cudaSetupArgument
+[gvm] 1381327134.031500 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.031502 intercepting cudaSetupArgument
+[gvm] 1381327134.031503 intercepted cudaSetupArgument( 4 0 1 0 0 ) = 0
+[gvm] 1381327134.031504 intercepting cudaLaunch
+[gvm] 1381327134.031510 intercepting cudaThreadSynchronize
+[gvm] 1381327134.031523 intercepted cudaThreadSynchronize
+[gvm] 1381327134.031525 intercepted cudaLaunch
+[gvm] 1381327134.031526 intercepting cudaThreadSynchronize
+[gvm] 1381327134.031527 intercepted cudaThreadSynchronize
+[gvm] 1381327134.031529 intercepting cudaConfigureCall
+[gvm] 1381327134.031531 intercepted cudaConfigureCall
+[gvm] 1381327134.031532 intercepting cudaSetupArgument
+[gvm] 1381327134.031533 intercepted cudaSetupArgument( 8 0 c 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.031535 intercepting cudaSetupArgument
+[gvm] 1381327134.031536 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.031538 intercepting cudaSetupArgument
+[gvm] 1381327134.031539 intercepted cudaSetupArgument( 8 0 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.031541 intercepting cudaSetupArgument
+[gvm] 1381327134.031542 intercepted cudaSetupArgument( 4 0 1 0 0 ) = 0
+[gvm] 1381327134.031543 intercepting cudaSetupArgument
+[gvm] 1381327134.031544 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.031546 intercepting cudaSetupArgument
+[gvm] 1381327134.031547 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.031548 intercepting cudaLaunch
+[gvm] 1381327134.031553 intercepting cudaThreadSynchronize
+[gvm] 1381327134.031565 intercepted cudaThreadSynchronize
+[gvm] 1381327134.031566 intercepted cudaLaunch
+[gvm] 1381327134.031567 intercepting cudaThreadSynchronize
+[gvm] 1381327134.031569 intercepted cudaThreadSynchronize
+[gvm] 1381327134.031570 intercepting cudaMemcpy
+[gvm] 1381327134.031580 intercepted cudaMemcpy( 500481000 500480c00 1024 3 ) = 0
+[gvm] 1381327134.031582 intercepting cudaConfigureCall
+[gvm] 1381327134.031584 intercepted cudaConfigureCall
+[gvm] 1381327134.031585 intercepting cudaSetupArgument
+[gvm] 1381327134.031586 intercepted cudaSetupArgument( 8 0 0 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.031588 intercepting cudaSetupArgument
+[gvm] 1381327134.031589 intercepted cudaSetupArgument( 8 a4 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.031591 intercepting cudaSetupArgument
+[gvm] 1381327134.031592 intercepted cudaSetupArgument( 8 0 10 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.031593 intercepting cudaSetupArgument
+[gvm] 1381327134.031594 intercepted cudaSetupArgument( 8 0 8 20 0 5 0 0 0 ) = 0
+[gvm] 1381327134.031596 intercepting cudaSetupArgument
+[gvm] 1381327134.031597 intercepted cudaSetupArgument( 4 0 1 0 0 ) = 0
+[gvm] 1381327134.031599 intercepting cudaLaunch
+[gvm] 1381327134.031603 intercepting cudaThreadSynchronize
+[gvm] 1381327134.031616 intercepted cudaThreadSynchronize
+[gvm] 1381327134.031618 intercepted cudaLaunch
+[gvm] 1381327134.031619 intercepting cudaThreadSynchronize
+[gvm] 1381327134.031620 intercepted cudaThreadSynchronize
+[gvm] 1381327134.031621 intercepting cudaFree
+[gvm] 1381327134.031628 intercepted cudaFree( 500481000 ) = 0
+[gvm] 1381327134.031629 intercepting cudaMalloc at 7fff50c4b988
+[gvm] 1381327134.031726 intercepted cudaMalloc( 5009a0000 1861632 ) = 0
+[gvm] 1381327134.031729 intercepting cudaMalloc at 7fff50c4b978
+[gvm] 1381327134.031816 intercepted cudaMalloc( 500b80000 1861632 ) = 0
+[gvm] 1381327134.031819 intercepting cudaMalloc at 7fff50c4b940
+[gvm] 1381327134.031899 intercepted cudaMalloc( 500d60000 1861592 ) = 0
+[gvm] 1381327134.031910 intercepting cudaConfigureCall
+[gvm] 1381327134.031912 intercepted cudaConfigureCall
+[gvm] 1381327134.031913 intercepting cudaSetupArgument
+[gvm] 1381327134.031915 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.031917 intercepting cudaSetupArgument
+[gvm] 1381327134.031918 intercepted cudaSetupArgument( 8 0 c 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.031920 intercepting cudaSetupArgument
+[gvm] 1381327134.031921 intercepted cudaSetupArgument( 8 0 8 20 0 5 0 0 0 ) = 0
+[gvm] 1381327134.031922 intercepting cudaSetupArgument
+[gvm] 1381327134.031923 intercepted cudaSetupArgument( 8 0 0 80 1 5 0 0 0 ) = 0
+[gvm] 1381327134.031925 intercepting cudaSetupArgument
+[gvm] 1381327134.031926 intercepted cudaSetupArgument( 8 f6 19 7 0 0 0 0 0 ) = 0
+[gvm] 1381327134.031928 intercepting cudaSetupArgument
+[gvm] 1381327134.031929 intercepted cudaSetupArgument( 8 0 0 9a 0 5 0 0 0 ) = 0
+[gvm] 1381327134.031931 intercepting cudaSetupArgument
+[gvm] 1381327134.031932 intercepted cudaSetupArgument( 8 0 0 d6 0 5 0 0 0 ) = 0
+[gvm] 1381327134.031934 intercepting cudaSetupArgument
+[gvm] 1381327134.031935 intercepted cudaSetupArgument( 4 0 1 0 0 ) = 0
+[gvm] 1381327134.031936 intercepting cudaLaunch
+[gvm] 1381327134.031941 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032055 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032056 intercepted cudaLaunch
+[gvm] 1381327134.032057 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032059 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032060 intercepting cudaMemcpy
+[gvm] 1381327134.032073 intercepted cudaMemcpy( 7fff50c4b93c 500b667fc 4 2 ) = 0
+[gvm] 1381327134.032076 intercepting cudaMalloc at 9d3d00
+[gvm] 1381327134.032087 intercepted cudaMalloc( 500200e00 3636 ) = 0
+[gvm] 1381327134.032089 intercepting cudaMalloc at 9d3d08
+[gvm] 1381327134.032096 intercepted cudaMalloc( 500481000 8 ) = 0
+[gvm] 1381327134.032098 intercepting cudaConfigureCall
+[gvm] 1381327134.032099 intercepted cudaConfigureCall
+[gvm] 1381327134.032100 intercepting cudaSetupArgument
+[gvm] 1381327134.032101 intercepted cudaSetupArgument( 8 0 0 b8 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032112 intercepting cudaSetupArgument
+[gvm] 1381327134.032114 intercepted cudaSetupArgument( 8 0 0 9a 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032116 intercepting cudaSetupArgument
+[gvm] 1381327134.032117 intercepted cudaSetupArgument( 8 0 e 20 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032118 intercepting cudaSetupArgument
+[gvm] 1381327134.032119 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327134.032121 intercepting cudaSetupArgument
+[gvm] 1381327134.032122 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.032123 intercepting cudaSetupArgument
+[gvm] 1381327134.032124 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.032126 intercepting cudaLaunch
+[gvm] 1381327134.032133 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032286 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032287 intercepted cudaLaunch
+[gvm] 1381327134.032288 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032290 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032291 intercepting cudaConfigureCall
+[gvm] 1381327134.032293 intercepted cudaConfigureCall
+[gvm] 1381327134.032293 intercepting cudaSetupArgument
+[gvm] 1381327134.032295 intercepted cudaSetupArgument( 8 0 e 20 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032297 intercepting cudaSetupArgument
+[gvm] 1381327134.032298 intercepted cudaSetupArgument( 8 0 e 20 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032299 intercepting cudaSetupArgument
+[gvm] 1381327134.032300 intercepted cudaSetupArgument( 8 0 10 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032302 intercepting cudaSetupArgument
+[gvm] 1381327134.032303 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327134.032305 intercepting cudaSetupArgument
+[gvm] 1381327134.032306 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.032307 intercepting cudaSetupArgument
+[gvm] 1381327134.032308 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.032310 intercepting cudaLaunch
+[gvm] 1381327134.032314 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032327 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032328 intercepted cudaLaunch
+[gvm] 1381327134.032329 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032330 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032332 intercepting cudaConfigureCall
+[gvm] 1381327134.032333 intercepted cudaConfigureCall
+[gvm] 1381327134.032334 intercepting cudaSetupArgument
+[gvm] 1381327134.032335 intercepted cudaSetupArgument( 8 0 e 20 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032337 intercepting cudaSetupArgument
+[gvm] 1381327134.032338 intercepted cudaSetupArgument( 8 0 e 20 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032339 intercepting cudaSetupArgument
+[gvm] 1381327134.032340 intercepted cudaSetupArgument( 8 0 10 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032342 intercepting cudaSetupArgument
+[gvm] 1381327134.032343 intercepted cudaSetupArgument( 4 8d 1 0 0 ) = 0
+[gvm] 1381327134.032345 intercepting cudaSetupArgument
+[gvm] 1381327134.032346 intercepted cudaSetupArgument( 4 1 0 0 0 ) = 0
+[gvm] 1381327134.032347 intercepting cudaSetupArgument
+[gvm] 1381327134.032348 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327134.032350 intercepting cudaLaunch
+[gvm] 1381327134.032354 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032367 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032368 intercepted cudaLaunch
+[gvm] 1381327134.032369 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032371 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032372 intercepting cudaConfigureCall
+[gvm] 1381327134.032373 intercepted cudaConfigureCall
+[gvm] 1381327134.032374 intercepting cudaSetupArgument
+[gvm] 1381327134.032375 intercepted cudaSetupArgument( 8 0 10 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032377 intercepting cudaSetupArgument
+[gvm] 1381327134.032378 intercepted cudaSetupArgument( 8 0 10 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032380 intercepting cudaSetupArgument
+[gvm] 1381327134.032381 intercepted cudaSetupArgument( 8 0 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.032383 intercepting cudaSetupArgument
+[gvm] 1381327134.032384 intercepted cudaSetupArgument( 4 2 0 0 0 ) = 0
+[gvm] 1381327134.032385 intercepting cudaSetupArgument
+[gvm] 1381327134.032391 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.032393 intercepting cudaSetupArgument
+[gvm] 1381327134.032394 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.032396 intercepting cudaLaunch
+[gvm] 1381327134.032400 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032408 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032409 intercepted cudaLaunch
+[gvm] 1381327134.032410 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032411 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032412 intercepting cudaConfigureCall
+[gvm] 1381327134.032414 intercepted cudaConfigureCall
+[gvm] 1381327134.032415 intercepting cudaSetupArgument
+[gvm] 1381327134.032416 intercepted cudaSetupArgument( 8 0 e 20 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032418 intercepting cudaSetupArgument
+[gvm] 1381327134.032419 intercepted cudaSetupArgument( 8 0 10 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032420 intercepting cudaSetupArgument
+[gvm] 1381327134.032421 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327134.032423 intercepting cudaSetupArgument
+[gvm] 1381327134.032424 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.032425 intercepting cudaSetupArgument
+[gvm] 1381327134.032426 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.032428 intercepting cudaLaunch
+[gvm] 1381327134.032432 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032439 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032440 intercepted cudaLaunch
+[gvm] 1381327134.032441 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032443 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032444 intercepting cudaConfigureCall
+[gvm] 1381327134.032445 intercepted cudaConfigureCall
+[gvm] 1381327134.032446 intercepting cudaSetupArgument
+[gvm] 1381327134.032447 intercepted cudaSetupArgument( 8 0 e 20 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032449 intercepting cudaSetupArgument
+[gvm] 1381327134.032450 intercepted cudaSetupArgument( 8 0 10 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032452 intercepting cudaSetupArgument
+[gvm] 1381327134.032453 intercepted cudaSetupArgument( 4 8d 1 0 0 ) = 0
+[gvm] 1381327134.032454 intercepting cudaSetupArgument
+[gvm] 1381327134.032455 intercepted cudaSetupArgument( 4 1 0 0 0 ) = 0
+[gvm] 1381327134.032457 intercepting cudaSetupArgument
+[gvm] 1381327134.032458 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327134.032459 intercepting cudaLaunch
+[gvm] 1381327134.032463 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032469 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032471 intercepted cudaLaunch
+[gvm] 1381327134.032472 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032473 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032474 intercepting cudaConfigureCall
+[gvm] 1381327134.032475 intercepted cudaConfigureCall
+[gvm] 1381327134.032476 intercepting cudaSetupArgument
+[gvm] 1381327134.032477 intercepted cudaSetupArgument( 8 0 0 b8 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032479 intercepting cudaSetupArgument
+[gvm] 1381327134.032480 intercepted cudaSetupArgument( 8 0 e 20 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032482 intercepting cudaSetupArgument
+[gvm] 1381327134.032483 intercepted cudaSetupArgument( 4 0 18 7 0 ) = 0
+[gvm] 1381327134.032485 intercepting cudaSetupArgument
+[gvm] 1381327134.032486 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.032487 intercepting cudaSetupArgument
+[gvm] 1381327134.032488 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.032489 intercepting cudaLaunch
+[gvm] 1381327134.032493 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032526 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032527 intercepted cudaLaunch
+[gvm] 1381327134.032528 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032530 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032531 intercepting cudaFree
+[gvm] 1381327134.032538 intercepted cudaFree( 500200e00 ) = 0
+[gvm] 1381327134.032540 intercepting cudaFree
+[gvm] 1381327134.032545 intercepted cudaFree( 500481000 ) = 0
+[gvm] 1381327134.032546 intercepting cudaMemcpy
+[gvm] 1381327134.032565 intercepted cudaMemcpy( 7fff50c4b938 500d467fc 4 2 ) = 0
+[INFO]Number of join results: 3908
+[gvm] 1381327134.032567 intercepting cudaFree
+[gvm] 1381327134.032574 intercepted cudaFree( 500200800 ) = 0
+[gvm] 1381327134.032576 intercepting cudaMalloc at 7fff50c4b9a8
+[gvm] 1381327134.032586 intercepted cudaMalloc( 500385e00 39080 ) = 0
+[gvm] 1381327134.032588 intercepting cudaConfigureCall
+[gvm] 1381327134.032589 intercepted cudaConfigureCall
+[gvm] 1381327134.032590 intercepting cudaSetupArgument
+[gvm] 1381327134.032591 intercepted cudaSetupArgument( 8 0 0 b8 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032593 intercepting cudaSetupArgument
+[gvm] 1381327134.032594 intercepted cudaSetupArgument( 8 0 0 1a 1 5 0 0 0 ) = 0
+[gvm] 1381327134.032596 intercepting cudaSetupArgument
+[gvm] 1381327134.032597 intercepted cudaSetupArgument( 4 a 0 0 0 ) = 0
+[gvm] 1381327134.032599 intercepting cudaSetupArgument
+[gvm] 1381327134.032600 intercepted cudaSetupArgument( 8 f6 19 7 0 0 0 0 0 ) = 0
+[gvm] 1381327134.032602 intercepting cudaSetupArgument
+[gvm] 1381327134.032603 intercepted cudaSetupArgument( 8 0 0 d6 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032604 intercepting cudaSetupArgument
+[gvm] 1381327134.032605 intercepted cudaSetupArgument( 8 0 5e 38 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032607 intercepting cudaLaunch
+[gvm] 1381327134.032613 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032681 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032682 intercepted cudaLaunch
+[gvm] 1381327134.032683 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032685 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032686 intercepting cudaMalloc at 7fff50c4b9a8
+[gvm] 1381327134.032696 intercepted cudaMalloc( 50038f800 39080 ) = 0
+[gvm] 1381327134.032697 intercepting cudaConfigureCall
+[gvm] 1381327134.032698 intercepted cudaConfigureCall
+[gvm] 1381327134.032700 intercepting cudaSetupArgument
+[gvm] 1381327134.032701 intercepted cudaSetupArgument( 8 0 0 b8 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032703 intercepting cudaSetupArgument
+[gvm] 1381327134.032704 intercepted cudaSetupArgument( 8 0 0 20 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032706 intercepting cudaSetupArgument
+[gvm] 1381327134.032707 intercepted cudaSetupArgument( 4 a 0 0 0 ) = 0
+[gvm] 1381327134.032708 intercepting cudaSetupArgument
+[gvm] 1381327134.032709 intercepted cudaSetupArgument( 8 f6 19 7 0 0 0 0 0 ) = 0
+[gvm] 1381327134.032711 intercepting cudaSetupArgument
+[gvm] 1381327134.032712 intercepted cudaSetupArgument( 8 0 0 d6 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032714 intercepting cudaSetupArgument
+[gvm] 1381327134.032715 intercepted cudaSetupArgument( 8 0 f8 38 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032717 intercepting cudaLaunch
+[gvm] 1381327134.032721 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032787 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032788 intercepted cudaLaunch
+[gvm] 1381327134.032789 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032791 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032792 intercepting cudaMalloc at 7fff50c4b9a8
+[gvm] 1381327134.032802 intercepted cudaMalloc( 5008a2600 15632 ) = 0
+[gvm] 1381327134.032804 intercepting cudaConfigureCall
+[gvm] 1381327134.032805 intercepted cudaConfigureCall
+[gvm] 1381327134.032806 intercepting cudaSetupArgument
+[gvm] 1381327134.032807 intercepted cudaSetupArgument( 8 0 0 b8 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032809 intercepting cudaSetupArgument
+[gvm] 1381327134.032810 intercepted cudaSetupArgument( 8 0 0 58 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032812 intercepting cudaSetupArgument
+[gvm] 1381327134.032813 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327134.032814 intercepting cudaSetupArgument
+[gvm] 1381327134.032815 intercepted cudaSetupArgument( 8 f6 19 7 0 0 0 0 0 ) = 0
+[gvm] 1381327134.032817 intercepting cudaSetupArgument
+[gvm] 1381327134.032818 intercepted cudaSetupArgument( 8 0 0 d6 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032820 intercepting cudaSetupArgument
+[gvm] 1381327134.032821 intercepted cudaSetupArgument( 8 0 26 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032823 intercepting cudaLaunch
+[gvm] 1381327134.032827 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032873 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032874 intercepted cudaLaunch
+[gvm] 1381327134.032875 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032877 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032878 intercepting cudaMalloc at 7fff50c4b9a8
+[gvm] 1381327134.032889 intercepted cudaMalloc( 5008a6400 15632 ) = 0
+[gvm] 1381327134.032891 intercepting cudaConfigureCall
+[gvm] 1381327134.032892 intercepted cudaConfigureCall
+[gvm] 1381327134.032893 intercepting cudaSetupArgument
+[gvm] 1381327134.032894 intercepted cudaSetupArgument( 8 0 0 b8 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032896 intercepting cudaSetupArgument
+[gvm] 1381327134.032897 intercepted cudaSetupArgument( 8 0 0 62 1 5 0 0 0 ) = 0
+[gvm] 1381327134.032898 intercepting cudaSetupArgument
+[gvm] 1381327134.032899 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327134.032901 intercepting cudaSetupArgument
+[gvm] 1381327134.032902 intercepted cudaSetupArgument( 8 f6 19 7 0 0 0 0 0 ) = 0
+[gvm] 1381327134.032904 intercepting cudaSetupArgument
+[gvm] 1381327134.032905 intercepted cudaSetupArgument( 8 0 0 d6 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032907 intercepting cudaSetupArgument
+[gvm] 1381327134.032908 intercepted cudaSetupArgument( 8 0 64 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327134.032909 intercepting cudaLaunch
+[gvm] 1381327134.032915 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032959 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032960 intercepted cudaLaunch
+[gvm] 1381327134.032961 intercepting cudaThreadSynchronize
+[gvm] 1381327134.032963 intercepted cudaThreadSynchronize
+[gvm] 1381327134.032964 intercepting cudaFree
+[gvm] 1381327134.033022 intercepted cudaFree( 500d60000 ) = 0
+[gvm] 1381327134.033025 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033028 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033030 intercepting cudaFree
+[gvm] 1381327134.033080 intercepted cudaFree( 5009a0000 ) = 0
+[gvm] 1381327134.033083 intercepting cudaFree
+[gvm] 1381327134.033090 intercepted cudaFree( 500480800 ) = 0
+[gvm] 1381327134.033091 intercepting cudaFree
+[gvm] 1381327134.033097 intercepted cudaFree( 500480c00 ) = 0
+[gvm] 1381327134.033099 intercepting cudaFree
+[gvm] 1381327134.033149 intercepted cudaFree( 500b80000 ) = 0
+HashJoin Time: 1.709833
+[gvm] 1381327134.033160 intercepting cudaMalloc at 7fff50c4b970
+[gvm] 1381327134.033172 intercepted cudaMalloc( 500480800 128 ) = 0
+[gvm] 1381327134.033180 intercepting cudaMalloc at 7fff50c4b980
+[gvm] 1381327134.033188 intercepted cudaMalloc( 500480a00 128 ) = 0
+[gvm] 1381327134.033189 intercepting cudaMalloc at 7fff50c4b9a0
+[gvm] 1381327134.033197 intercepted cudaMalloc( 500480c00 248 ) = 0
+[gvm] 1381327134.033198 intercepting cudaMalloc at 7fff50c4b948
+[gvm] 1381327134.033206 intercepted cudaMalloc( 500480e00 128 ) = 0
+[gvm] 1381327134.033207 intercepting cudaConfigureCall
+[gvm] 1381327134.033209 intercepted cudaConfigureCall
+[gvm] 1381327134.033210 intercepting cudaSetupArgument
+[gvm] 1381327134.033211 intercepted cudaSetupArgument( 8 0 6 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033213 intercepting cudaSetupArgument
+[gvm] 1381327134.033214 intercepted cudaSetupArgument( 8 1f 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.033216 intercepting cudaSetupArgument
+[gvm] 1381327134.033217 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033219 intercepting cudaSetupArgument
+[gvm] 1381327134.033220 intercepted cudaSetupArgument( 4 20 0 0 0 ) = 0
+[gvm] 1381327134.033221 intercepting cudaLaunch
+[gvm] 1381327134.033226 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033233 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033234 intercepted cudaLaunch
+[gvm] 1381327134.033235 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033236 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033238 intercepting cudaConfigureCall
+[gvm] 1381327134.033239 intercepted cudaConfigureCall
+[gvm] 1381327134.033240 intercepting cudaSetupArgument
+[gvm] 1381327134.033241 intercepted cudaSetupArgument( 8 0 a 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033243 intercepting cudaSetupArgument
+[gvm] 1381327134.033252 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033255 intercepting cudaSetupArgument
+[gvm] 1381327134.033256 intercepted cudaSetupArgument( 8 0 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.033258 intercepting cudaSetupArgument
+[gvm] 1381327134.033259 intercepted cudaSetupArgument( 4 20 0 0 0 ) = 0
+[gvm] 1381327134.033260 intercepting cudaSetupArgument
+[gvm] 1381327134.033261 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.033262 intercepting cudaSetupArgument
+[gvm] 1381327134.033263 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.033265 intercepting cudaLaunch
+[gvm] 1381327134.033271 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033280 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033281 intercepted cudaLaunch
+[gvm] 1381327134.033282 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033284 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033285 intercepting cudaMemcpy
+[gvm] 1381327134.033292 intercepted cudaMemcpy( 500480e00 500480a00 128 3 ) = 0
+[gvm] 1381327134.033294 intercepting cudaConfigureCall
+[gvm] 1381327134.033295 intercepted cudaConfigureCall
+[gvm] 1381327134.033296 intercepting cudaSetupArgument
+[gvm] 1381327134.033297 intercepted cudaSetupArgument( 8 0 6 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033299 intercepting cudaSetupArgument
+[gvm] 1381327134.033300 intercepted cudaSetupArgument( 8 1f 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.033302 intercepting cudaSetupArgument
+[gvm] 1381327134.033303 intercepted cudaSetupArgument( 8 0 e 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033305 intercepting cudaSetupArgument
+[gvm] 1381327134.033306 intercepted cudaSetupArgument( 8 0 c 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033307 intercepting cudaSetupArgument
+[gvm] 1381327134.033308 intercepted cudaSetupArgument( 4 20 0 0 0 ) = 0
+[gvm] 1381327134.033310 intercepting cudaLaunch
+[gvm] 1381327134.033314 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033321 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033322 intercepted cudaLaunch
+[gvm] 1381327134.033323 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033324 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033326 intercepting cudaFree
+[gvm] 1381327134.033333 intercepted cudaFree( 500480e00 ) = 0
+[gvm] 1381327134.033334 intercepting cudaMalloc at 7fff50c4b988
+[gvm] 1381327134.033344 intercepted cudaMalloc( 5008aa200 16384 ) = 0
+[gvm] 1381327134.033345 intercepting cudaMalloc at 7fff50c4b978
+[gvm] 1381327134.033350 intercepted cudaMalloc( 5008ae200 16384 ) = 0
+[gvm] 1381327134.033352 intercepting cudaMalloc at 7fff50c4b940
+[gvm] 1381327134.033357 intercepted cudaMalloc( 5008b2200 15632 ) = 0
+[gvm] 1381327134.033362 intercepting cudaConfigureCall
+[gvm] 1381327134.033364 intercepted cudaConfigureCall
+[gvm] 1381327134.033365 intercepting cudaSetupArgument
+[gvm] 1381327134.033366 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033368 intercepting cudaSetupArgument
+[gvm] 1381327134.033369 intercepted cudaSetupArgument( 8 0 a 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033371 intercepting cudaSetupArgument
+[gvm] 1381327134.033372 intercepted cudaSetupArgument( 8 0 c 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033374 intercepting cudaSetupArgument
+[gvm] 1381327134.033375 intercepted cudaSetupArgument( 8 0 64 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033376 intercepting cudaSetupArgument
+[gvm] 1381327134.033377 intercepted cudaSetupArgument( 8 44 f 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.033379 intercepting cudaSetupArgument
+[gvm] 1381327134.033380 intercepted cudaSetupArgument( 8 0 a2 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033382 intercepting cudaSetupArgument
+[gvm] 1381327134.033383 intercepted cudaSetupArgument( 8 0 22 8b 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033385 intercepting cudaSetupArgument
+[gvm] 1381327134.033386 intercepted cudaSetupArgument( 4 20 0 0 0 ) = 0
+[gvm] 1381327134.033387 intercepting cudaLaunch
+[gvm] 1381327134.033391 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033399 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033400 intercepted cudaLaunch
+[gvm] 1381327134.033401 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033410 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033412 intercepting cudaMemcpy
+[gvm] 1381327134.033424 intercepted cudaMemcpy( 7fff50c4b93c 5008ae1fc 4 2 ) = 0
+[gvm] 1381327134.033426 intercepting cudaMalloc at 9b6330
+[gvm] 1381327134.033436 intercepted cudaMalloc( 500480e00 32 ) = 0
+[gvm] 1381327134.033438 intercepting cudaConfigureCall
+[gvm] 1381327134.033439 intercepted cudaConfigureCall
+[gvm] 1381327134.033440 intercepting cudaSetupArgument
+[gvm] 1381327134.033441 intercepted cudaSetupArgument( 8 0 e2 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033444 intercepting cudaSetupArgument
+[gvm] 1381327134.033445 intercepted cudaSetupArgument( 8 0 a2 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033446 intercepting cudaSetupArgument
+[gvm] 1381327134.033447 intercepted cudaSetupArgument( 8 0 e 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033449 intercepting cudaSetupArgument
+[gvm] 1381327134.033450 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327134.033452 intercepting cudaSetupArgument
+[gvm] 1381327134.033453 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.033454 intercepting cudaSetupArgument
+[gvm] 1381327134.033455 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.033457 intercepting cudaLaunch
+[gvm] 1381327134.033462 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033475 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033476 intercepted cudaLaunch
+[gvm] 1381327134.033477 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033479 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033480 intercepting cudaConfigureCall
+[gvm] 1381327134.033481 intercepted cudaConfigureCall
+[gvm] 1381327134.033482 intercepting cudaSetupArgument
+[gvm] 1381327134.033483 intercepted cudaSetupArgument( 8 0 e 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033485 intercepting cudaSetupArgument
+[gvm] 1381327134.033486 intercepted cudaSetupArgument( 8 0 e 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033488 intercepting cudaSetupArgument
+[gvm] 1381327134.033489 intercepted cudaSetupArgument( 8 0 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.033491 intercepting cudaSetupArgument
+[gvm] 1381327134.033492 intercepted cudaSetupArgument( 4 8 0 0 0 ) = 0
+[gvm] 1381327134.033493 intercepting cudaSetupArgument
+[gvm] 1381327134.033494 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.033496 intercepting cudaSetupArgument
+[gvm] 1381327134.033497 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.033498 intercepting cudaLaunch
+[gvm] 1381327134.033502 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033510 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033512 intercepted cudaLaunch
+[gvm] 1381327134.033512 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033514 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033515 intercepting cudaConfigureCall
+[gvm] 1381327134.033516 intercepted cudaConfigureCall
+[gvm] 1381327134.033517 intercepting cudaSetupArgument
+[gvm] 1381327134.033518 intercepted cudaSetupArgument( 8 0 e2 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033520 intercepting cudaSetupArgument
+[gvm] 1381327134.033521 intercepted cudaSetupArgument( 8 0 e 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033523 intercepting cudaSetupArgument
+[gvm] 1381327134.033524 intercepted cudaSetupArgument( 4 0 e 0 0 ) = 0
+[gvm] 1381327134.033526 intercepting cudaSetupArgument
+[gvm] 1381327134.033527 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.033528 intercepting cudaSetupArgument
+[gvm] 1381327134.033529 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.033531 intercepting cudaLaunch
+[gvm] 1381327134.033535 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033541 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033543 intercepted cudaLaunch
+[gvm] 1381327134.033544 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033545 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033546 intercepting cudaFree
+[gvm] 1381327134.033553 intercepted cudaFree( 500480e00 ) = 0
+[gvm] 1381327134.033554 intercepting cudaMemcpy
+[gvm] 1381327134.033565 intercepted cudaMemcpy( 7fff50c4b938 5008b21fc 4 2 ) = 0
+[INFO]Number of join results: 55
+[gvm] 1381327134.033574 intercepting cudaFree
+[gvm] 1381327134.033582 intercepted cudaFree( 500480c00 ) = 0
+[gvm] 1381327134.033583 intercepting cudaMalloc at 7fff50c4b9a8
+[gvm] 1381327134.033592 intercepted cudaMalloc( 500480c00 550 ) = 0
+[gvm] 1381327134.033593 intercepting cudaConfigureCall
+[gvm] 1381327134.033594 intercepted cudaConfigureCall
+[gvm] 1381327134.033596 intercepting cudaSetupArgument
+[gvm] 1381327134.033597 intercepted cudaSetupArgument( 8 0 e2 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033599 intercepting cudaSetupArgument
+[gvm] 1381327134.033600 intercepted cudaSetupArgument( 8 0 5e 38 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033601 intercepting cudaSetupArgument
+[gvm] 1381327134.033602 intercepted cudaSetupArgument( 4 a 0 0 0 ) = 0
+[gvm] 1381327134.033604 intercepting cudaSetupArgument
+[gvm] 1381327134.033605 intercepted cudaSetupArgument( 8 44 f 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.033607 intercepting cudaSetupArgument
+[gvm] 1381327134.033608 intercepted cudaSetupArgument( 8 0 22 8b 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033610 intercepting cudaSetupArgument
+[gvm] 1381327134.033611 intercepted cudaSetupArgument( 8 0 c 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033612 intercepting cudaLaunch
+[gvm] 1381327134.033618 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033627 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033629 intercepted cudaLaunch
+[gvm] 1381327134.033630 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033631 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033632 intercepting cudaMalloc at 7fff50c4b9a8
+[gvm] 1381327134.033640 intercepted cudaMalloc( 500481000 550 ) = 0
+[gvm] 1381327134.033642 intercepting cudaConfigureCall
+[gvm] 1381327134.033643 intercepted cudaConfigureCall
+[gvm] 1381327134.033644 intercepting cudaSetupArgument
+[gvm] 1381327134.033645 intercepted cudaSetupArgument( 8 0 e2 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033647 intercepting cudaSetupArgument
+[gvm] 1381327134.033648 intercepted cudaSetupArgument( 8 0 f8 38 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033650 intercepting cudaSetupArgument
+[gvm] 1381327134.033651 intercepted cudaSetupArgument( 4 a 0 0 0 ) = 0
+[gvm] 1381327134.033652 intercepting cudaSetupArgument
+[gvm] 1381327134.033653 intercepted cudaSetupArgument( 8 44 f 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.033655 intercepting cudaSetupArgument
+[gvm] 1381327134.033656 intercepted cudaSetupArgument( 8 0 22 8b 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033658 intercepting cudaSetupArgument
+[gvm] 1381327134.033659 intercepted cudaSetupArgument( 8 0 10 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033661 intercepting cudaLaunch
+[gvm] 1381327134.033665 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033674 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033675 intercepted cudaLaunch
+[gvm] 1381327134.033676 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033677 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033679 intercepting cudaMalloc at 7fff50c4b9a8
+[gvm] 1381327134.033688 intercepted cudaMalloc( 500481400 220 ) = 0
+[gvm] 1381327134.033689 intercepting cudaConfigureCall
+[gvm] 1381327134.033690 intercepted cudaConfigureCall
+[gvm] 1381327134.033691 intercepting cudaSetupArgument
+[gvm] 1381327134.033692 intercepted cudaSetupArgument( 8 0 e2 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033694 intercepting cudaSetupArgument
+[gvm] 1381327134.033695 intercepted cudaSetupArgument( 8 0 4 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033697 intercepting cudaSetupArgument
+[gvm] 1381327134.033698 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327134.033700 intercepting cudaSetupArgument
+[gvm] 1381327134.033701 intercepted cudaSetupArgument( 8 44 f 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.033703 intercepting cudaSetupArgument
+[gvm] 1381327134.033704 intercepted cudaSetupArgument( 8 0 22 8b 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033705 intercepting cudaSetupArgument
+[gvm] 1381327134.033706 intercepted cudaSetupArgument( 8 0 14 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033708 intercepting cudaLaunch
+[gvm] 1381327134.033713 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033720 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033727 intercepted cudaLaunch
+[gvm] 1381327134.033728 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033730 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033732 intercepting cudaMalloc at 7fff50c4b9a8
+[gvm] 1381327134.033741 intercepted cudaMalloc( 500481600 220 ) = 0
+[gvm] 1381327134.033742 intercepting cudaConfigureCall
+[gvm] 1381327134.033743 intercepted cudaConfigureCall
+[gvm] 1381327134.033745 intercepting cudaSetupArgument
+[gvm] 1381327134.033746 intercepted cudaSetupArgument( 8 0 e2 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033748 intercepting cudaSetupArgument
+[gvm] 1381327134.033748 intercepted cudaSetupArgument( 8 0 26 8a 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033750 intercepting cudaSetupArgument
+[gvm] 1381327134.033751 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327134.033753 intercepting cudaSetupArgument
+[gvm] 1381327134.033760 intercepted cudaSetupArgument( 8 44 f 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.033762 intercepting cudaSetupArgument
+[gvm] 1381327134.033763 intercepted cudaSetupArgument( 8 0 22 8b 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033765 intercepting cudaSetupArgument
+[gvm] 1381327134.033765 intercepted cudaSetupArgument( 8 0 16 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.033767 intercepting cudaLaunch
+[gvm] 1381327134.033773 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033781 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033782 intercepted cudaLaunch
+[gvm] 1381327134.033783 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033784 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033786 intercepting cudaFree
+[gvm] 1381327134.033792 intercepted cudaFree( 5008b2200 ) = 0
+[gvm] 1381327134.033793 intercepting cudaThreadSynchronize
+[gvm] 1381327134.033795 intercepted cudaThreadSynchronize
+[gvm] 1381327134.033796 intercepting cudaFree
+[gvm] 1381327134.033801 intercepted cudaFree( 5008aa200 ) = 0
+[gvm] 1381327134.033802 intercepting cudaFree
+[gvm] 1381327134.033808 intercepted cudaFree( 500480800 ) = 0
+[gvm] 1381327134.033810 intercepting cudaFree
+[gvm] 1381327134.033815 intercepted cudaFree( 500480a00 ) = 0
+[gvm] 1381327134.033817 intercepting cudaFree
+[gvm] 1381327134.033822 intercepted cudaFree( 5008ae200 ) = 0
+HashJoin Time: 0.664471
+[gvm] 1381327134.033825 intercepting cudaFree
+[gvm] 1381327134.033884 intercepted cudaFree( 5011a0000 ) = 0
+[gvm] 1381327134.033887 intercepting cudaFree
+[gvm] 1381327134.033940 intercepted cudaFree( 500580000 ) = 0
+[gvm] 1381327134.033942 intercepting cudaFree
+[gvm] 1381327134.033994 intercepted cudaFree( 501620000 ) = 0
+[gvm] 1381327134.033997 intercepting cudaFree
+[gvm] 1381327134.034048 intercepted cudaFree( 501800000 ) = 0
+[gvm] 1381327134.034050 intercepting cudaFree
+[gvm] 1381327134.034058 intercepted cudaFree( 500385e00 ) = 0
+[gvm] 1381327134.034060 intercepting cudaFree
+[gvm] 1381327134.034065 intercepted cudaFree( 50038f800 ) = 0
+[gvm] 1381327134.034067 intercepting cudaFree
+[gvm] 1381327134.034073 intercepted cudaFree( 5008a2600 ) = 0
+[gvm] 1381327134.034074 intercepting cudaFree
+[gvm] 1381327134.034080 intercepted cudaFree( 5008a6400 ) = 0
+[gvm] 1381327134.034093 intercepting cudaMalloc at 7fff50c4ba78
+[gvm] 1381327134.034103 intercepted cudaMalloc( 500480800 32 ) = 0
+[gvm] 1381327134.034106 intercepting cudaMemcpy
+[gvm] 1381327134.034114 intercepted cudaMemcpy( 500480800 a091f0 8 1 ) = 0
+[gvm] 1381327134.034116 intercepting cudaMemcpy
+[gvm] 1381327134.034120 intercepted cudaMemcpy( 500480808 a091f8 8 1 ) = 0
+[gvm] 1381327134.034122 intercepting cudaMemcpy
+[gvm] 1381327134.034125 intercepted cudaMemcpy( 500480810 a09200 8 1 ) = 0
+[gvm] 1381327134.034127 intercepting cudaMemcpy
+[gvm] 1381327134.034131 intercepted cudaMemcpy( 500480818 a09208 8 1 ) = 0
+[gvm] 1381327134.034132 intercepting cudaMalloc at 7fff50c4ba90
+[gvm] 1381327134.034140 intercepted cudaMalloc( 500480a00 12 ) = 0
+[gvm] 1381327134.034141 intercepting cudaMemcpy
+[gvm] 1381327134.034145 intercepted cudaMemcpy( 500480a00 9b11b0 12 1 ) = 0
+[gvm] 1381327134.034147 intercepting cudaMalloc at 7fff50c4ba88
+[gvm] 1381327134.034155 intercepted cudaMalloc( 500481800 12 ) = 0
+[gvm] 1381327134.034166 intercepting cudaMemcpy
+[gvm] 1381327134.034172 intercepted cudaMemcpy( 500481800 9c1370 12 1 ) = 0
+[gvm] 1381327134.034174 intercepting cudaMalloc at 7fff50c4ba80
+[gvm] 1381327134.034183 intercepted cudaMalloc( 500481a00 220 ) = 0
+[gvm] 1381327134.034184 intercepting cudaMalloc at 7fff50c4ba98
+[gvm] 1381327134.034191 intercepted cudaMalloc( 500481c00 12 ) = 0
+[gvm] 1381327134.034192 intercepting cudaMemcpy
+[gvm] 1381327134.034197 intercepted cudaMemcpy( 500481c00 9b1190 12 1 ) = 0
+[gvm] 1381327134.034198 intercepting cudaMalloc at 7fff50c4ba48
+[gvm] 1381327134.034283 intercepted cudaMalloc( 500100000 524288 ) = 0
+[gvm] 1381327134.034292 intercepting cudaConfigureCall
+[gvm] 1381327134.034294 intercepted cudaConfigureCall
+[gvm] 1381327134.034297 intercepting cudaSetupArgument
+[gvm] 1381327134.034298 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.034300 intercepting cudaSetupArgument
+[gvm] 1381327134.034301 intercepted cudaSetupArgument( 4 3 0 0 0 ) = 0
+[gvm] 1381327134.034303 intercepting cudaSetupArgument
+[gvm] 1381327134.034304 intercepted cudaSetupArgument( 8 0 1c 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.034306 intercepting cudaSetupArgument
+[gvm] 1381327134.034307 intercepted cudaSetupArgument( 8 0 a 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.034308 intercepting cudaSetupArgument
+[gvm] 1381327134.034309 intercepted cudaSetupArgument( 8 0 18 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.034311 intercepting cudaSetupArgument
+[gvm] 1381327134.034312 intercepted cudaSetupArgument( 8 37 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.034314 intercepting cudaSetupArgument
+[gvm] 1381327134.034315 intercepted cudaSetupArgument( 8 0 1a 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.034317 intercepting cudaSetupArgument
+[gvm] 1381327134.034318 intercepted cudaSetupArgument( 8 0 0 10 0 5 0 0 0 ) = 0
+[gvm] 1381327134.034320 intercepting cudaLaunch
+[gvm] 1381327134.034325 intercepting cudaThreadSynchronize
+[gvm] 1381327134.034369 intercepted cudaThreadSynchronize
+[gvm] 1381327134.034370 intercepted cudaLaunch
+[gvm] 1381327134.034371 intercepting cudaThreadSynchronize
+[gvm] 1381327134.034373 intercepted cudaThreadSynchronize
+[gvm] 1381327134.034378 intercepting cudaFree
+[gvm] 1381327134.034386 intercepted cudaFree( 500480a00 ) = 0
+[gvm] 1381327134.034388 intercepting cudaFree
+[gvm] 1381327134.034394 intercepted cudaFree( 500481800 ) = 0
+[gvm] 1381327134.034395 intercepting cudaFree
+[gvm] 1381327134.034401 intercepted cudaFree( 500481c00 ) = 0
+[gvm] 1381327134.034402 intercepting cudaMalloc at 7fff50c4ba38
+[gvm] 1381327134.034411 intercepted cudaMalloc( 500480a00 4 ) = 0
+[gvm] 1381327134.034416 intercepting cudaConfigureCall
+[gvm] 1381327134.034418 intercepted cudaConfigureCall
+[gvm] 1381327134.034419 intercepting cudaSetupArgument
+[gvm] 1381327134.034420 intercepted cudaSetupArgument( 8 0 0 10 0 5 0 0 0 ) = 0
+[gvm] 1381327134.034422 intercepting cudaSetupArgument
+[gvm] 1381327134.034423 intercepted cudaSetupArgument( 4 0 0 2 0 ) = 0
+[gvm] 1381327134.034425 intercepting cudaSetupArgument
+[gvm] 1381327134.034426 intercepted cudaSetupArgument( 8 0 a 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.034427 intercepting cudaLaunch
+[gvm] 1381327134.034432 intercepting cudaThreadSynchronize
+[gvm] 1381327134.034704 intercepted cudaThreadSynchronize
+[gvm] 1381327134.034705 intercepted cudaLaunch
+[gvm] 1381327134.034706 intercepting cudaThreadSynchronize
+[gvm] 1381327134.034707 intercepted cudaThreadSynchronize
+[gvm] 1381327134.034709 intercepting cudaMemcpy
+[gvm] 1381327134.034721 intercepted cudaMemcpy( 7fff50c4ba74 500480a00 4 2 ) = 0
+[gvm] 1381327134.034723 intercepting cudaMalloc at 7fff50c4ba40
+[gvm] 1381327134.034726 intercepted cudaMalloc( 500180000 524288 ) = 0
+[gvm] 1381327134.034728 intercepting cudaThreadSynchronize
+[gvm] 1381327134.034730 intercepted cudaThreadSynchronize
+[gvm] 1381327134.034732 intercepting cudaMalloc at a0bd50
+[gvm] 1381327134.034739 intercepted cudaMalloc( 500481c00 1024 ) = 0
+[gvm] 1381327134.034741 intercepting cudaConfigureCall
+[gvm] 1381327134.034742 intercepted cudaConfigureCall
+[gvm] 1381327134.034743 intercepting cudaSetupArgument
+[gvm] 1381327134.034932 intercepted cudaSetupArgument( 8 0 0 18 0 5 0 0 0 ) = 0
+[gvm] 1381327134.034935 intercepting cudaSetupArgument
+[gvm] 1381327134.034936 intercepted cudaSetupArgument( 8 0 0 10 0 5 0 0 0 ) = 0
+[gvm] 1381327134.034938 intercepting cudaSetupArgument
+[gvm] 1381327134.034939 intercepted cudaSetupArgument( 8 0 1c 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.034941 intercepting cudaSetupArgument
+[gvm] 1381327134.034942 intercepted cudaSetupArgument( 4 0 2 0 0 ) = 0
+[gvm] 1381327134.034944 intercepting cudaSetupArgument
+[gvm] 1381327134.034945 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.034947 intercepting cudaSetupArgument
+[gvm] 1381327134.034948 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.034950 intercepting cudaLaunch
+[gvm] 1381327134.034960 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035011 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035013 intercepted cudaLaunch
+[gvm] 1381327134.035014 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035016 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035017 intercepting cudaConfigureCall
+[gvm] 1381327134.035018 intercepted cudaConfigureCall
+[gvm] 1381327134.035019 intercepting cudaSetupArgument
+[gvm] 1381327134.035020 intercepted cudaSetupArgument( 8 0 1c 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035022 intercepting cudaSetupArgument
+[gvm] 1381327134.035023 intercepted cudaSetupArgument( 8 0 1c 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035025 intercepting cudaSetupArgument
+[gvm] 1381327134.035026 intercepted cudaSetupArgument( 8 0 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.035028 intercepting cudaSetupArgument
+[gvm] 1381327134.035028 intercepted cudaSetupArgument( 4 0 1 0 0 ) = 0
+[gvm] 1381327134.035030 intercepting cudaSetupArgument
+[gvm] 1381327134.035031 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.035032 intercepting cudaSetupArgument
+[gvm] 1381327134.035033 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.035035 intercepting cudaLaunch
+[gvm] 1381327134.035039 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035052 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035053 intercepted cudaLaunch
+[gvm] 1381327134.035054 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035055 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035056 intercepting cudaConfigureCall
+[gvm] 1381327134.035057 intercepted cudaConfigureCall
+[gvm] 1381327134.035059 intercepting cudaSetupArgument
+[gvm] 1381327134.035060 intercepted cudaSetupArgument( 8 0 0 18 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035061 intercepting cudaSetupArgument
+[gvm] 1381327134.035062 intercepted cudaSetupArgument( 8 0 1c 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035064 intercepting cudaSetupArgument
+[gvm] 1381327134.035065 intercepted cudaSetupArgument( 4 0 fe 1 0 ) = 0
+[gvm] 1381327134.035067 intercepting cudaSetupArgument
+[gvm] 1381327134.035068 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.035069 intercepting cudaSetupArgument
+[gvm] 1381327134.035070 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.035071 intercepting cudaLaunch
+[gvm] 1381327134.035076 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035087 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035089 intercepted cudaLaunch
+[gvm] 1381327134.035089 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035091 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035092 intercepting cudaFree
+[gvm] 1381327134.035100 intercepted cudaFree( 500481c00 ) = 0
+[gvm] 1381327134.035102 intercepting cudaFree
+[gvm] 1381327134.035108 intercepted cudaFree( 500480a00 ) = 0
+[gvm] 1381327134.035109 intercepting cudaFree
+[gvm] 1381327134.035114 intercepted cudaFree( 500100000 ) = 0
+[INFO]Number of groupBy results: 4
+[gvm] 1381327134.035116 intercepting cudaMalloc at 7fff50c4ba30
+[gvm] 1381327134.035125 intercepted cudaMalloc( 500480a00 32 ) = 0
+[gvm] 1381327134.035126 intercepting cudaMalloc at a0bd50
+[gvm] 1381327134.035133 intercepted cudaMalloc( 500481800 40 ) = 0
+[gvm] 1381327134.035139 intercepting cudaMemcpy
+[gvm] 1381327134.035146 intercepted cudaMemcpy( 500480a00 a0bd50 8 1 ) = 0
+[gvm] 1381327134.035157 intercepting cudaMalloc at a0bd58
+[gvm] 1381327134.035166 intercepted cudaMalloc( 500481c00 40 ) = 0
+[gvm] 1381327134.035172 intercepting cudaMemcpy
+[gvm] 1381327134.035179 intercepted cudaMemcpy( 500480a08 a0bd58 8 1 ) = 0
+[gvm] 1381327134.035181 intercepting cudaMalloc at a0bd60
+[gvm] 1381327134.035189 intercepted cudaMalloc( 500481e00 16 ) = 0
+[gvm] 1381327134.035193 intercepting cudaMemcpy
+[gvm] 1381327134.035200 intercepted cudaMemcpy( 500480a10 a0bd60 8 1 ) = 0
+[gvm] 1381327134.035202 intercepting cudaMalloc at a0bd68
+[gvm] 1381327134.035209 intercepted cudaMalloc( 500482000 16 ) = 0
+[gvm] 1381327134.035214 intercepting cudaMemcpy
+[gvm] 1381327134.035220 intercepted cudaMemcpy( 500480a18 a0bd68 8 1 ) = 0
+[gvm] 1381327134.035222 intercepting cudaMalloc at 7fff50c4ba90
+[gvm] 1381327134.035230 intercepted cudaMalloc( 500482200 16 ) = 0
+[gvm] 1381327134.035231 intercepting cudaMemcpy
+[gvm] 1381327134.035235 intercepted cudaMemcpy( 500482200 9dc190 16 1 ) = 0
+[gvm] 1381327134.035237 intercepting cudaMalloc at 7fff50c4ba88
+[gvm] 1381327134.035244 intercepted cudaMalloc( 500482400 16 ) = 0
+[gvm] 1381327134.035246 intercepting cudaMemcpy
+[gvm] 1381327134.035250 intercepted cudaMemcpy( 500482400 9fd890 16 1 ) = 0
+[gvm] 1381327134.035251 intercepting cudaMalloc at 7fff50c4ba28
+[gvm] 1381327134.035259 intercepted cudaMalloc( 500482600 128 ) = 0
+[gvm] 1381327134.035260 intercepting cudaMemcpy
+[gvm] 1381327134.035265 intercepted cudaMemcpy( 500482600 98a6f0 128 1 ) = 0
+[gvm] 1381327134.035266 intercepting cudaConfigureCall
+[gvm] 1381327134.035268 intercepted cudaConfigureCall
+[gvm] 1381327134.035269 intercepting cudaSetupArgument
+[gvm] 1381327134.035270 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035272 intercepting cudaSetupArgument
+[gvm] 1381327134.035273 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327134.035275 intercepting cudaSetupArgument
+[gvm] 1381327134.035276 intercepted cudaSetupArgument( 8 0 26 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035277 intercepting cudaSetupArgument
+[gvm] 1381327134.035278 intercepted cudaSetupArgument( 8 0 22 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035280 intercepting cudaSetupArgument
+[gvm] 1381327134.035281 intercepted cudaSetupArgument( 8 0 24 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035283 intercepting cudaSetupArgument
+[gvm] 1381327134.035284 intercepted cudaSetupArgument( 8 37 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.035286 intercepting cudaSetupArgument
+[gvm] 1381327134.035287 intercepted cudaSetupArgument( 8 0 1a 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035289 intercepting cudaSetupArgument
+[gvm] 1381327134.035290 intercepted cudaSetupArgument( 8 0 0 18 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035291 intercepting cudaSetupArgument
+[gvm] 1381327134.035292 intercepted cudaSetupArgument( 8 0 a 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035294 intercepting cudaLaunch
+[gvm] 1381327134.035299 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035315 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035316 intercepted cudaLaunch
+[gvm] 1381327134.035317 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035319 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035320 intercepting cudaFree
+[gvm] 1381327134.035326 intercepted cudaFree( 500481a00 ) = 0
+[gvm] 1381327134.035328 intercepting cudaFree
+[gvm] 1381327134.035386 intercepted cudaFree( 500180000 ) = 0
+[gvm] 1381327134.035389 intercepting cudaFree
+[gvm] 1381327134.035397 intercepted cudaFree( 500480800 ) = 0
+[gvm] 1381327134.035399 intercepting cudaFree
+[gvm] 1381327134.035405 intercepted cudaFree( 500482600 ) = 0
+[gvm] 1381327134.035406 intercepting cudaFree
+[gvm] 1381327134.035412 intercepted cudaFree( 500480a00 ) = 0
+GroupBy Time: 1.321901
+[gvm] 1381327134.035415 intercepting cudaFree
+[gvm] 1381327134.035421 intercepted cudaFree( 500480c00 ) = 0
+[gvm] 1381327134.035422 intercepting cudaFree
+[gvm] 1381327134.035428 intercepted cudaFree( 500481000 ) = 0
+[gvm] 1381327134.035429 intercepting cudaFree
+[gvm] 1381327134.035435 intercepted cudaFree( 500481400 ) = 0
+[gvm] 1381327134.035445 intercepting cudaFree
+[gvm] 1381327134.035452 intercepted cudaFree( 500481600 ) = 0
+[gvm] 1381327134.035462 intercepting cudaMalloc at 7fff50c4b820
+[gvm] 1381327134.035472 intercepted cudaMalloc( 500481a00 32 ) = 0
+[gvm] 1381327134.035474 intercepting cudaMemcpy
+[gvm] 1381327134.035480 intercepted cudaMemcpy( 500481a00 9f8110 8 1 ) = 0
+[gvm] 1381327134.035482 intercepting cudaMemcpy
+[gvm] 1381327134.035486 intercepted cudaMemcpy( 500481a08 9f8118 8 1 ) = 0
+[gvm] 1381327134.035488 intercepting cudaMemcpy
+[gvm] 1381327134.035492 intercepted cudaMemcpy( 500481a10 9f8120 8 1 ) = 0
+[gvm] 1381327134.035494 intercepting cudaMemcpy
+[gvm] 1381327134.035497 intercepted cudaMemcpy( 500481a18 9f8128 8 1 ) = 0
+[gvm] 1381327134.035499 intercepting cudaMalloc at 7fff50c4b808
+[gvm] 1381327134.035506 intercepted cudaMalloc( 500480800 16 ) = 0
+[gvm] 1381327134.035508 intercepting cudaMalloc at 7fff50c4b810
+[gvm] 1381327134.035514 intercepted cudaMalloc( 500480a00 16 ) = 0
+[gvm] 1381327134.035516 intercepting cudaMemcpy
+[gvm] 1381327134.035520 intercepted cudaMemcpy( 500480a00 9fd850 16 1 ) = 0
+[gvm] 1381327134.035522 intercepting cudaMalloc at 7fff50c4b800
+[gvm] 1381327134.035529 intercepted cudaMalloc( 500480c00 32 ) = 0
+[gvm] 1381327134.035530 intercepting cudaMalloc at a0bd00
+[gvm] 1381327134.035537 intercepted cudaMalloc( 500480e00 40 ) = 0
+[gvm] 1381327134.035538 intercepting cudaMemcpy
+[gvm] 1381327134.035542 intercepted cudaMemcpy( 500480c00 a0bd00 8 1 ) = 0
+[gvm] 1381327134.035544 intercepting cudaMalloc at a0bd08
+[gvm] 1381327134.035551 intercepted cudaMalloc( 500481000 40 ) = 0
+[gvm] 1381327134.035552 intercepting cudaMemcpy
+[gvm] 1381327134.035557 intercepted cudaMemcpy( 500480c08 a0bd08 8 1 ) = 0
+[gvm] 1381327134.035558 intercepting cudaMalloc at a0bd10
+[gvm] 1381327134.035565 intercepted cudaMalloc( 500481200 16 ) = 0
+[gvm] 1381327134.035567 intercepting cudaMemcpy
+[gvm] 1381327134.035571 intercepted cudaMemcpy( 500480c10 a0bd10 8 1 ) = 0
+[gvm] 1381327134.035572 intercepting cudaMalloc at a0bd18
+[gvm] 1381327134.035580 intercepted cudaMalloc( 500481400 16 ) = 0
+[gvm] 1381327134.035581 intercepting cudaMemcpy
+[gvm] 1381327134.035585 intercepted cudaMemcpy( 500480c18 a0bd18 8 1 ) = 0
+[gvm] 1381327134.035588 intercepting cudaMalloc at 7fff50c4b828
+[gvm] 1381327134.035596 intercepted cudaMalloc( 500481600 16 ) = 0
+[gvm] 1381327134.035597 intercepting cudaMalloc at 7fff50c4b818
+[gvm] 1381327134.035604 intercepted cudaMalloc( 500482600 16 ) = 0
+[gvm] 1381327134.035606 intercepting cudaConfigureCall
+[gvm] 1381327134.035607 intercepted cudaConfigureCall
+[gvm] 1381327134.035609 intercepting cudaSetupArgument
+[gvm] 1381327134.035611 intercepted cudaSetupArgument( 8 0 16 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035613 intercepting cudaSetupArgument
+[gvm] 1381327134.035614 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327134.035615 intercepting cudaLaunch
+[gvm] 1381327134.035622 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035628 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035630 intercepted cudaLaunch
+[gvm] 1381327134.035631 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035632 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035633 intercepting cudaMemcpy
+[gvm] 1381327134.035639 intercepted cudaMemcpy( 500481600 500481e00 16 3 ) = 0
+[gvm] 1381327134.035641 intercepting cudaConfigureCall
+[gvm] 1381327134.035642 intercepted cudaConfigureCall
+[gvm] 1381327134.035644 intercepting cudaSetupArgument
+[gvm] 1381327134.035645 intercepted cudaSetupArgument( 8 0 16 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035646 intercepting cudaSetupArgument
+[gvm] 1381327134.035647 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327134.035649 intercepting cudaSetupArgument
+[gvm] 1381327134.035650 intercepted cudaSetupArgument( 8 0 26 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035652 intercepting cudaSetupArgument
+[gvm] 1381327134.035653 intercepted cudaSetupArgument( 8 0 8 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035655 intercepting cudaSetupArgument
+[gvm] 1381327134.035656 intercepted cudaSetupArgument( 4 1 0 0 0 ) = 0
+[gvm] 1381327134.035665 intercepting cudaLaunch
+[gvm] 1381327134.035671 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035678 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035679 intercepted cudaLaunch
+[gvm] 1381327134.035680 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035682 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035683 intercepting cudaMalloc at 7fff50c4b7f8
+[gvm] 1381327134.035692 intercepted cudaMalloc( 500482800 4 ) = 0
+[gvm] 1381327134.035694 intercepting cudaConfigureCall
+[gvm] 1381327134.035695 intercepted cudaConfigureCall
+[gvm] 1381327134.035696 intercepting cudaSetupArgument
+[gvm] 1381327134.035697 intercepted cudaSetupArgument( 8 0 26 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035699 intercepting cudaSetupArgument
+[gvm] 1381327134.035700 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327134.035702 intercepting cudaSetupArgument
+[gvm] 1381327134.035703 intercepted cudaSetupArgument( 8 0 28 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035705 intercepting cudaLaunch
+[gvm] 1381327134.035709 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035716 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035717 intercepted cudaLaunch
+[gvm] 1381327134.035718 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035720 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035721 intercepting cudaMemcpy
+[gvm] 1381327134.035732 intercepted cudaMemcpy( 7fff50c4b7e4 500482800 4 2 ) = 0
+[gvm] 1381327134.035734 intercepting cudaMalloc at 7fff50c4b7f0
+[gvm] 1381327134.035736 intercepted cudaMalloc( 0 0 ) = 0
+[gvm] 1381327134.035737 intercepting cudaMalloc at 7fff50c4b7e8
+[gvm] 1381327134.035738 intercepted cudaMalloc( 0 0 ) = 0
+[gvm] 1381327134.035739 intercepting cudaConfigureCall
+[gvm] 1381327134.035741 intercepted cudaConfigureCall
+[gvm] 1381327134.035742 intercepting cudaSetupArgument
+[gvm] 1381327134.035743 intercepted cudaSetupArgument( 8 0 16 48 0 5 0 0 0 ) = 0
+[gvm] 1381327134.035745 intercepting cudaSetupArgument
+[gvm] 1381327134.035746 intercepted cudaSetupArgument( 4 4 0 0 0 ) = 0
+[gvm] 1381327134.035747 intercepting cudaSetupArgument
+[gvm] 1381327134.035748 intercepted cudaSetupArgument( 8 0 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.035750 intercepting cudaLaunch
+[gvm] 1381327134.035761 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035958 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035960 intercepted cudaLaunch
+[gvm] 1381327134.035961 intercepting cudaThreadSynchronize
+[gvm] 1381327134.035967 intercepted cudaThreadSynchronize
+[gvm] 1381327134.035970 intercepting cudaConfigureCall
+[gvm] 1381327134.035971 intercepted cudaConfigureCall
+[gvm] 1381327134.035974 intercepting cudaSetupArgument
+[gvm] 1381327134.035976 intercepted cudaSetupArgument( 8 0 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.035978 intercepting cudaSetupArgument
+[gvm] 1381327134.035979 intercepted cudaSetupArgument( 8 0 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.035981 intercepting cudaSetupArgument
+[gvm] 1381327134.035983 intercepted cudaSetupArgument( 8 0 0 0 0 0 0 0 0 ) = 0
+[gvm] 1381327134.035985 intercepting cudaSetupArgument
+[gvm] 1381327134.035986 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.035988 intercepting cudaSetupArgument
+[gvm] 1381327134.035989 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.035991 intercepting cudaSetupArgument
+[gvm] 1381327134.035992 intercepted cudaSetupArgument( 4 0 0 0 0 ) = 0
+[gvm] 1381327134.035994 intercepting cudaLaunch
+[gvm] 1381327134.036007 intercepting cudaThreadSynchronize
+[gvm] 1381327134.036012 intercepted cudaThreadSynchronize
+[gvm] 1381327134.036014 intercepted cudaLaunch
+[gvm] 1381327134.036015 intercepting cudaThreadSynchronize
+[gvm] 1381327134.036019 intercepted cudaThreadSynchronize
+[gvm] 1381327134.036020 intercepting cudaMalloc at 7fff50c4b7d8
+[gvm] 1381327134.036027 intercepted cudaMalloc( 0 16 ) = 4

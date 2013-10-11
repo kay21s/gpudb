@@ -1,0 +1,57 @@
+------------------------[gvm] 1381412729.774491 BEGIN
+[gvm] 1381412729.774970 intercepting diskIO
+[gvm] 1381412729.777001 intercepted diskIO
+[INFO]Number of selection results: 59761
+[gvm] 1381412729.778808 intercepting diskIO
+[gvm] 1381412729.779223 intercepted diskIO
+TableScan Time: 5.195589
+[gvm] 1381412729.780067 intercepting diskIO
+[gvm] 1381412729.780221 intercepted diskIO
+[INFO]Number of selection results: 4102
+[gvm] 1381412729.780660 intercepting diskIO
+[gvm] 1381412729.780775 intercepted diskIO
+[gvm] 1381412729.780918 intercepting diskIO
+[gvm] 1381412729.780945 intercepted diskIO
+TableScan Time: 1.112028
+[gvm] 1381412729.781502 intercepting diskIO
+[gvm] 1381412729.784339 intercepted diskIO
+[INFO]Number of selection results: 319771
+[gvm] 1381412729.786761 intercepting diskIO
+[gvm] 1381412729.788734 intercepted diskIO
+[gvm] 1381412729.789935 intercepting diskIO
+[gvm] 1381412729.791055 intercepted diskIO
+TableScan Time: 11.111127
+[gvm] 1381412729.792992 intercepting diskIO
+[gvm] 1381412729.793002 intercepted diskIO
+[INFO]Number of selection results: 729
+[gvm] 1381412729.793370 intercepting diskIO
+[gvm] 1381412729.793378 intercepted diskIO
+TableScan Time: 0.671566
+[gvm] 1381412729.794241 intercepting diskIO
+[gvm] 1381412729.943639 intercepted diskIO
+[INFO]Number of join results: 11916634
+[gvm] 1381412730.011001 intercepting diskIO
+[gvm] 1381412730.090387 intercepted diskIO
+[gvm] 1381412730.139743 intercepting diskIO
+[gvm] 1381412730.219983 intercepted diskIO
+[gvm] 1381412730.269273 intercepting diskIO
+[gvm] 1381412730.349310 intercepted diskIO
+[gvm] 1381412730.398650 intercepting diskIO
+[gvm] 1381412730.477913 intercepted diskIO
+[gvm] 1381412730.527345 intercepting diskIO
+[gvm] 1381412730.605928 intercepted diskIO
+HashJoin Time: 861.870960
+[INFO]Number of join results: 2443676
+HashJoin Time: 29.082184
+[INFO]Number of join results: 979158
+HashJoin Time: 13.539929
+[INFO]Number of join results: 235773
+HashJoin Time: 2.846231
+[INFO]Number of groupBy results: 100
+GroupBy Time: 4.482587
+OrderBy Time: 0.236760
+Materialization Time: 0.150959
+Disk Load Time: 1.540072
+PCIe Time: 0.000000
+Kernel Time: 0.000000
+Total Time: 932.391035

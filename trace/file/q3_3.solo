@@ -1,0 +1,41 @@
+------------------------[gvm] 1381412718.785018 BEGIN
+[gvm] 1381412718.785484 intercepting diskIO
+[gvm] 1381412718.787121 intercepted diskIO
+[INFO]Number of selection results: 2370
+[gvm] 1381412718.789023 intercepting diskIO
+[gvm] 1381412718.789440 intercepted diskIO
+TableScan Time: 4.990290
+[gvm] 1381412718.790429 intercepting diskIO
+[gvm] 1381412718.790564 intercepted diskIO
+[INFO]Number of selection results: 164
+[gvm] 1381412718.791029 intercepting diskIO
+[gvm] 1381412718.791059 intercepted diskIO
+TableScan Time: 0.995916
+[gvm] 1381412718.791316 intercepting diskIO
+[gvm] 1381412718.791326 intercepted diskIO
+[INFO]Number of selection results: 2192
+[gvm] 1381412718.791567 intercepting diskIO
+[gvm] 1381412718.791575 intercepted diskIO
+TableScan Time: 0.341480
+[gvm] 1381412718.792110 intercepting diskIO
+[gvm] 1381412718.941143 intercepted diskIO
+[INFO]Number of join results: 465398
+[gvm] 1381412718.998123 intercepting diskIO
+[gvm] 1381412719.079335 intercepted diskIO
+[gvm] 1381412719.124931 intercepting diskIO
+[gvm] 1381412719.206844 intercepted diskIO
+[gvm] 1381412719.252429 intercepting diskIO
+[gvm] 1381412719.332836 intercepted diskIO
+HashJoin Time: 586.665255
+[INFO]Number of join results: 3908
+HashJoin Time: 1.102679
+[INFO]Number of join results: 3526
+HashJoin Time: 0.239409
+[INFO]Number of groupBy results: 24
+GroupBy Time: 0.616013
+OrderBy Time: 0.311889
+Materialization Time: 0.138624
+Disk Load Time: 0.417486
+PCIe Time: 0.000000
+Kernel Time: 0.000000
+Total Time: 596.083475

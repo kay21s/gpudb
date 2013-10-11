@@ -1,0 +1,7 @@
+1. Linux 32-bit or 64-bit
+
+2. Python (not Python3)
+
+3. NVIDIA GPU, AMD GPU or CPUs that support OpenCL
+
+4. CUDA tookit, AMD APP SDK or Intel OpenCL SDK

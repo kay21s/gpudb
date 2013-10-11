@@ -1,0 +1,11 @@
+./scanLargeArray_kernel.cu
+./driver.cu
+./materialize.cu
+./hashJoin.cu
+./groupby.cu
+./scan.cu
+./orderBy.cu
+./tableScan.cu
+./cuckoo.cu
+./inviJoin.cu
+./scanImpl.cu

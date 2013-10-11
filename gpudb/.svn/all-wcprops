@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 23
+/svn/!svn/ver/588/trunk
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/563/trunk/LICENSE.txt
+END
+translate.py
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/551/trunk/translate.py
+END
+system_requirements.txt
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/536/trunk/system_requirements.txt
+END
+gpudb.py
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/503/trunk/gpudb.py
+END
