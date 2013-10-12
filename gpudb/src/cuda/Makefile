@@ -15,7 +15,7 @@ NVCC            ?= $(CUDA_BIN_PATH)/nvcc
 
 GENCODE_SM20    := -gencode arch=compute_20,code=sm_20
 GENCODE_SM30    := -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35
-GENCODE_FLAGS   := $(GENCODE_SM20)
+GENCODE_FLAGS   := $(GENCODE_SM20) $(GENCODE_SM30)
 
 ifeq ($(OS_SIZE),32)
     LDFLAGS   := -lcudart -lrt

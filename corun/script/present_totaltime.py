@@ -20,10 +20,11 @@ for file in os.listdir(co_dir):
 	os.chdir(co_dir+file)
 	querys = file.split('.')
 
-	#speedup = (1/co_q1 + 1/co_q2)/(1/(solo_q1 + solo_q2)) = (1/co_q1+1/co_q2) * (solo_q1+solo_q2)
-	speedup_right = 0.0 # (1/co_q1 + 1/co_q2)
-	speedup_left = 0.0 # (solo_q1 + solo_q2)
-	# Another calculation: speedup = solo_q1/co_q1 + solo_q2/co_q2
+	# 1) speedup = (1/co_q1 + 1/co_q2)/(1/(solo_q1 + solo_q2)) = (1/co_q1+1/co_q2) * (solo_q1+solo_q2)
+	#speedup_right = 0.0 # (1/co_q1 + 1/co_q2)
+	#speedup_left = 0.0 # (solo_q1 + solo_q2)
+
+	# 2) Now We calculate as :speedup = solo_q1/co_q1 + solo_q2/co_q2
 
 	speedup = 0.0
 	for query in querys:
@@ -48,9 +49,9 @@ for file in os.listdir(co_dir):
 		if num != 5:
 			print 'supposed to be 5 times'
 			break
-		speedup_right += 1/(time/num)
-		speedup_left += solo_dict[query]
-		speedup += solo_dict[query]/(time/num)
+		#speedup_right += 1/(time/num)
+		#speedup_left += solo_dict[query]
+		speedup += solo_dict[query]/(time/3)
 	if num > 0:
 		#speedup = speedup_right * speedup_left
 		#print speedup

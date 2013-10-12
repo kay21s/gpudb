@@ -4,6 +4,9 @@ import os
 if not os.path.exists('/home/kai/projects/corun/query_progs/'):
 	os.mkdir('/home/kai/projects/corun/query_progs/')
 
+if not os.path.exists('/home/kai/projects/trace/file/'):
+	os.mkdir('/home/kai/projects/trace/file/')
+
 for file in os.listdir("/home/kai/projects/gpudb/test/ssb_test/"):
 	if file[-3:] == 'sql':
 		os.chdir("/home/kai/projects/gpudb/")

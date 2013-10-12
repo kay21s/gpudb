@@ -8,7 +8,7 @@
 #include <dlfcn.h>                               /* header required for dlsym() */
 #include <driver_types.h>
 #include <sys/time.h>
-//#include <cuda.h>
+#include <cuda.h>
 #include <cuda_runtime_api.h>
 
 #include <signal.h>
@@ -161,7 +161,7 @@ cudaError_t cudaSetupArgument(const void *arg, size_t size, size_t offset)
 	return ret;
 }
 
-cudaError_t cudaLaunch(const char *entry)
+cudaError_t cudaLaunch(const void *entry)
 {
 	static cudaError_t (*nv_cudaLaunch)(const char *) = NULL;
 	cudaError_t ret;
