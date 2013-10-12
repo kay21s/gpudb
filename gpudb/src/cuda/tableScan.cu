@@ -44,6 +44,7 @@
  *  0 if they are equal
  *  -1 if buf2 is larger
  */
+char *col_buf;
 
 __device__ static inline int stringCmp(char* buf1, char *buf2, int size){
     int i;
@@ -945,7 +946,7 @@ __global__ void static unpack_rle(char * fact, char * rle, long tupleNum, int dN
 
 struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 
-	char *col_buf = (char *)malloc(sizeof(char) * 500000000);
+	col_buf = (char *)malloc(sizeof(char) * 500000000);
 	memset(col_buf, '0', 500000000);
 	struct timeval t;
 

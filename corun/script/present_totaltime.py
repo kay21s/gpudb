@@ -67,7 +67,7 @@ for file in os.listdir(co_dir):
 			print 'deadlock',
 			break
 		if num != 5:
-			print 'supposed to be 5 times'
+			print 'supposed to be 5 times', num, query, file
 			break
 		#speedup_right += 1/(time/num)
 		#speedup_left += solo_dict[query]

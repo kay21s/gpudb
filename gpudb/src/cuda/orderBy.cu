@@ -543,7 +543,7 @@ __global__ static void gather_result(int * keyPos, char ** col, int newNum, int 
 
 
 struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
-	char *col_buf = (char *)malloc(sizeof(char) * 1000000000);
+	extern char *col_buf;
 	struct timeval t;
     struct tableNode * res = NULL;
     struct timespec start, end;

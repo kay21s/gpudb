@@ -13,5 +13,5 @@ for file in os.listdir("/home/kai/projects/gpudb/test/ssb_test/"):
 		os.chdir("/home/kai/projects/gpudb/src/cuda")
 		os.system('make gpudb')
 		output = file[0:-3] + 'solo'
-		cmd = ldpreload+ r'/home/kai/projects/gpudb/src/cuda/GPUDATABASE 1 --datadir /home/kai/projects/gpudb/data_10' + r' > ' + r'/home/kai/projects/trace/file/' + output
+		cmd = ldpreload + r'/home/kai/projects/gpudb/src/cuda/GPUDATABASE 1 --datadir /home/kai/projects/gpudb/data_10' + r' > ' + r'/home/kai/projects/trace/file/' + output
 		os.system(cmd)

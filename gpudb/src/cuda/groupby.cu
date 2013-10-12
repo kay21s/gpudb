@@ -318,8 +318,7 @@ __global__ void agg_cal(char ** content, int colNum, struct groupByExp* exp, int
 
 struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
 
-	char *col_buf = (char *)malloc(sizeof(char) * 500000000);
-	memset(col_buf, '0', 500000000);
+	extern char *col_buf;
 	struct timeval t;
     struct timespec start,end;
     clock_gettime(CLOCK_REALTIME,&start);

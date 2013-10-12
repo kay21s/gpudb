@@ -1,6 +1,9 @@
 #!/usr/bin/python
 import os
 
+ldpreload=''
+ldpreload=r'LD_PRELOAD=/home/kai/projects/lib-intercept/libicept.so '
+
 if not os.path.exists('/home/kai/projects/corun/query_progs/'):
 	os.mkdir('/home/kai/projects/corun/query_progs/')
 
@@ -18,5 +21,5 @@ for file in os.listdir("/home/kai/projects/gpudb/test/ssb_test/"):
 		cmd = r'cp GPUDATABASE /home/kai/projects/corun/query_progs/' + file[:-4]
 		os.system(cmd)
 		output = file[0:-3] + 'solo'
-		cmd = r'/home/kai/projects/gpudb/src/cuda/GPUDATABASE 1 --datadir /home/kai/projects/gpudb/data_10' + r' > ' + r'/home/kai/projects/trace/file/' + output
+		cmd = ldpreload + r'/home/kai/projects/gpudb/src/cuda/GPUDATABASE 1 --datadir /home/kai/projects/gpudb/data_10' + r' > ' + r'/home/kai/projects/trace/file/' + output
 		os.system(cmd)
