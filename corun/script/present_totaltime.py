@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import os
+import os,sys
 
 co_dir = "/home/kai/projects/corun/output/"
 solo_dir = "/home/kai/projects/trace/file/"
@@ -14,6 +14,25 @@ for file in os.listdir(solo_dir):
 				solo_dict[file[:-5]] = time
 #print solo_dict
 
+#find the max query numbers
+max_len = 0
+for file in os.listdir(co_dir):
+	length = len(file.split('.'))
+	max_len = max(max_len, length)
+
+if max_len <> 2:
+	print "query corun number is supposed to be 2"
+	sys.exit(0)
+
+individual = [[]]
+ind_file = []
+for i in range(0,max_len):
+	os.chdir(cur_dir)
+	individual.append([])
+	fout = open("speedup"+str(i), "w+")
+	ind_file.append(fout)
+
+
 result = []
 for file in os.listdir(co_dir):
 #	print file, ' ',
@@ -27,6 +46,7 @@ for file in os.listdir(co_dir):
 	# 2) Now We calculate as :speedup = solo_q1/co_q1 + solo_q2/co_q2
 
 	speedup = 0.0
+	query_no = 0
 	for query in querys:
 		time = 0.0
 		num = 0
@@ -52,6 +72,8 @@ for file in os.listdir(co_dir):
 		#speedup_right += 1/(time/num)
 		#speedup_left += solo_dict[query]
 		speedup += solo_dict[query]/(time/3)
+		individual[query_no].append(file + ' ' + str(solo_dict[query]/(time/3)))
+		query_no += 1
 	if num > 0:
 		#speedup = speedup_right * speedup_left
 		#print speedup
@@ -65,4 +87,9 @@ result_file = open("result_corun", "w+")
 for item in result:
 	result_file.write("%s\n" % item)
 result_file.close()
+
+for query_no in range(0, max_len):
+	individual[query_no].sort()
+	for item in individual[query_no]:
+		ind_file[query_no].write("%s\n" % item)
 

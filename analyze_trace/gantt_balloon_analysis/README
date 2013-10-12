@@ -1,0 +1,15 @@
+
+1) analyze .solo files in trace/file  (one_anal.py/two_anal.py), analyzed results are stored in trace/anal
+2) copy the trace/anal to the current directory ./anal
+3) execute R
+
+library("plotrix")
+source("trace_stat.R")
+source("trace_prep.R")
+files <- dir("./anal/")
+setwd("./anal/")
+kq_gantt(files)
+kq_balloon(files)
+
+quartz()
+

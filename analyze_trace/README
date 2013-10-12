@@ -1,3 +1,4 @@
 These programs are used to analyze generated libintercept output with gpudb, the files are stored in ../trace/file, and the analyzed results are stored in ../trace/anal
+The generated results are processing time of each operation, such as kernel launch, CPU memcpy(disk IO), and GPU memcpy. The results can be used for generating gantt and balloon graphs with R.
 one_anal.py is used when the gpudb runs for only once.
 two_anal.py is used when gpudb runs for twice. It will seek the second BEGIN notation.

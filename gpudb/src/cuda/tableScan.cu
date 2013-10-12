@@ -946,6 +946,7 @@ __global__ void static unpack_rle(char * fact, char * rle, long tupleNum, int dN
 struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 
 	char *col_buf = (char *)malloc(sizeof(char) * 500000000);
+	memset(col_buf, '0', 500000000);
 	struct timeval t;
 
     struct timespec start,end;

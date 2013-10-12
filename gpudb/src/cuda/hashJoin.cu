@@ -513,7 +513,8 @@ __global__ void static joinDim_other_soa(int *resPsum, char * dim, int attrSize,
 
 struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
 
-	char *col_buf = (char *)malloc(sizeof(char) * 1000000000);
+	char *col_buf = (char *)malloc(sizeof(char) * 500000000);
+	memset(col_buf, '0', 500000000);
 	struct timeval t;
     struct timespec start,end;
     clock_gettime(CLOCK_REALTIME,&start);

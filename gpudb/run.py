@@ -2,7 +2,7 @@
 import os
 
 ldpreload=''
-#ldpreload=r'LD_PRELOAD=home/kai/projects/lib-intercept/libicept.so'
+ldpreload=r'LD_PRELOAD=/home/kai/projects/lib-intercept/libicept.so '
 
 for file in os.listdir("/home/kai/projects/gpudb/test/ssb_test/"):
 	if file[-3:] == 'sql':

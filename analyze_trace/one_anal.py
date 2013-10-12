@@ -20,32 +20,31 @@ outbuf = list([] for i in range(0,len(solos)))
 
 # for each benchmark, parse solo run trace and put the result in its outbuf
 for ibench in range(0, len(solos)):
-	diskTime = 0.0
 	infile = open(os.path.join(input_dir, solos[ibench] + ".solo"), 'r')
 	lines = infile.readlines()
 	infile.close()
 
-	ifirst = -1
+	isecond = -1
 	for iline in range(0, len(lines)):
 		words = lines[iline].split()
 		if len(words) == 0 or words[2] <> "BEGIN":
 			continue
 		else:
-			ifirst = iline
+			isecond = iline
 			break
-	if ifirst == -1:
+	if isecond == -1:
 		print "Parse error: no begins found"
-		sys.exit(1)
+		continue
 
-	isecond = len(lines)
-	startTime = float(lines[ifirst].split()[1][8:]) * 1000.0
+	print isecond, len(lines), solos[ibench]
+	startTime = float(lines[isecond].split()[1]) * 1000.0
 	# now parse the traces recorded during the first solo run
-	for iline in range(ifirst+1, isecond):
+	for iline in range(isecond+1, len(lines)):
 		words = lines[iline].split()
 		if len(words) == 0 or words[0] <> "[gvm]" or words[2] <> "intercepted":
 			continue
 
-		tg = [5, 0.0, float(words[1][8:]) * 1000.0 - diskTime]
+		tg = [5, 0.0, float(words[1]) * 1000.0]
 		if words[3] == "cudaMemcpy(" and words[7] == "1":	# H2D
 			tg[0] = 0
 			curWord = words[3][0:-1]
@@ -72,18 +71,12 @@ for ibench in range(0, len(solos)):
 				print "ERROR!!!"
 				sys.exit(1)
 
-			tg[1] = float(preWord[1][8:]) * 1000.0 - diskTime
+			tg[1] = float(preWord[1]) * 1000.0
 			tc = [5, startTime, tg[1]]
 			outbuf[ibench].append(tc)
 
-			if curWord == 'diskIO':
-				diskTime += tg[2] - tg[1]
-				startTime = tg[1]
-			else:
-				outbuf[ibench].append(tg)
-				startTime = tg[2]
-
-
+			outbuf[ibench].append(tg)
+			startTime = tg[2]
 
 
 # write results to output file
