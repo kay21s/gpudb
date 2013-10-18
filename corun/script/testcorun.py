@@ -3,9 +3,12 @@ import os
 import time
 import sys, getopt
 
-outpath=r'/home/kai/projects/corun/output'
-querypath=r'/home/kai/projects/corun/query_progs'
-datapath=r'/home/kai/projects/gpudb/data_10'
+os.chdir("../../")
+rootpath = os.getcwd()
+
+outpath = rootpath + r'/corun/output'
+querypath = rootpath + r'/corun/query_progs'
+datapath = rootpath + r'/gpudb/data_10'
 rep = '1'
 
 if sys.argv[1] is None or sys.argv[2] is None:

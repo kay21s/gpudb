@@ -1,25 +1,28 @@
 #!/usr/bin/python
 import os
 
+os.chdir("../")
+rootpath = os.getcwd()
+
 ldpreload=''
-ldpreload=r'LD_PRELOAD=/home/kai/projects/lib-intercept/libicept.so '
+#ldpreload=r'LD_PRELOAD='+rootpath+r'/lib-intercept/libicept.so '
 
-if not os.path.exists('/home/kai/projects/corun/query_progs/'):
-	os.mkdir('/home/kai/projects/corun/query_progs/')
+if not os.path.exists(rootpath+'/corun/query_progs/'):
+	os.mkdir(rootpath+'/corun/query_progs/')
 
-if not os.path.exists('/home/kai/projects/trace/file/'):
-	os.mkdir('/home/kai/projects/trace/file/')
+if not os.path.exists(rootpath+'/trace/file/'):
+	os.mkdir(rootpath+'/trace/file/')
 
-for file in os.listdir("/home/kai/projects/gpudb/test/ssb_test/"):
+for file in os.listdir(rootpath+"/gpudb/test/ssb_test/"):
 	if file[-3:] == 'sql':
-		os.chdir("/home/kai/projects/gpudb/")
-		cmd = r'/home/kai/projects/gpudb/translate.py' + r' /home/kai/projects/gpudb/test/ssb_test/' + file + r' /home/kai/projects/gpudb/test/ssb_test/ssb.schema'
+		os.chdir(rootpath+"/gpudb/")
+		cmd = rootpath + r'/gpudb/translate.py' + r' ' + rootpath + '/gpudb/test/ssb_test/' + file + r' '+ rootpath + r'/gpudb/test/ssb_test/ssb.schema'
 		os.system(cmd)
 		#os.system('/home/kai/projects/gpudb/translate file /home/kai/projects/gpudb/test/ssb_test/ssb.schema')
-		os.chdir("/home/kai/projects/gpudb/src/cuda")
+		os.chdir(rootpath+"/gpudb/src/cuda")
 		os.system('make gpudb')
-		cmd = r'cp GPUDATABASE /home/kai/projects/corun/query_progs/' + file[:-4]
+		cmd = r'cp GPUDATABASE ' + rootpath + r'/corun/query_progs/' + file[:-4]
 		os.system(cmd)
 		output = file[0:-3] + 'solo'
-		cmd = ldpreload + r'/home/kai/projects/gpudb/src/cuda/GPUDATABASE 1 --datadir /home/kai/projects/gpudb/data_10' + r' > ' + r'/home/kai/projects/trace/file/' + output
+		cmd = ldpreload + rootpath + r'/gpudb/src/cuda/GPUDATABASE 1 --datadir ' + rootpath + r'/gpudb/data_10' + r' > ' + rootpath + r'/trace/file/' + output
 		os.system(cmd)

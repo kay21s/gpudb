@@ -2,11 +2,14 @@
 import os
 import time
 
-plan_file=r'/home/kai/projects/corun/exec_plan/2q.plan'
-outpath=r'/home/kai/projects/corun/output'
-querypath=r'/home/kai/projects/corun/query_progs'
-datapath=r'/home/kai/projects/gpudb/data_10'
-preloadlib=r'/home/kai/projects/lib-intercept/libicept.so'
+os.chdir("../../")
+rootpath = os.getcwd()
+
+plan_file = rootpath + r'/corun/exec_plan/2q.plan'
+outpath = rootpath + r'/corun/output'
+querypath = rootpath + r'/corun/query_progs'
+datapath = rootpath + r'/gpudb/data_10'
+preloadlib = rootpath + r'/lib-intercept/libicept.so'
 rep = '7'
 
 if not os.path.exists(outpath):
