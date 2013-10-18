@@ -10,13 +10,11 @@ cur_dir = rootpath + r'/corun/script/'
 
 solo_dict = {}
 for file in os.listdir(solo_dir):
-	print file
 	if file[-4:] == 'solo':
 		for line in open(solo_dir+file, "r").readlines():
 			if line[:12] == 'Total Time: ':
 				time = float(line[12:])
 				solo_dict[file[:-5]] = time
-				print time
 #print solo_dict
 
 #find the max query numbers
