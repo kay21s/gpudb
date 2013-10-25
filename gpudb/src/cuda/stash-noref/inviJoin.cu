@@ -27,7 +27,7 @@
 #include "../include/common.h"
 #include "../include/inviJoin.h"
 #include "../include/gpuCudaLib.h"
-#include "../include/gmm_ext.h"
+#include "./gmm.h"
 #include "scanImpl.cu"
 
 __global__ static void count_hash_num(char *dim, long dNum,int *num){

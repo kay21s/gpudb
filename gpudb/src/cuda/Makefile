@@ -25,7 +25,7 @@ endif
 
 
 gpudb: gpu cpu
-	 $(NVCC) -pg tableScan.o inviJoin.o hashJoin.o cuckoo.o materialize.o groupby.o orderBy.o driver.o -L$(CUDA_LIB_PATH) $(LDFLAGS) -o GPUDATABASE
+	 $(NVCC) -pg tableScan.o inviJoin.o hashJoin.o cuckoo.o materialize.o groupby.o orderBy.o driver.o libgmm.so -L$(CUDA_LIB_PATH) $(LDFLAGS) -o GPUDATABASE
 
 cpu: driver.cu 
 	$(NVCC) -c -g $(GENCODE_FLAGS) driver.cu

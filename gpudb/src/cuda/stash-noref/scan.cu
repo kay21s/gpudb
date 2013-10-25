@@ -32,7 +32,7 @@
 #include "scanLargeArray_kernel.cu"
 #include <assert.h>
 #include "../include/common.h"
-#include "../include/gmm_ext.h"
+#include "./gmm.h"
 
 static inline bool 
 isPowerOfTwo(int n)
@@ -148,15 +148,10 @@ static void prescanArrayRecursive(int *outArray, const int *inArray, int numElem
 
     if (numBlocks > 1)
     {
-        prescan<true, false><<< grid, threads, sharedMemSize >>>(outArray, 
-                                                                 inArray, 
-                                                                 g_scanBlockSums[level],
-                                                                 numThreads * 2, 0, 0);
+        prescan<true, false><<< grid, threads, sharedMemSize >>>(outArray,inArray, g_scanBlockSums[level], numThreads * 2, 0, 0);
         if (np2LastBlock)
         {
-            prescan<true, true><<< 1, numThreadsLastBlock, sharedMemLastBlock >>>
-                (outArray, inArray, g_scanBlockSums[level], numEltsLastBlock, 
-                 numBlocks - 1, numElements - numEltsLastBlock);
+            prescan<true, true><<< 1, numThreadsLastBlock, sharedMemLastBlock >>> (outArray, inArray, g_scanBlockSums[level], numEltsLastBlock, numBlocks - 1, numElements - numEltsLastBlock);
         }
 
 
@@ -165,28 +160,19 @@ static void prescanArrayRecursive(int *outArray, const int *inArray, int numElem
                               numBlocks, 
                               level+1, pp);
 
-        uniformAdd<<< grid, threads >>>(outArray, 
-                                        g_scanBlockSums[level], 
-                                        numElements - numEltsLastBlock, 
-                                        0, 0, numElements);
+        uniformAdd<<< grid, threads >>>(outArray, g_scanBlockSums[level], numElements - numEltsLastBlock, 0, 0, numElements);
         if (np2LastBlock)
         {
-            uniformAdd<<< 1, numThreadsLastBlock >>>(outArray, 
-                                                     g_scanBlockSums[level], 
-                                                     numEltsLastBlock, 
-                                                     numBlocks - 1, 
-                                                     numElements - numEltsLastBlock, numElements);
+            uniformAdd<<< 1, numThreadsLastBlock >>>(outArray, g_scanBlockSums[level], numEltsLastBlock, numBlocks - 1, numElements - numEltsLastBlock, numElements);
         }
     }
     else if (isPowerOfTwo(numElements))
     {
-        prescan<false, false><<< grid, threads, sharedMemSize >>>(outArray, inArray,
-                                                                  0, numThreads * 2, 0, 0);
+        prescan<false, false><<< grid, threads, sharedMemSize >>>(outArray, inArray, 0, numThreads * 2, 0, 0);
     }
     else
     {
-        prescan<false, true><<< grid, threads, sharedMemSize >>>(outArray, inArray, 
-                                                                  0, numElements, 0, 0);
+        prescan<false, true><<< grid, threads, sharedMemSize >>>(outArray, inArray, 0, numElements, 0, 0);
     }
 }
 

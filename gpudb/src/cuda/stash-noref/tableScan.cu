@@ -26,7 +26,7 @@
 #include "scanImpl.cu"
 #include "../include/common.h"
 #include "../include/gpuCudaLib.h"
-#include "../include/gmm_ext.h"
+#include "./gmm.h"
 
 #define CHECK_POINTER(p)   do {                     \
     if(p == NULL){                                  \

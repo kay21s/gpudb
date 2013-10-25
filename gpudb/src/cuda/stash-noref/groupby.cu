@@ -22,7 +22,7 @@
 #include "../include/common.h"
 #include "../include/gpuCudaLib.h"
 #include "../include/cudaHash.h"
-#include "../include/gmm_ext.h"
+#include "./gmm.h"
 #include "scanImpl.cu"
 
 #define CHECK_POINTER(p)   do {                     \

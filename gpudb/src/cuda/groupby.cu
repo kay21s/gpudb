@@ -22,7 +22,7 @@
 #include "../include/common.h"
 #include "../include/gpuCudaLib.h"
 #include "../include/cudaHash.h"
-#include "../include/gmm_ext.h"
+#include "./gmm.h"
 #include "scanImpl.cu"
 
 #define CHECK_POINTER(p)   do {                     \
@@ -413,15 +413,7 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&gpu_hashNum,sizeof(int)*HSIZE));
         CUDA_SAFE_CALL_NO_SYNC(cudaMemset(gpu_hashNum,0,sizeof(int)*HSIZE));
 
-        do{
-        	cudaReference(0, HINT_READ);
-        	cudaReference(3, HINT_READ);
-        	cudaReference(2, HINT_READ);
-        	cudaReference(4, HINT_READ);
-        	cudaReference(7, HINT_WRITE);
-        	cudaReference(6, HINT_WRITE);
-	        build_groupby_key<<<grid,block>>>(gpuContent,gpuGbColNum, gpuGbIndex, gpuGbType,gpuGbSize,gpuTupleNum, gpuGbKey, gpu_hashNum);
-        } while(0);
+        build_groupby_key<<<grid,block>>>(gpuContent,gpuGbColNum, gpuGbIndex, gpuGbType,gpuGbSize,gpuTupleNum, gpuGbKey, gpu_hashNum);
         CUDA_SAFE_CALL_NO_SYNC(cudaDeviceSynchronize());
 
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbType));
@@ -433,11 +425,7 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuGbCount,sizeof(int)));
         CUDA_SAFE_CALL_NO_SYNC(cudaMemset(gpuGbCount, 0, sizeof(int)));
 
-        do{
-        	cudaReference(0, HINT_READ);
-        	cudaReference(2, HINT_WRITE);
-	        count_group_num<<<grid,block>>>(gpu_hashNum, HSIZE, gpuGbCount);
-        } while(0);
+        count_group_num<<<grid,block>>>(gpu_hashNum, HSIZE, gpuGbCount);
         CUDA_SAFE_CALL_NO_SYNC(cudaDeviceSynchronize());
 
         CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(&gbCount, gpuGbCount, sizeof(int), cudaMemcpyDeviceToHost));
@@ -494,27 +482,11 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
     gpuGbColNum = res->totalAttr;
 
     if(gbConstant !=1){
-        do{
-        	cudaReference(0, HINT_READ);
-        	cudaReference(2, HINT_READ);
-        	cudaReference(4, HINT_READ);
-        	cudaReference(7, HINT_READ);
-        	cudaReference(6, HINT_READ);
-        	cudaReference(8, HINT_WRITE);
-	        agg_cal<<<grid,block>>>(gpuContent, gpuGbColNum, gpuGbExp, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum,  gpuResult);
-        } while(0);
+        agg_cal<<<grid,block>>>(gpuContent, gpuGbColNum, gpuGbExp, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum,  gpuResult);
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbKey));
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpu_psum));
     }else
-        do{
-        	cudaReference(0, HINT_READ);
-        	cudaReference(2, HINT_READ);
-        	cudaReference(4, HINT_READ);
-        	cudaReference(7, HINT_READ);
-        	cudaReference(6, HINT_READ);
-        	cudaReference(8, HINT_WRITE);
-	        agg_cal_cons<<<grid,block>>>(gpuContent, gpuGbColNum, gpuGbExp, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum, gpuResult);
-        } while(0);
+        agg_cal_cons<<<grid,block>>>(gpuContent, gpuGbColNum, gpuGbExp, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum, gpuResult);
 
     for(int i=0; i<gb->table->totalAttr;i++){
         if(gb->table->dataPos[i]==MEM)
