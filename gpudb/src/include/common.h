@@ -21,6 +21,12 @@
 #define BLOCKNUM    (100*1024*1024)
 #define HSIZE 131072
 
+#ifdef HAS_GMM
+	#define GMM_CALL(_f)	_f
+#else
+	#define GMM_CALL(_f)	
+#endif
+
 enum {
 
 /* data format */

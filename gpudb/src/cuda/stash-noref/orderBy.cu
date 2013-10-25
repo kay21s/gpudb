@@ -21,8 +21,10 @@
 #include <float.h>
 #include "../include/common.h"
 #include "../include/gpuCudaLib.h"
-#include "./gmm.h"
 #include "scanImpl.cu"
+#ifdef HAS_GMM
+	#include "gmm.h"
+#endif
 
 #define CHECK_POINTER(p)   do {                     \
     if(p == NULL){                                  \
@@ -638,7 +640,6 @@ struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
     int index = odNode->orderByIndex[0];
     int type = odNode->table->attrType[index];
 
-    cudaReference(0, HINT_WRITE);
     if(type == INT){
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuKey, sizeof(int) * newNum));
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuSortedKey, sizeof(int) * newNum));

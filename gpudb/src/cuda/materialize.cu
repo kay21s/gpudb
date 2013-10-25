@@ -21,7 +21,9 @@
 #include "../include/common.h"
 #include "../include/schema.h"
 #include "../include/gpuCudaLib.h"
-#include "./gmm.h"
+#ifdef HAS_GMM
+	#include "gmm.h"
+#endif
 
 #define CHECK_POINTER(p)   do {                     \
     if(p == NULL){                                  \
@@ -82,9 +84,9 @@ char * materializeCol(struct materializeNode * mn, struct statistic * pp){
     dim3 block(128);
 
     do{
-    	cudaReference(0, HINT_READ);
-    	cudaReference(2, HINT_READ);
-    	cudaReference(5, HINT_WRITE);
+    	GMM_CALL(cudaReference(0, HINT_READ));
+    	GMM_CALL(cudaReference(2, HINT_READ));
+    	GMM_CALL(cudaReference(5, HINT_WRITE));
 	    materialize<<<grid,block>>> (gpuContent, tn->totalAttr, gpuAttrSize, tn->tupleNum, tn->tupleSize, gpuResult);
     } while(0);
 

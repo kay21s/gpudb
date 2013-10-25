@@ -24,8 +24,13 @@ else
 endif
 
 GMMPATH := `pwd`/../../../../syma/src
-LDFLAGS += -L$(GMMPATH) -Xlinker -rpath=$(GMMPATH) -lgmm
+LDFLAGS += -L$(GMMPATH)
 CFLAGS := -I$(GMMPATH)
+
+all: gpudb
+
+gmmdb: gmm cpu
+	 $(NVCC) -pg tableScan.o inviJoin.o hashJoin.o cuckoo.o materialize.o groupby.o orderBy.o driver.o -L$(CUDA_LIB_PATH) $(LDFLAGS) -Xlinker -rpath=$(GMMPATH) -lgmm -o GPUDATABASE
 
 gpudb: gpu cpu
 	 $(NVCC) -pg tableScan.o inviJoin.o hashJoin.o cuckoo.o materialize.o groupby.o orderBy.o driver.o -L$(CUDA_LIB_PATH) $(LDFLAGS) -o GPUDATABASE
@@ -36,7 +41,8 @@ cpu: driver.cu
 gpu: tableScan.cu hashJoin.cu cuckoo.cu inviJoin.cu materialize.cu groupby.cu orderBy.cu
 	$(NVCC) -c -g $(GENCODE_FLAGS) $(CFLAGS) tableScan.cu hashJoin.cu cuckoo.cu inviJoin.cu materialize.cu groupby.cu orderBy.cu 
 
-all: gpudb
+gmm: tableScan.cu hashJoin.cu cuckoo.cu inviJoin.cu materialize.cu groupby.cu orderBy.cu
+	$(NVCC) -c -g $(GENCODE_FLAGS) $(CFLAGS) -DHAS_GMM tableScan.cu hashJoin.cu cuckoo.cu inviJoin.cu materialize.cu groupby.cu orderBy.cu 
 
 run:
 	LD_PRELOAD=/home/kai/projects/lib-intercept/libicept.so ./GPUDATABASE 1 --datadir ../../data

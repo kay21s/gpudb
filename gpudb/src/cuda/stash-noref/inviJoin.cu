@@ -27,8 +27,10 @@
 #include "../include/common.h"
 #include "../include/inviJoin.h"
 #include "../include/gpuCudaLib.h"
-#include "./gmm.h"
 #include "scanImpl.cu"
+#ifdef HAS_GMM
+	#include "gmm.h"
+#endif
 
 __global__ static void count_hash_num(char *dim, long dNum,int *num){
 	int stride = blockDim.x * gridDim.x;

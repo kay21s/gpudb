@@ -32,7 +32,9 @@
 #include "scanLargeArray_kernel.cu"
 #include <assert.h>
 #include "../include/common.h"
-#include "./gmm.h"
+#ifdef HAS_GMM
+	#include "gmm.h"
+#endif
 
 static inline bool 
 isPowerOfTwo(int n)

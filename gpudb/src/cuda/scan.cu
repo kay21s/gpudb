@@ -32,7 +32,9 @@
 #include "scanLargeArray_kernel.cu"
 #include <assert.h>
 #include "../include/common.h"
-#include "./gmm.h"
+#ifdef HAS_GMM
+	#include "gmm.h"
+#endif
 
 static inline bool 
 isPowerOfTwo(int n)
@@ -149,19 +151,19 @@ static void prescanArrayRecursive(int *outArray, const int *inArray, int numElem
     if (numBlocks > 1)
     {
         do{
-        	cudaReference(1, HINT_WRITE);
-        	cudaReference(0, HINT_WRITE);
-        	cudaReference(3, HINT_WRITE);
-        	cudaReference(2, HINT_READ);
+        	GMM_CALL(cudaReference(1, HINT_WRITE));
+        	GMM_CALL(cudaReference(0, HINT_WRITE));
+        	GMM_CALL(cudaReference(3, HINT_WRITE));
+        	GMM_CALL(cudaReference(2, HINT_READ));
 	        prescan<true, false><<< grid, threads, sharedMemSize >>>(outArray,inArray, g_scanBlockSums[level], numThreads * 2, 0, 0);
         } while(0);
         if (np2LastBlock)
         {
             do{
-            	cudaReference(1, HINT_WRITE);
-            	cudaReference(0, HINT_WRITE);
-            	cudaReference(3, HINT_WRITE);
-            	cudaReference(2, HINT_READ);
+            	GMM_CALL(cudaReference(1, HINT_WRITE));
+            	GMM_CALL(cudaReference(0, HINT_WRITE));
+            	GMM_CALL(cudaReference(3, HINT_WRITE));
+            	GMM_CALL(cudaReference(2, HINT_READ));
 	            prescan<true, true><<< 1, numThreadsLastBlock, sharedMemLastBlock >>> (outArray, inArray, g_scanBlockSums[level], numEltsLastBlock, numBlocks - 1, numElements - numEltsLastBlock);
             } while(0);
         }
@@ -173,15 +175,15 @@ static void prescanArrayRecursive(int *outArray, const int *inArray, int numElem
                               level+1, pp);
 
         do{
-        	cudaReference(1, HINT_READ);
-        	cudaReference(0, HINT_WRITE);
+        	GMM_CALL(cudaReference(1, HINT_READ));
+        	GMM_CALL(cudaReference(0, HINT_WRITE));
 	        uniformAdd<<< grid, threads >>>(outArray, g_scanBlockSums[level], numElements - numEltsLastBlock, 0, 0, numElements);
         } while(0);
         if (np2LastBlock)
         {
             do{
-            	cudaReference(1, HINT_READ);
-            	cudaReference(0, HINT_WRITE);
+            	GMM_CALL(cudaReference(1, HINT_READ));
+            	GMM_CALL(cudaReference(0, HINT_WRITE));
 	            uniformAdd<<< 1, numThreadsLastBlock >>>(outArray, g_scanBlockSums[level], numEltsLastBlock, numBlocks - 1, numElements - numEltsLastBlock, numElements);
             } while(0);
         }
@@ -189,20 +191,20 @@ static void prescanArrayRecursive(int *outArray, const int *inArray, int numElem
     else if (isPowerOfTwo(numElements))
     {
         do{
-        	cudaReference(1, HINT_WRITE);
-        	cudaReference(0, HINT_WRITE);
-        	cudaReference(3, HINT_WRITE);
-        	cudaReference(2, HINT_READ);
+        	GMM_CALL(cudaReference(1, HINT_WRITE));
+        	GMM_CALL(cudaReference(0, HINT_WRITE));
+        	GMM_CALL(cudaReference(3, HINT_WRITE));
+        	GMM_CALL(cudaReference(2, HINT_READ));
 	        prescan<false, false><<< grid, threads, sharedMemSize >>>(outArray, inArray, 0, numThreads * 2, 0, 0);
         } while(0);
     }
     else
     {
         do{
-        	cudaReference(1, HINT_WRITE);
-        	cudaReference(0, HINT_WRITE);
-        	cudaReference(3, HINT_WRITE);
-        	cudaReference(2, HINT_READ);
+        	GMM_CALL(cudaReference(1, HINT_WRITE));
+        	GMM_CALL(cudaReference(0, HINT_WRITE));
+        	GMM_CALL(cudaReference(3, HINT_WRITE));
+        	GMM_CALL(cudaReference(2, HINT_READ));
 	        prescan<false, true><<< grid, threads, sharedMemSize >>>(outArray, inArray, 0, numElements, 0, 0);
         } while(0);
     }

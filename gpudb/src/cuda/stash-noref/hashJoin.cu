@@ -29,7 +29,9 @@
 #include "../include/hashJoin.h"
 #include "../include/gpuCudaLib.h"
 #include "scanImpl.cu"
-#include "./gmm.h"
+#ifdef HAS_GMM
+	#include "gmm.h"
+#endif
 
 #define CHECK_POINTER(p)   do {                     \
     if(p == NULL){                                  \

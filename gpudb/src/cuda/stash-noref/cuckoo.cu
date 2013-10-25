@@ -28,7 +28,9 @@
 #include "../include/hashJoin.h"
 #include "../include/gpuCudaLib.h"
 #include "../include/cpuCudaLib.h"
-#include "./gmm.h"
+#ifdef HAS_GMM
+	#include "gmm.h"
+#endif
 #include "scanImpl.cu"
 
 #define CUCKOO_SIZE	512

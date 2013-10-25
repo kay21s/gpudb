@@ -21,7 +21,9 @@
 #include "../include/common.h"
 #include "../include/schema.h"
 #include "../include/gpuCudaLib.h"
-#include "./gmm.h"
+#ifdef HAS_GMM
+	#include "gmm.h"
+#endif
 
 #define CHECK_POINTER(p)   do {                     \
     if(p == NULL){                                  \
