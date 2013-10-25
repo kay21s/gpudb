@@ -265,11 +265,7 @@ struct tableNode * inviJoin(struct joinNode *jNode, struct statistic *pp){
 		}
 
 		cudaEventRecord(startGPU,0);
-		do{
-			cudaReference(0, HINT_READ);
-			cudaReference(2, HINT_WRITE);
-			count_hash_num<<<grid,block>>>(gpu_dim,jNode->dimTable[k]->tupleNum,gpuHashNum[k]);
-		} while(0);
+		count_hash_num<<<grid,block>>>(gpu_dim,jNode->dimTable[k]->tupleNum,gpuHashNum[k]);
 
 		CUDA_SAFE_CALL_NO_SYNC(cudaDeviceSynchronize());
 
@@ -288,12 +284,7 @@ struct tableNode * inviJoin(struct joinNode *jNode, struct statistic *pp){
 		CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_psum, gpuHashPsum[k], sizeof(int) * HSIZE, cudaMemcpyDeviceToDevice));
 
 		cudaEventRecord(startGPU,0);
-		do{
-			cudaReference(0, HINT_READ);
-			cudaReference(3, HINT_WRITE);
-			cudaReference(2, HINT_DEFAULT);
-			build_hash_table<<<grid,block>>>(gpu_dim,jNode->dimTable[k]->tupleNum,gpu_psum,gpu_hash[k]);
-		} while(0);
+		build_hash_table<<<grid,block>>>(gpu_dim,jNode->dimTable[k]->tupleNum,gpu_psum,gpu_hash[k]);
 
 		CUDA_SAFE_CALL_NO_SYNC(cudaDeviceSynchronize());
 
@@ -336,14 +327,7 @@ struct tableNode * inviJoin(struct joinNode *jNode, struct statistic *pp){
 	cudaEventRecord(startGPU,0);
 
 	for(int k=0;k<jNode->dimNum;k++)
-		do{
-			cudaReference(1, HINT_READ);
-			cudaReference(0, HINT_READ);
-			cudaReference(3, HINT_READ);
-			cudaReference(2, HINT_READ);
-			cudaReference(5, HINT_WRITE);
-			count_join_result<<<grid,block>>>(gpuHashNum[k], gpuHashPsum[k], gpu_hash[k], gpu_fact[k], jNode->factTable->tupleNum, gpuFilter[k]);
-		} while(0);
+		count_join_result<<<grid,block>>>(gpuHashNum[k], gpuHashPsum[k], gpu_hash[k], gpu_fact[k], jNode->factTable->tupleNum, gpuFilter[k]);
 
 	CUDA_SAFE_CALL_NO_SYNC(cudaDeviceSynchronize());
 
@@ -386,13 +370,7 @@ struct tableNode * inviJoin(struct joinNode *jNode, struct statistic *pp){
 	CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuResPsum,sizeof(int) * threadNum));
 
 	cudaEventRecord(startGPU,0);
-	do{
-		cudaReference(0, HINT_READ);
-		cudaReference(3, HINT_WRITE);
-		cudaReference(5, HINT_WRITE);
-		cudaReference(4, HINT_WRITE);
-		merge<<<grid,block>>>(gpuFilterAddr,jNode->factTable->tupleNum,jNode->dimNum,gpuFinalFilter, gpuCount,gpuTotalCount);
-	} while(0);
+	merge<<<grid,block>>>(gpuFilterAddr,jNode->factTable->tupleNum,jNode->dimNum,gpuFinalFilter, gpuCount,gpuTotalCount);
 	CUDA_SAFE_CALL_NO_SYNC(cudaDeviceSynchronize());
 
 	cudaEventRecord(stopGPU,0);
@@ -461,21 +439,9 @@ struct tableNode * inviJoin(struct joinNode *jNode, struct statistic *pp){
 
 	for(int i=0;i<jNode->factOutputNum;i++){
 		if(attrType[i] != STRING)
-			do{
-				cudaReference(1, HINT_READ);
-				cudaReference(0, HINT_READ);
-				cudaReference(5, HINT_WRITE);
-				cudaReference(4, HINT_READ);
-				joinFact_int<<<grid,block>>>(gpuResPsum,gpu_fact[i],attrSize[i],jNode->factTable->tupleNum,gpuFinalFilter,gpuResult[i]);
-			} while(0);
+			joinFact_int<<<grid,block>>>(gpuResPsum,gpu_fact[i],attrSize[i],jNode->factTable->tupleNum,gpuFinalFilter,gpuResult[i]);
 		else
-			do{
-				cudaReference(1, HINT_READ);
-				cudaReference(0, HINT_READ);
-				cudaReference(5, HINT_WRITE);
-				cudaReference(4, HINT_READ);
-				joinFact_other<<<grid,block>>>(gpuResPsum,gpu_fact[i],attrSize[i],jNode->factTable->tupleNum,gpuFinalFilter,gpuResult[i]);
-			} while(0);
+			joinFact_other<<<grid,block>>>(gpuResPsum,gpu_fact[i],attrSize[i],jNode->factTable->tupleNum,gpuFinalFilter,gpuResult[i]);
 
 	}
 
@@ -484,23 +450,9 @@ struct tableNode * inviJoin(struct joinNode *jNode, struct statistic *pp){
 
 		for(int j=0;j<jNode->dimOutputNum[i];j++){
 			if (attrType[k] != STRING)
-				do{
-					cudaReference(1, HINT_READ);
-					cudaReference(0, HINT_READ);
-					cudaReference(5, HINT_READ);
-					cudaReference(4, HINT_READ);
-					cudaReference(6, HINT_WRITE);
-					joinDim_int<<<grid,block>>>(gpuResPsum,gpu_fact[k],attrSize[k],jNode->factTable->tupleNum,gpuFilter[k],gpuFinalFilter,gpuResult[k]);
-				} while(0);
+				joinDim_int<<<grid,block>>>(gpuResPsum,gpu_fact[k],attrSize[k],jNode->factTable->tupleNum,gpuFilter[k],gpuFinalFilter,gpuResult[k]);
 			else
-				do{
-					cudaReference(1, HINT_READ);
-					cudaReference(0, HINT_READ);
-					cudaReference(5, HINT_READ);
-					cudaReference(4, HINT_READ);
-					cudaReference(6, HINT_WRITE);
-					joinDim_other<<<grid,block>>>(gpuResPsum,gpu_fact[k],attrSize[k],jNode->factTable->tupleNum,gpuFilter[k],gpuFinalFilter,gpuResult[k]);
-				} while(0);
+				joinDim_other<<<grid,block>>>(gpuResPsum,gpu_fact[k],attrSize[k],jNode->factTable->tupleNum,gpuFilter[k],gpuFinalFilter,gpuResult[k]);
 			k++;
 		}
 	}

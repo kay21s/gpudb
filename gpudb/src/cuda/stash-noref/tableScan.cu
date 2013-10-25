@@ -1088,68 +1088,28 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
             if(sn->tn->attrType[index] == INT){
                 int whereValue = *((int*) where->exp[0].content);
                 if(rel==EQ)
-                    do{
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(3, HINT_WRITE);
-	                    genScanFilter_init_int_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                    } while(0);
+                    genScanFilter_init_int_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                 else if(rel == GTH)
-                    do{
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(3, HINT_WRITE);
-	                    genScanFilter_init_int_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                    } while(0);
+                    genScanFilter_init_int_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                 else if(rel == LTH)
-                    do{
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(3, HINT_WRITE);
-	                    genScanFilter_init_int_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                    } while(0);
+                    genScanFilter_init_int_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                 else if(rel == GEQ)
-                    do{
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(3, HINT_WRITE);
-	                    genScanFilter_init_int_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                    } while(0);
+                    genScanFilter_init_int_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                 else if (rel == LEQ)
-                    do{
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(3, HINT_WRITE);
-	                    genScanFilter_init_int_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                    } while(0);
+                    genScanFilter_init_int_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
 
             }else if (sn->tn->attrType[index] == FLOAT){
                 float whereValue = *((float*) where->exp[0].content);
                 if(rel==EQ)
-                    do{
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(3, HINT_WRITE);
-	                    genScanFilter_init_float_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                    } while(0);
+                    genScanFilter_init_float_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                 else if(rel == GTH)
-                    do{
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(3, HINT_WRITE);
-	                    genScanFilter_init_float_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                    } while(0);
+                    genScanFilter_init_float_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                 else if(rel == LTH)
-                    do{
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(3, HINT_WRITE);
-	                    genScanFilter_init_float_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                    } while(0);
+                    genScanFilter_init_float_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                 else if(rel == GEQ)
-                    do{
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(3, HINT_WRITE);
-	                    genScanFilter_init_float_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                    } while(0);
+                    genScanFilter_init_float_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                 else if (rel == LEQ)
-                    do{
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(3, HINT_WRITE);
-	                    genScanFilter_init_float_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                    } while(0);
+                    genScanFilter_init_float_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
 
             }else{
                 if(rel == EQ)
@@ -1189,12 +1149,7 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 
             CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuDictFilter, dNum * sizeof(int)));
 
-            do{
-            	cudaReference(0, HINT_READ);
-            	cudaReference(5, HINT_WRITE);
-            	cudaReference(4, HINT_READ);
-	            genScanFilter_dict_init<<<grid,block>>>(gpuDictHeader,sn->tn->attrSize[index],sn->tn->attrType[index],dNum, gpuExp,gpuDictFilter);
-            } while(0);
+            genScanFilter_dict_init<<<grid,block>>>(gpuDictHeader,sn->tn->attrSize[index],sn->tn->attrType[index],dNum, gpuExp,gpuDictFilter);
 
             CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuDictHeader));
 
@@ -1211,12 +1166,7 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
                 column[whereIndex] = sn->tn->content[index];
 			}
 
-            do{
-            	cudaReference(0, HINT_READ);
-            	cudaReference(5, HINT_WRITE);
-            	cudaReference(4, HINT_READ);
-	            genScanFilter_rle<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],sn->tn->attrType[index], totalTupleNum, gpuExp, where->andOr, gpuFilter);
-            } while(0);
+            genScanFilter_rle<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],sn->tn->attrType[index], totalTupleNum, gpuExp, where->andOr, gpuFilter);
         }
 
         int dictFilter = 0;
@@ -1236,27 +1186,12 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 
                 if(prevFormat == DICT){
                     if(dictInit == 1){
-                        do{
-                        	cudaReference(1, HINT_READ);
-                        	cudaReference(0, HINT_READ);
-                        	cudaReference(4, HINT_WRITE);
-	                        transform_dict_filter_init<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
-                        } while(0);
+                        transform_dict_filter_init<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
                         dictInit = 0;
                     }else if(dictFinal == OR)
-                        do{
-                        	cudaReference(1, HINT_READ);
-                        	cudaReference(0, HINT_READ);
-                        	cudaReference(4, HINT_WRITE);
-	                        transform_dict_filter_or<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
-                        } while(0);
+                        transform_dict_filter_or<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
                     else
-                        do{
-                        	cudaReference(1, HINT_READ);
-                        	cudaReference(0, HINT_READ);
-                        	cudaReference(4, HINT_WRITE);
-	                        transform_dict_filter_and<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
-                        } while(0);
+                        transform_dict_filter_and<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
 
                     CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuDictFilter));
                     dictFinal = where->andOr;
@@ -1289,12 +1224,7 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
                     CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuDictHeader,dheader,sizeof(struct dictHeader), cudaMemcpyHostToDevice));
                     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuDictFilter, dNum * sizeof(int)));
 
-                    do{
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(5, HINT_WRITE);
-                    	cudaReference(4, HINT_READ);
-	                    genScanFilter_dict_init<<<grid,block>>>(gpuDictHeader,sn->tn->attrSize[index],sn->tn->attrType[index],dNum, gpuExp,gpuDictFilter);
-                    } while(0);
+                    genScanFilter_dict_init<<<grid,block>>>(gpuDictHeader,sn->tn->attrSize[index],sn->tn->attrType[index],dNum, gpuExp,gpuDictFilter);
                     dictFilter= -1;
                     CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuDictHeader));
 
@@ -1323,132 +1253,52 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
                     int whereValue = *((int*) where->exp[i].content);
                     if(where->andOr == AND){
                         if(rel==EQ)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_and_int_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_and_int_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if(rel == GTH)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_and_int_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_and_int_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if(rel == LTH)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_and_int_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_and_int_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if(rel == GEQ)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_and_int_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_and_int_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if (rel == LEQ)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_and_int_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_and_int_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                     }else{
                         if(rel==EQ)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_or_int_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_or_int_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if(rel == GTH)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_or_int_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_or_int_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if(rel == LTH)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_or_int_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_or_int_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if(rel == GEQ)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_or_int_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_or_int_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if (rel == LEQ)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_or_int_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_or_int_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                     }
 
                 } else if (sn->tn->attrType[index] == FLOAT){
                     float whereValue = *((float*) where->exp[i].content);
                     if(where->andOr == AND){
                         if(rel==EQ)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_and_float_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_and_float_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if(rel == GTH)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_and_float_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_and_float_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if(rel == LTH)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_and_float_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_and_float_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if(rel == GEQ)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_and_float_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_and_float_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if (rel == LEQ)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_and_float_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_and_float_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                     }else{
                         if(rel==EQ)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_or_float_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_or_float_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if(rel == GTH)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_or_float_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_or_float_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if(rel == LTH)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_or_float_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_or_float_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if(rel == GEQ)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_or_float_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_or_float_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                         else if (rel == LEQ)
-                            do{
-                            	cudaReference(1, HINT_WRITE);
-                            	cudaReference(0, HINT_READ);
-	                            genScanFilter_or_float_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
-                            } while(0);
+                            genScanFilter_or_float_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                     }
                 }else{
                     if(where->andOr == AND){
@@ -1488,31 +1338,16 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 
                 if(dictFilter != -1){
                     if(where->andOr == AND)
-                        do{
-                        	cudaReference(0, HINT_READ);
-                        	cudaReference(5, HINT_WRITE);
-                        	cudaReference(4, HINT_READ);
-	                        genScanFilter_dict_and<<<grid,block>>>(gpuDictHeader,sn->tn->attrSize[index],sn->tn->attrType[index],dNum, gpuExp,gpuDictFilter);
-                        } while(0);
+                        genScanFilter_dict_and<<<grid,block>>>(gpuDictHeader,sn->tn->attrSize[index],sn->tn->attrType[index],dNum, gpuExp,gpuDictFilter);
                     else
-                        do{
-                        	cudaReference(0, HINT_READ);
-                        	cudaReference(5, HINT_WRITE);
-                        	cudaReference(4, HINT_READ);
-	                        genScanFilter_dict_or<<<grid,block>>>(gpuDictHeader,sn->tn->attrSize[index],sn->tn->attrType[index],dNum, gpuExp,gpuDictFilter);
-                        } while(0);
+                        genScanFilter_dict_or<<<grid,block>>>(gpuDictHeader,sn->tn->attrSize[index],sn->tn->attrType[index],dNum, gpuExp,gpuDictFilter);
                 }
                 dictFilter = 0;
 
                 CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuDictHeader));
 
             }else if (format == RLE){
-                do{
-                	cudaReference(0, HINT_READ);
-                	cudaReference(5, HINT_WRITE);
-                	cudaReference(4, HINT_READ);
-	                genScanFilter_rle<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],sn->tn->attrType[index], totalTupleNum, gpuExp, where->andOr, gpuFilter);
-                } while(0);
+                genScanFilter_rle<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],sn->tn->attrType[index], totalTupleNum, gpuExp, where->andOr, gpuFilter);
 
             }
 
@@ -1520,27 +1355,12 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 
         if(prevFormat == DICT){
             if (dictInit == 1){
-                do{
-                	cudaReference(1, HINT_READ);
-                	cudaReference(0, HINT_READ);
-                	cudaReference(4, HINT_WRITE);
-	                transform_dict_filter_init<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter, byteNum);
-                } while(0);
+                transform_dict_filter_init<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter, byteNum);
                 dictInit = 0;
             }else if(dictFinal == AND)
-                do{
-                	cudaReference(1, HINT_READ);
-                	cudaReference(0, HINT_READ);
-                	cudaReference(4, HINT_WRITE);
-	                transform_dict_filter_and<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter, byteNum);
-                } while(0);
+                transform_dict_filter_and<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter, byteNum);
             else
-                do{
-                	cudaReference(1, HINT_READ);
-                	cudaReference(0, HINT_READ);
-                	cudaReference(4, HINT_WRITE);
-	                transform_dict_filter_or<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter, byteNum);
-                } while(0);
+                transform_dict_filter_or<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter, byteNum);
             CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuDictFilter));
         }
     
@@ -1555,11 +1375,7 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 /* Count the number of tuples that meets the predicats for each thread
  * and calculate the prefix sum.
  */
-    do{
-    	cudaReference(0, HINT_READ);
-    	cudaReference(2, HINT_WRITE);
-	    countScanNum<<<grid,block>>>(gpuFilter,totalTupleNum,gpuCount);
-    } while(0);
+    countScanNum<<<grid,block>>>(gpuFilter,totalTupleNum,gpuCount);
     scanImpl(gpuCount,threadNum,gpuPsum, pp);
 
     int tmp1, tmp2;
@@ -1630,21 +1446,9 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
             int format = sn->tn->dataFormat[index];
             if(format == UNCOMPRESSED){
                 if (sn->tn->attrSize[index] == sizeof(int))
-                    do{
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(3, HINT_READ);
-                    	cudaReference(5, HINT_READ);
-                    	cudaReference(6, HINT_WRITE);
-	                    scan_int<<<grid,block>>>(scanCol[i], sn->tn->attrSize[index], totalTupleNum,gpuPsum,count, gpuFilter,result[i]);
-                    } while(0);
+                    scan_int<<<grid,block>>>(scanCol[i], sn->tn->attrSize[index], totalTupleNum,gpuPsum,count, gpuFilter,result[i]);
                 else
-                    do{
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(3, HINT_READ);
-                    	cudaReference(5, HINT_READ);
-                    	cudaReference(6, HINT_WRITE);
-	                    scan_other<<<grid,block>>>(scanCol[i], sn->tn->attrSize[index], totalTupleNum,gpuPsum,count, gpuFilter,result[i]);
-                    } while(0);
+                    scan_other<<<grid,block>>>(scanCol[i], sn->tn->attrSize[index], totalTupleNum,gpuPsum,count, gpuFilter,result[i]);
 
             }else if(format == DICT){
                 struct dictHeader * dheader = (struct dictHeader *)sn->tn->content[index];
@@ -1655,23 +1459,9 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
                 CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuDictHeader,dheader,sizeof(struct dictHeader), cudaMemcpyHostToDevice));
 
                 if (sn->tn->attrSize[i] == sizeof(int))
-                    do{
-                    	cudaReference(1, HINT_READ);
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(5, HINT_READ);
-                    	cudaReference(7, HINT_READ);
-                    	cudaReference(8, HINT_WRITE);
-	                    scan_dict_int<<<grid,block>>>(scanCol[i], gpuDictHeader, byteNum,sn->tn->attrSize[index], totalTupleNum,gpuPsum,count, gpuFilter,result[i]);
-                    } while(0);
+                    scan_dict_int<<<grid,block>>>(scanCol[i], gpuDictHeader, byteNum,sn->tn->attrSize[index], totalTupleNum,gpuPsum,count, gpuFilter,result[i]);
                 else
-                    do{
-                    	cudaReference(1, HINT_READ);
-                    	cudaReference(0, HINT_READ);
-                    	cudaReference(5, HINT_READ);
-                    	cudaReference(7, HINT_READ);
-                    	cudaReference(8, HINT_WRITE);
-	                    scan_dict_other<<<grid,block>>>(scanCol[i], gpuDictHeader,byteNum,sn->tn->attrSize[index], totalTupleNum,gpuPsum,count, gpuFilter,result[i]);
-                    } while(0);
+                    scan_dict_other<<<grid,block>>>(scanCol[i], gpuDictHeader,byteNum,sn->tn->attrSize[index], totalTupleNum,gpuPsum,count, gpuFilter,result[i]);
 
                 CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuDictHeader));
 
@@ -1681,20 +1471,10 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 
                 CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuRle, totalTupleNum * sizeof(int)));
 
-                do{
-                	cudaReference(1, HINT_WRITE);
-                	cudaReference(0, HINT_READ);
-	                unpack_rle<<<grid,block>>>(scanCol[i], gpuRle,totalTupleNum, dNum);
-                } while(0);
+                unpack_rle<<<grid,block>>>(scanCol[i], gpuRle,totalTupleNum, dNum);
 
 
-                do{
-                	cudaReference(0, HINT_READ);
-                	cudaReference(3, HINT_READ);
-                	cudaReference(5, HINT_READ);
-                	cudaReference(6, HINT_WRITE);
-	                scan_int<<<grid,block>>>(gpuRle, sn->tn->attrSize[index], totalTupleNum,gpuPsum,count, gpuFilter,result[i]);
-                } while(0);
+                scan_int<<<grid,block>>>(gpuRle, sn->tn->attrSize[index], totalTupleNum,gpuPsum,count, gpuFilter,result[i]);
 
                 CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuRle));
             }

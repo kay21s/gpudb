@@ -165,21 +165,13 @@ static void prescanArrayRecursive(int *outArray, const int *inArray, int numElem
                               numBlocks, 
                               level+1, pp);
 
-        do{
-        	cudaReference(1, HINT_READ);
-        	cudaReference(0, HINT_WRITE);
-	        uniformAdd<<< grid, threads >>>(outArray, 
-        } while(0);
+        uniformAdd<<< grid, threads >>>(outArray, 
                                         g_scanBlockSums[level], 
                                         numElements - numEltsLastBlock, 
                                         0, 0, numElements);
         if (np2LastBlock)
         {
-            do{
-            	cudaReference(1, HINT_READ);
-            	cudaReference(0, HINT_WRITE);
-	            uniformAdd<<< 1, numThreadsLastBlock >>>(outArray, 
-            } while(0);
+            uniformAdd<<< 1, numThreadsLastBlock >>>(outArray, 
                                                      g_scanBlockSums[level], 
                                                      numEltsLastBlock, 
                                                      numBlocks - 1, 

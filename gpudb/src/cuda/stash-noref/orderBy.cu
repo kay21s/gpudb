@@ -642,48 +642,24 @@ struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
     if(type == INT){
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuKey, sizeof(int) * newNum));
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuSortedKey, sizeof(int) * newNum));
-        do{
-        	cudaReference(0, HINT_WRITE);
-	        set_key_int<<<8,128>>>((int*)gpuKey,newNum);
-        } while(0);
+        set_key_int<<<8,128>>>((int*)gpuKey,newNum);
         CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuKey, column[index], sizeof(int)*gpuTupleNum,cudaMemcpyDeviceToDevice));
-        do{
-        	cudaReference(0, HINT_READ);
-        	cudaReference(3, HINT_WRITE);
-        	cudaReference(2, HINT_WRITE);
-	        sort_key_int<<<1, newNum/2>>>((int*)gpuKey, newNum, (int*)gpuSortedKey, gpuPos, dir);
-        } while(0);
+        sort_key_int<<<1, newNum/2>>>((int*)gpuKey, newNum, (int*)gpuSortedKey, gpuPos, dir);
 
     }else if (type == FLOAT){
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuKey, sizeof(float) * newNum));
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuSortedKey, sizeof(float) * newNum));
-        do{
-        	cudaReference(0, HINT_WRITE);
-	        set_key_float<<<8,128>>>((float*)gpuKey,newNum);
-        } while(0);
+        set_key_float<<<8,128>>>((float*)gpuKey,newNum);
         CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuKey, column[index], sizeof(int)*gpuTupleNum,cudaMemcpyDeviceToDevice));
-        do{
-        	cudaReference(0, HINT_READ);
-        	cudaReference(3, HINT_WRITE);
-        	cudaReference(2, HINT_WRITE);
-	        sort_key_float<<<1, newNum/2>>>((float*)gpuKey, newNum, (float*)gpuSortedKey, gpuPos, dir);
-        } while(0);
+        sort_key_float<<<1, newNum/2>>>((float*)gpuKey, newNum, (float*)gpuSortedKey, gpuPos, dir);
 
     }else if (type == STRING){
         int keySize = odNode->table->attrSize[index];
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuKey, keySize * newNum));
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuSortedKey, keySize * newNum));
-        do{
-        	cudaReference(0, HINT_WRITE);
-	        set_key_string<<<8,128>>>(gpuKey,newNum*keySize);
-        } while(0);
+        set_key_string<<<8,128>>>(gpuKey,newNum*keySize);
         CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuKey, column[index], keySize*gpuTupleNum,cudaMemcpyDeviceToDevice));
-        do{
-        	cudaReference(0, HINT_READ);
-        	cudaReference(3, HINT_WRITE);
-        	cudaReference(4, HINT_WRITE);
-	        sort_key_string<<<1, newNum/2>>>(gpuKey, newNum, keySize,gpuSortedKey, gpuPos, dir);
-        } while(0);
+        sort_key_string<<<1, newNum/2>>>(gpuKey, newNum, keySize,gpuSortedKey, gpuPos, dir);
     }
 
     /* Currently we only support no more than 2 orderBy columns */
@@ -697,24 +673,12 @@ struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
 
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&keyNum, sizeof(int)));
         if(type == INT){
-            do{
-            	cudaReference(0, HINT_READ);
-            	cudaReference(2, HINT_WRITE);
-	            count_unique_keys_int<<<1,1>>>((int *)gpuSortedKey, gpuTupleNum,keyNum);
-            } while(0);
+            count_unique_keys_int<<<1,1>>>((int *)gpuSortedKey, gpuTupleNum,keyNum);
         }else if (type == FLOAT){
-            do{
-            	cudaReference(0, HINT_READ);
-            	cudaReference(2, HINT_WRITE);
-	            count_unique_keys_float<<<1,1>>>((float *)gpuSortedKey, gpuTupleNum, keyNum);
-            } while(0);
+            count_unique_keys_float<<<1,1>>>((float *)gpuSortedKey, gpuTupleNum, keyNum);
 
         }else if (type == STRING){
-            do{
-            	cudaReference(0, HINT_READ);
-            	cudaReference(3, HINT_WRITE);
-	            count_unique_keys_string<<<1,1>>>(gpuKey, gpuTupleNum,keySize,keyNum);
-            } while(0);
+            count_unique_keys_string<<<1,1>>>(gpuKey, gpuTupleNum,keySize,keyNum);
         }
 
         int cpuKeyNum;
@@ -725,24 +689,12 @@ struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
         CUDA_SAFE_CALL_NO_SYNC(cudaMemset(keyPsum, 0, sizeof(int) * cpuKeyNum));
 
         if(type == INT){
-            do{
-            	cudaReference(0, HINT_READ);
-            	cudaReference(2, HINT_WRITE);
-	            count_key_num_int<<<1,1>>>((int*)gpuKey,gpuTupleNum,keyCount);
-            } while(0);
+            count_key_num_int<<<1,1>>>((int*)gpuKey,gpuTupleNum,keyCount);
         }else if (type == FLOAT){
-            do{
-            	cudaReference(0, HINT_READ);
-            	cudaReference(2, HINT_WRITE);
-	            count_key_num_float<<<1,1>>>((float*)gpuKey,gpuTupleNum,keyCount);
-            } while(0);
+            count_key_num_float<<<1,1>>>((float*)gpuKey,gpuTupleNum,keyCount);
 
         }else if (type == STRING){
-            do{
-            	cudaReference(0, HINT_READ);
-            	cudaReference(3, HINT_WRITE);
-	            count_key_num_string<<<1,1>>>(gpuKey,gpuTupleNum,keySize,keyCount);
-            } while(0);
+            count_key_num_string<<<1,1>>>(gpuKey,gpuTupleNum,keySize,keyCount);
         }
         scanImpl(keyCount, cpuKeyNum, keyPsum, pp);
 
@@ -752,72 +704,24 @@ struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&gpuKey2, keySize2 * newNum));
 
         if(secType == INT){
-            do{
-            	cudaReference(1, HINT_READ);
-            	cudaReference(0, HINT_READ);
-            	cudaReference(4, HINT_WRITE);
-	            gather_col_int<<<8,128>>>(gpuPos,(int*)column[secIndex],newNum, gpuTupleNum, (int*)gpuKey2);
-            } while(0);
-            do{
-            	cudaReference(1, HINT_READ);
-            	cudaReference(0, HINT_READ);
-            	cudaReference(2, HINT_READ);
-            	cudaReference(5, HINT_WRITE);
-            	cudaReference(4, HINT_READ);
-	            sec_sort_key_int<<<cpuKeyNum,1>>>((int*)gpuKey2, keyPsum, keyCount , gpuTupleNum, gpuPos, gpuPos2);
-            } while(0);
+            gather_col_int<<<8,128>>>(gpuPos,(int*)column[secIndex],newNum, gpuTupleNum, (int*)gpuKey2);
+            sec_sort_key_int<<<cpuKeyNum,1>>>((int*)gpuKey2, keyPsum, keyCount , gpuTupleNum, gpuPos, gpuPos2);
         }else if (secType == FLOAT){
-            do{
-            	cudaReference(1, HINT_READ);
-            	cudaReference(0, HINT_READ);
-            	cudaReference(4, HINT_WRITE);
-	            gather_col_float<<<8,128>>>(gpuPos,(float*)column[secIndex],newNum, gpuTupleNum, (float*)gpuKey2);
-            } while(0);
-            do{
-            	cudaReference(1, HINT_READ);
-            	cudaReference(0, HINT_READ);
-            	cudaReference(2, HINT_READ);
-            	cudaReference(5, HINT_WRITE);
-            	cudaReference(4, HINT_READ);
-	            sec_sort_key_float<<<cpuKeyNum,1>>>((float*)gpuKey2, keyPsum, keyCount , gpuTupleNum, gpuPos, gpuPos2);
-            } while(0);
+            gather_col_float<<<8,128>>>(gpuPos,(float*)column[secIndex],newNum, gpuTupleNum, (float*)gpuKey2);
+            sec_sort_key_float<<<cpuKeyNum,1>>>((float*)gpuKey2, keyPsum, keyCount , gpuTupleNum, gpuPos, gpuPos2);
         }else if (secType == STRING){
-            do{
-            	cudaReference(1, HINT_READ);
-            	cudaReference(0, HINT_READ);
-            	cudaReference(5, HINT_WRITE);
-	            gather_col_string<<<8,128>>>(gpuPos,column[secIndex],newNum, gpuTupleNum, keySize2,gpuKey2);
-            } while(0);
-            do{
-            	cudaReference(0, HINT_READ);
-            	cudaReference(3, HINT_READ);
-            	cudaReference(2, HINT_READ);
-            	cudaReference(5, HINT_READ);
-            	cudaReference(6, HINT_WRITE);
-	            sec_sort_key_string<<<cpuKeyNum,1>>>(gpuKey2, keySize2, keyPsum, keyCount , gpuTupleNum, gpuPos, gpuPos2);
-            } while(0);
+            gather_col_string<<<8,128>>>(gpuPos,column[secIndex],newNum, gpuTupleNum, keySize2,gpuKey2);
+            sec_sort_key_string<<<cpuKeyNum,1>>>(gpuKey2, keySize2, keyPsum, keyCount , gpuTupleNum, gpuPos, gpuPos2);
         }
 
-        do{
-        	cudaReference(1, HINT_READ);
-        	cudaReference(0, HINT_READ);
-        	cudaReference(4, HINT_READ);
-        	cudaReference(6, HINT_WRITE);
-	        gather_result<<<8,128>>>(gpuPos2, gpuContent, newNum, gpuTupleNum, gpuSize,res->totalAttr,gpuResult);
-        } while(0);
+        gather_result<<<8,128>>>(gpuPos2, gpuContent, newNum, gpuTupleNum, gpuSize,res->totalAttr,gpuResult);
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(keyCount));
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(keyNum));
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuPos2));
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuKey2));
 
     }else{
-        do{
-        	cudaReference(1, HINT_READ);
-        	cudaReference(0, HINT_READ);
-        	cudaReference(4, HINT_READ);
-        	cudaReference(6, HINT_WRITE);
-	        gather_result<<<8,128>>>(gpuPos, gpuContent, newNum, gpuTupleNum, gpuSize,res->totalAttr,gpuResult);
-        } while(0);
+        gather_result<<<8,128>>>(gpuPos, gpuContent, newNum, gpuTupleNum, gpuSize,res->totalAttr,gpuResult);
     }
 
     for(int i=0; i<res->totalAttr;i++){

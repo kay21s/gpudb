@@ -81,12 +81,7 @@ char * materializeCol(struct materializeNode * mn, struct statistic * pp){
     dim3 grid(512);
     dim3 block(128);
 
-    do{
-    	cudaReference(0, HINT_READ);
-    	cudaReference(2, HINT_READ);
-    	cudaReference(5, HINT_WRITE);
-	    materialize<<<grid,block>>> (gpuContent, tn->totalAttr, gpuAttrSize, tn->tupleNum, tn->tupleSize, gpuResult);
-    } while(0);
+    materialize<<<grid,block>>> (gpuContent, tn->totalAttr, gpuAttrSize, tn->tupleNum, tn->tupleSize, gpuResult);
 
     CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(res, gpuResult, size, cudaMemcpyDeviceToHost));
 
