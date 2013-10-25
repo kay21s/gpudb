@@ -32,6 +32,7 @@
 #include "scanLargeArray_kernel.cu"
 #include <assert.h>
 #include "../include/common.h"
+#include "../include/gpuCudaLib.h"
 #include "./gmm.h"
 
 static inline bool 
@@ -98,7 +99,7 @@ static void deallocBlockSums()
 {
     for (int i = 0; i < g_numLevelsAllocated; i++)
     {
-        cudaFree(g_scanBlockSums[i]);
+        CUDA_SAFE_CALL_NO_SYNC(cudaFree(g_scanBlockSums[i]));
     }
 
     
