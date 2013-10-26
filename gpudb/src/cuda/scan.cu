@@ -191,7 +191,6 @@ static void prescanArrayRecursive(int *outArray, const int *inArray, int numElem
         do{
         	GMM_CALL(cudaReference(1, HINT_READ));
         	GMM_CALL(cudaReference(0, HINT_WRITE));
-        	GMM_CALL(cudaReference(2, HINT_WRITE));
 	        prescan<false, false><<< grid, threads, sharedMemSize >>>(outArray, inArray, 0, numThreads * 2, 0, 0);
         } while(0);
     }
@@ -200,7 +199,6 @@ static void prescanArrayRecursive(int *outArray, const int *inArray, int numElem
         do{
         	GMM_CALL(cudaReference(1, HINT_READ));
         	GMM_CALL(cudaReference(0, HINT_WRITE));
-        	GMM_CALL(cudaReference(2, HINT_WRITE));
 	        prescan<false, true><<< grid, threads, sharedMemSize >>>(outArray, inArray, 0, numElements, 0, 0);
         } while(0);
     }
