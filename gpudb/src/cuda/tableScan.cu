@@ -1156,15 +1156,40 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 
             }else{
                 if(rel == EQ)
-                    genScanFilter_init_eq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                    do{
+                    	GMM_CALL(cudaReference(0, HINT_READ));
+                    	GMM_CALL(cudaReference(3, HINT_READ));
+                    	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                    genScanFilter_init_eq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                    } while(0);
                 else if (rel == GTH)
-                    genScanFilter_init_gth<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                    do{
+                    	GMM_CALL(cudaReference(0, HINT_READ));
+                    	GMM_CALL(cudaReference(3, HINT_READ));
+                    	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                    genScanFilter_init_gth<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                    } while(0);
                 else if (rel == LTH)
-                    genScanFilter_init_lth<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                    do{
+                    	GMM_CALL(cudaReference(0, HINT_READ));
+                    	GMM_CALL(cudaReference(3, HINT_READ));
+                    	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                    genScanFilter_init_lth<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                    } while(0);
                 else if (rel == GEQ)
-                    genScanFilter_init_geq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                    do{
+                    	GMM_CALL(cudaReference(0, HINT_READ));
+                    	GMM_CALL(cudaReference(3, HINT_READ));
+                    	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                    genScanFilter_init_geq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                    } while(0);
                 else if (rel == LEQ)
-                    genScanFilter_init_leq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                    do{
+                    	GMM_CALL(cudaReference(0, HINT_READ));
+                    	GMM_CALL(cudaReference(3, HINT_READ));
+                    	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                    genScanFilter_init_leq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                    } while(0);
             }
 
         }else if(format == DICT){
@@ -1456,26 +1481,76 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
                 }else{
                     if(where->andOr == AND){
                         if (rel == EQ)
-                            genScanFilter_and_eq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            do{
+                            	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_READ));
+                            	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                            genScanFilter_and_eq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            } while(0);
                         else if (rel == GTH)
-                            genScanFilter_and_gth<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            do{
+                            	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_READ));
+                            	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                            genScanFilter_and_gth<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            } while(0);
                         else if (rel == LTH)
-                            genScanFilter_and_lth<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            do{
+                            	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_READ));
+                            	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                            genScanFilter_and_lth<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            } while(0);
                         else if (rel == GEQ)
-                            genScanFilter_and_geq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            do{
+                            	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_READ));
+                            	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                            genScanFilter_and_geq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            } while(0);
                         else if (rel == LEQ)
-                            genScanFilter_and_leq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            do{
+                            	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_READ));
+                            	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                            genScanFilter_and_leq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            } while(0);
                     }else{
                         if (rel == EQ)
-                            genScanFilter_or_eq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            do{
+                            	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_READ));
+                            	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                            genScanFilter_or_eq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            } while(0);
                         else if (rel == GTH)
-                            genScanFilter_or_gth<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            do{
+                            	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_READ));
+                            	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                            genScanFilter_or_gth<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            } while(0);
                         else if (rel == LTH)
-                            genScanFilter_or_lth<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            do{
+                            	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_READ));
+                            	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                            genScanFilter_or_lth<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            } while(0);
                         else if (rel == GEQ)
-                            genScanFilter_or_geq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            do{
+                            	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_READ));
+                            	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                            genScanFilter_or_geq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            } while(0);
                         else if (rel == LEQ)
-                            genScanFilter_or_leq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            do{
+                            	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_READ));
+                            	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                            genScanFilter_or_leq<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],totalTupleNum, gpuExp, gpuFilter);
+                            } while(0);
                     }
                 }
 
