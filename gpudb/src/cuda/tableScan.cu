@@ -1352,63 +1352,63 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
                     if(where->andOr == AND){
                         if(rel==EQ)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_and_int_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if(rel == GTH)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_and_int_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if(rel == LTH)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_and_int_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if(rel == GEQ)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_and_int_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if (rel == LEQ)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_and_int_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                     }else{
                         if(rel==EQ)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_or_int_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if(rel == GTH)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_or_int_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if(rel == LTH)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_or_int_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if(rel == GEQ)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_or_int_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if (rel == LEQ)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_or_int_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                     }
@@ -1418,63 +1418,63 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
                     if(where->andOr == AND){
                         if(rel==EQ)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_and_float_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if(rel == GTH)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_and_float_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if(rel == LTH)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_and_float_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if(rel == GEQ)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_and_float_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if (rel == LEQ)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_and_float_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                     }else{
                         if(rel==EQ)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_or_float_eq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if(rel == GTH)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_or_float_gth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if(rel == LTH)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_or_float_lth<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if(rel == GEQ)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_or_float_geq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                         else if (rel == LEQ)
                             do{
-                            	GMM_CALL(cudaReference(1, HINT_WRITE));
                             	GMM_CALL(cudaReference(0, HINT_READ));
+                            	GMM_CALL(cudaReference(3, HINT_WRITE));
 	                            genScanFilter_or_float_leq<<<grid,block>>>(column[whereIndex],totalTupleNum, whereValue, gpuFilter);
                             } while(0);
                     }
