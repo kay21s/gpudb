@@ -1698,6 +1698,7 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
             }
         }
 
+		printf("%d %d\n", count, sn->tn->attrSize[index]);
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **) &result[i], count * sn->tn->attrSize[index]));
     }
 
