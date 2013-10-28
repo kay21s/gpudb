@@ -60,8 +60,12 @@ char * materializeCol(struct materializeNode * mn, struct statistic * pp){
 
     column = (char **) malloc(sizeof(char *) * tn->totalAttr);
     CHECK_POINTER(column);
-    
+
+#ifdef HAS_GMM
+    CUDA_SAFE_CALL_NO_SYNC(cudaMallocEx((void **)&gpuContent, sizeof(char *) * tn->totalAttr, HINT_PTARRAY));
+#else
     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuContent, sizeof(char *) * tn->totalAttr));
+#endif
 
     res = (char *) malloc(size);
     CHECK_POINTER(res);
