@@ -416,7 +416,7 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
         CUDA_SAFE_CALL_NO_SYNC(cudaMemset(gpu_hashNum,0,sizeof(int)*HSIZE));
 
         do{
-        	GMM_CALL(cudaReference(0, HINT_READ));
+        	GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
         	GMM_CALL(cudaReference(3, HINT_READ));
         	GMM_CALL(cudaReference(2, HINT_READ));
         	GMM_CALL(cudaReference(4, HINT_READ));
@@ -503,7 +503,7 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
         	GMM_CALL(cudaReference(4, HINT_READ));
         	GMM_CALL(cudaReference(7, HINT_READ));
         	GMM_CALL(cudaReference(6, HINT_READ));
-        	GMM_CALL(cudaReference(8, HINT_WRITE));
+        	GMM_CALL(cudaReference(8, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
 	        agg_cal<<<grid,block>>>(gpuContent, gpuGbColNum, gpuGbExp, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum,  gpuResult);
         } while(0);
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbKey));
@@ -516,7 +516,7 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
         	GMM_CALL(cudaReference(4, HINT_READ));
         	GMM_CALL(cudaReference(7, HINT_READ));
         	GMM_CALL(cudaReference(6, HINT_READ));
-        	GMM_CALL(cudaReference(8, HINT_WRITE));
+        	GMM_CALL(cudaReference(8, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
 	        agg_cal_cons<<<grid,block>>>(gpuContent, gpuGbColNum, gpuGbExp, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum, gpuResult);
         } while(0);
 
