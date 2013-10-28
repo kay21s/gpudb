@@ -389,7 +389,7 @@ struct tableNode * inviJoin(struct joinNode *jNode, struct statistic *pp){
 
 	cudaEventRecord(startGPU,0);
 	do{
-		GMM_CALL(cudaReference(0, HINT_READ));
+		GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
 		GMM_CALL(cudaReference(3, HINT_WRITE));
 		GMM_CALL(cudaReference(5, HINT_WRITE));
 		GMM_CALL(cudaReference(4, HINT_WRITE));

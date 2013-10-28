@@ -84,7 +84,7 @@ char * materializeCol(struct materializeNode * mn, struct statistic * pp){
     dim3 block(128);
 
     do{
-    	GMM_CALL(cudaReference(0, HINT_READ));
+    	GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
     	GMM_CALL(cudaReference(2, HINT_READ));
     	GMM_CALL(cudaReference(5, HINT_WRITE));
 	    materialize<<<grid,block>>> (gpuContent, tn->totalAttr, gpuAttrSize, tn->tupleNum, tn->tupleSize, gpuResult);
