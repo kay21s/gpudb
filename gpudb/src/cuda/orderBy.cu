@@ -581,7 +581,11 @@ struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
 
     column = (char**) malloc(sizeof(char*) *res->totalAttr);
     CHECK_POINTER(column);
+#ifdef HAS_GMM
+    CUDA_SAFE_CALL_NO_SYNC(cudaMallocEx((void**)&gpuContent, sizeof(char *) * res->totalAttr, HINT_PTARRAY));
+#else
     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&gpuContent, sizeof(char *) * res->totalAttr));
+#endif
 
     for(int i=0;i<res->totalAttr;i++){
         res->attrType[i] = odNode->table->attrType[i];
@@ -622,7 +626,12 @@ struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
     result = (char**)malloc(sizeof(char *) * res->totalAttr);
     CHECK_POINTER(result);
 
+#ifdef HAS_GMM
+    CUDA_SAFE_CALL_NO_SYNC(cudaMallocEx((void**)&gpuResult, sizeof(char*)*res->totalAttr, HINT_PTARRAY));
+#else
     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&gpuResult, sizeof(char*)*res->totalAttr));
+#endif
+
     for(int i=0;i<res->totalAttr;i++){
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&result[i], res->attrSize[i]* gpuTupleNum));
         CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(&gpuResult[i], &result[i], sizeof(char*), cudaMemcpyHostToDevice));

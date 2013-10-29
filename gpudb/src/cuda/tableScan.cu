@@ -1021,6 +1021,7 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
         }
     }
 
+	printf("totalTupleNum: %ld\n", sizeof(int) * (long)totalTupleNum);
     int count;
     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuFilter,sizeof(int) * totalTupleNum));
     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&gpuPsum,sizeof(int)*threadNum));
@@ -1697,6 +1698,7 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
             }
         }
 
+		printf("%d %d\n", count, sn->tn->attrSize[index]);
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **) &result[i], count * sn->tn->attrSize[index]));
     }
 
