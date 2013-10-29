@@ -531,7 +531,7 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
         	GMM_CALL(cudaReference(3, HINT_READ));
         	GMM_CALL(cudaReference(2, HINT_READ));
         	GMM_CALL(cudaReference(5, HINT_READ));
-        	GMM_CALL(cudaReference(4, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
+        	GMM_CALL(cudaReference(4, HINT_READ));
         	GMM_CALL(cudaReference(7, HINT_READ));
         	GMM_CALL(cudaReference(9, HINT_READ));
 	        agg_cal<<<grid,block>>>(gpuContent, gpuGbColNum, gpuFunc, gpuOp, gpuMathExp,gpuMathOffset, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum,  gpuResult);
@@ -542,15 +542,15 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
 		// kaibo: gpuGbKey and gpu_psum are not allocated when gbConstant == 1, so we should not reference them in ths case
         do{
         	GMM_CALL(cudaReference(11, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
-        	GMM_CALL(cudaReference(10, HINT_READ));
+        	//GMM_CALL(cudaReference(10, HINT_READ));
         	GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
         	GMM_CALL(cudaReference(3, HINT_READ));
         	GMM_CALL(cudaReference(2, HINT_READ));
         	GMM_CALL(cudaReference(5, HINT_READ));
-        	GMM_CALL(cudaReference(4, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
+        	GMM_CALL(cudaReference(4, HINT_READ));
         	GMM_CALL(cudaReference(7, HINT_READ));
-        	GMM_CALL(cudaReference(9, HINT_READ));
-	        agg_cal_cons<<<grid,block>>>(gpuContent, gpuGbColNum, gpuFunc, gpuOp, gpuMathExp,gpuMathOffset, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum, gpuResult);
+        	//GMM_CALL(cudaReference(9, HINT_READ));
+	        agg_cal_cons<<<grid,block>>>(gpuContent, gpuGbColNum, gpuFunc, gpuOp, gpuMathExp,gpuMathOffset, gpuGbType, gpuGbSize, gpuTupleNum, NULL, NULL, gpuResult);
         } while(0);
 
     for(int i=0; i<gb->table->totalAttr;i++){
