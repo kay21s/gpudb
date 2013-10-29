@@ -22,9 +22,6 @@
 #include "../include/common.h"
 #include "../include/gpuCudaLib.h"
 #include "../include/cudaHash.h"
-#ifdef HAS_GMM
-	#include "gmm.h"
-#endif
 #include "scanImpl.cu"
 
 #define CHECK_POINTER(p)   do {                     \
@@ -212,28 +209,28 @@ __global__ void count_group_num(int *num, int tupleNum, int *totalCount){
  * Calculate the groupBy expression.
  */
 
-__device__ static float calMathExp(char **content, struct mathExp exp, int pos){
+__device__ static float calMathExp(char **content, struct mathExp * exp, int pos, int op){
     float res ;
 
-    if(exp.op == NOOP){
-        if (exp.opType == CONS)
-            res = exp.opValue;
+    if(op == NOOP){
+        if (exp[0].opType == CONS)
+            res = exp[0].opValue;
         else{
-            int index = exp.opValue;
+            int index = exp[0].opValue;
             res = ((int *)(content[index]))[pos];
         }
     
-    }else if(exp.op == PLUS ){
-        res = calMathExp(content, ((struct mathExp*)exp.exp)[0],pos) + calMathExp(content, ((struct mathExp*)exp.exp)[1], pos);
+    }else if(op == PLUS ){
+        res = calMathExp(content, &exp[0],pos, NOOP) + calMathExp(content, &exp[1], pos, NOOP);
 
-    }else if (exp.op == MINUS){
-        res = calMathExp(content, ((struct mathExp*)exp.exp)[0],pos) - calMathExp(content, ((struct mathExp*)exp.exp)[1], pos);
+    }else if (op == MINUS){
+        res = calMathExp(content, &exp[0],pos, NOOP) - calMathExp(content, &exp[1], pos, NOOP);
 
-    }else if (exp.op == MULTIPLY){
-        res = calMathExp(content, ((struct mathExp*)exp.exp)[0],pos) * calMathExp(content, ((struct mathExp*)exp.exp)[1], pos);
+    }else if (op == MULTIPLY){
+        res = calMathExp(content, &exp[0],pos, NOOP) * calMathExp(content, &exp[1], pos, NOOP);
 
-    }else if (exp.op == DIVIDE){
-        res = calMathExp(content, ((struct mathExp*)exp.exp)[0],pos) / calMathExp(content, ((struct mathExp*)exp.exp)[1], pos);
+    }else if (op == DIVIDE){
+        res = calMathExp(content, &exp[0],pos, NOOP) / calMathExp(content, &exp[1], pos, NOOP);
     }
 
     return res;
@@ -243,7 +240,7 @@ __device__ static float calMathExp(char **content, struct mathExp exp, int pos){
  * group by constant. Currently only support SUM function.
  */
 
-__global__ void agg_cal_cons(char ** content, int colNum, struct groupByExp* exp, int * gbType, int * gbSize, long tupleNum, int * key, int *psum,  char ** result){
+__global__ void agg_cal_cons(char ** content, int colNum, int * funcArray, int *op, struct mathExp* exp, int * mathOffset, int * gbType, int * gbSize, long tupleNum, int * key, int *psum,  char ** result){
 
     int stride = blockDim.x * gridDim.x;
     int index = blockIdx.x * blockDim.x + threadIdx.x;
@@ -253,9 +250,10 @@ __global__ void agg_cal_cons(char ** content, int colNum, struct groupByExp* exp
 
     for(int i=index;i<tupleNum;i+=stride){
         for(int j=0;j<colNum;j++){
-            int func = exp[j].func;
+            int func = funcArray[j];
+            int offset = mathOffset[j];
             if (func == SUM){
-                float tmpRes = calMathExp(content, exp[j].exp, i);
+                float tmpRes = calMathExp(content,&exp[offset] , i, op[j]);
                 buf[j] += tmpRes;
             }
         }
@@ -269,7 +267,7 @@ __global__ void agg_cal_cons(char ** content, int colNum, struct groupByExp* exp
  * gropu by
  */
 
-__global__ void agg_cal(char ** content, int colNum, struct groupByExp* exp, int * gbType, int * gbSize, long tupleNum, int * key, int *psum,  char ** result){
+__global__ void agg_cal(char ** content, int colNum, int * funcArray, int * op, struct mathExp* exp, int * mathOffset, int * gbType, int * gbSize, long tupleNum, int * key, int *psum,  char ** result){
 
         int stride = blockDim.x * gridDim.x;
         int index = blockIdx.x * blockDim.x + threadIdx.x;
@@ -280,15 +278,16 @@ __global__ void agg_cal(char ** content, int colNum, struct groupByExp* exp, int
             int offset = psum[hKey];
 
             for(int j=0;j<colNum;j++){
-                int func = exp[j].func;
+                int func = funcArray[j];
+                int mo = mathOffset[j];
                 if(func ==NOOP){
-                    int type = exp[j].exp.opType;
+                    int type = exp[mo].opType;
 
                     if(type == CONS){
-                        int value = exp[j].exp.opValue;
+                        int value = exp[mo].opValue;
                         ((int *)result[j])[offset] = value;
                     }else{
-                        int index = exp[j].exp.opValue;
+                        int index = exp[mo].opValue;
                         int attrSize = gbSize[j];
                         if(attrSize == sizeof(int))
                             ((int *)result[j])[offset] = ((int*)content[index])[i];
@@ -297,7 +296,7 @@ __global__ void agg_cal(char ** content, int colNum, struct groupByExp* exp, int
                     }
 
                 }else if (func == SUM){
-                    float tmpRes = calMathExp(content, exp[j].exp, i);
+                    float tmpRes = calMathExp(content, &exp[mo], i, op[j]);
                     atomicAdd(& ((float *)result[j])[offset], tmpRes);
                 }
             }
@@ -321,15 +320,13 @@ __global__ void agg_cal(char ** content, int colNum, struct groupByExp* exp, int
 
 struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
 
-	extern char *col_buf;
-	struct timeval t;
     struct timespec start,end;
     clock_gettime(CLOCK_REALTIME,&start);
-    int *gpuGbIndex, gpuTupleNum, gpuGbColNum;
-    int * gpuGbType, * gpuGbSize;
+    int *gpuGbIndex = NULL, gpuTupleNum, gpuGbColNum;
+    int *gpuGbType = NULL, *gpuGbSize = NULL;
 
-    int * gpuGbKey;
-    char ** gpuContent, ** column;
+    int *gpuGbKey = NULL;
+    char ** gpuContent = NULL, **column = NULL;
 
     /*
      * @gbCount: the number of groups
@@ -376,7 +373,7 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
     if(blockNum < 1024)
         grid = blockNum;
 
-    int * gpu_hashNum, *gpu_psum, *gpuGbCount;
+    int *gpu_hashNum = NULL, *gpu_psum = NULL, *gpuGbCount = NULL;
 
     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuContent, gb->table->totalAttr * sizeof(char *)));
     column = (char **) malloc(sizeof(char *) * gb->table->totalAttr);
@@ -386,12 +383,7 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
         int attrSize = gb->table->attrSize[i];
         if(gb->table->dataPos[i]==MEM){
             CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)& column[i], attrSize * gb->table->tupleNum));
-			gettimeofday(&t, NULL);
-			printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
-			memcpy(col_buf, gb->table->content[i], attrSize*gb->table->tupleNum);
-			gettimeofday(&t, NULL);
-			printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
-            CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(column[i], col_buf, attrSize *gb->table->tupleNum, cudaMemcpyHostToDevice));
+            CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(column[i], gb->table->content[i], attrSize *gb->table->tupleNum, cudaMemcpyHostToDevice));
 
             CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(&gpuContent[i], &column[i], sizeof(char *), cudaMemcpyHostToDevice));
         }else{
@@ -458,8 +450,8 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
 
     printf("[INFO]Number of groupBy results: %d\n",res->tupleNum);
 
-    char ** gpuResult;
-    char ** result;
+    char ** gpuResult = NULL;
+    char ** result = NULL;
     
     result = (char **)malloc(sizeof(char*)*res->totalAttr);
     CHECK_POINTER(result);
@@ -480,44 +472,75 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuGbSize, sizeof(int)*res->totalAttr));
     CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuGbSize, res->attrSize, sizeof(int)*res->totalAttr, cudaMemcpyHostToDevice));
 
-    struct groupByExp *gpuGbExp;
+    struct mathExp * gpuMathExp = NULL;
+    int * cpuFunc = (int *)malloc(sizeof(int) * res->totalAttr);
+    int * gpuFunc = NULL;
+    int * op = (int *)malloc(sizeof(int) * res->totalAttr);
+    int * gpuOp = NULL;
+    int * mathExpOffset = (int *)malloc(sizeof(int) * res->totalAttr);
+    int * gpuMathOffset = NULL;
+    int mathExpNum = 0;
 
-    CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&gpuGbExp, sizeof(struct groupByExp)*res->totalAttr));
-    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuGbExp, gb->gbExp, sizeof(struct groupByExp)*res->totalAttr, cudaMemcpyHostToDevice));
     for(int i=0;i<res->totalAttr;i++){
-        struct mathExp * tmpMath;
+        mathExpOffset[i] = mathExpNum;
+        cpuFunc[i] = gb->gbExp[i].func;
+        op[i] = gb->gbExp[i].exp.op;
+        if(gb->gbExp[i].exp.opNum == 2)
+            mathExpNum += 2;
+        else
+            mathExpNum += 1;
+    }
+
+    CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuMathExp, sizeof(struct mathExp) * mathExpNum));
+    CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&gpuMathOffset, sizeof(int) * res->totalAttr));
+    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuMathOffset,mathExpOffset, sizeof(int) * res->totalAttr, cudaMemcpyHostToDevice));
+    CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&gpuFunc, sizeof(int) * res->totalAttr));
+    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuFunc, cpuFunc, sizeof(int) * res->totalAttr, cudaMemcpyHostToDevice));
+    CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&gpuOp, sizeof(int) * res->totalAttr));
+    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuOp, op, sizeof(int) * res->totalAttr, cudaMemcpyHostToDevice));
+
+    for(int i=0;i<res->totalAttr;i++){
+        int offset = mathExpOffset[i];
         if(gb->gbExp[i].exp.opNum == 2){
-            CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&tmpMath, 2* sizeof(struct mathExp)));
-            CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(tmpMath,(struct mathExp*)gb->gbExp[i].exp.exp,2*sizeof(struct mathExp), cudaMemcpyHostToDevice));
-            CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(&(gpuGbExp[i].exp.exp), &tmpMath, sizeof(struct mathExp *), cudaMemcpyHostToDevice));
+            CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(&(gpuMathExp[offset]),(struct mathExp*)gb->gbExp[i].exp.exp,2*sizeof(struct mathExp), cudaMemcpyHostToDevice));
+        }else{
+            CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(&(gpuMathExp[offset]),&(gb->gbExp[i].exp),sizeof(struct mathExp), cudaMemcpyHostToDevice));
         }
     }
+
+    free(mathExpOffset);
+    free(cpuFunc);
+    free(op);
 
     gpuGbColNum = res->totalAttr;
 
     if(gbConstant !=1){
         do{
-        	GMM_CALL(cudaReference(0, HINT_READ));
+        	GMM_CALL(cudaReference(11, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
+        	GMM_CALL(cudaReference(10, HINT_READ));
+        	GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
         	GMM_CALL(cudaReference(3, HINT_READ));
         	GMM_CALL(cudaReference(2, HINT_READ));
-        	GMM_CALL(cudaReference(4, HINT_READ));
+        	GMM_CALL(cudaReference(5, HINT_READ));
+        	GMM_CALL(cudaReference(4, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
         	GMM_CALL(cudaReference(7, HINT_READ));
-        	GMM_CALL(cudaReference(6, HINT_READ));
-        	GMM_CALL(cudaReference(8, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
-	        agg_cal<<<grid,block>>>(gpuContent, gpuGbColNum, gpuGbExp, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum,  gpuResult);
+        	GMM_CALL(cudaReference(9, HINT_READ));
+	        agg_cal<<<grid,block>>>(gpuContent, gpuGbColNum, gpuFunc, gpuOp, gpuMathExp,gpuMathOffset, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum,  gpuResult);
         } while(0);
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbKey));
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpu_psum));
     }else
         do{
-        	GMM_CALL(cudaReference(0, HINT_READ));
+        	GMM_CALL(cudaReference(11, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
+        	GMM_CALL(cudaReference(10, HINT_READ));
+        	GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
         	GMM_CALL(cudaReference(3, HINT_READ));
         	GMM_CALL(cudaReference(2, HINT_READ));
-        	GMM_CALL(cudaReference(4, HINT_READ));
+        	GMM_CALL(cudaReference(5, HINT_READ));
+        	GMM_CALL(cudaReference(4, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
         	GMM_CALL(cudaReference(7, HINT_READ));
-        	GMM_CALL(cudaReference(6, HINT_READ));
-        	GMM_CALL(cudaReference(8, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
-	        agg_cal_cons<<<grid,block>>>(gpuContent, gpuGbColNum, gpuGbExp, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum, gpuResult);
+        	GMM_CALL(cudaReference(9, HINT_READ));
+	        agg_cal_cons<<<grid,block>>>(gpuContent, gpuGbColNum, gpuFunc, gpuOp, gpuMathExp,gpuMathOffset, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum, gpuResult);
         } while(0);
 
     for(int i=0; i<gb->table->totalAttr;i++){
@@ -526,8 +549,12 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
     }
     free(column);
     CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuContent));
-
-    CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbExp));
+    CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbType));
+    CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbSize));
+    CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuMathExp));
+    CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuMathOffset));
+    CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuFunc));
+    CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuOp));
     CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuResult));
 
     clock_gettime(CLOCK_REALTIME,&end);

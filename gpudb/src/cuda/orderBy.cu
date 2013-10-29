@@ -800,10 +800,10 @@ struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
         }
 
         do{
-        	GMM_CALL(cudaReference(1, HINT_READ|HINT_PTRARRAY|HINT_PTAREAD));
+        	GMM_CALL(cudaReference(1, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
         	GMM_CALL(cudaReference(0, HINT_READ));
         	GMM_CALL(cudaReference(4, HINT_READ));
-        	GMM_CALL(cudaReference(6, HINT_READ|HINT_PTRARRAY|HINT_PTAWRITE));
+        	GMM_CALL(cudaReference(6, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
 	        gather_result<<<8,128>>>(gpuPos2, gpuContent, newNum, gpuTupleNum, gpuSize,res->totalAttr,gpuResult);
         } while(0);
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(keyCount));
@@ -813,10 +813,10 @@ struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
 
     }else{
         do{
-        	GMM_CALL(cudaReference(1, HINT_READ|HINT_PTRARRAY|HINT_PTAREAD));
+        	GMM_CALL(cudaReference(1, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
         	GMM_CALL(cudaReference(0, HINT_READ));
         	GMM_CALL(cudaReference(4, HINT_READ));
-        	GMM_CALL(cudaReference(6, HINT_READ|HINT_PTRARRAY|HINT_PTAWRITE));
+        	GMM_CALL(cudaReference(6, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
 	        gather_result<<<8,128>>>(gpuPos, gpuContent, newNum, gpuTupleNum, gpuSize,res->totalAttr,gpuResult);
         } while(0);
     }

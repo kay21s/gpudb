@@ -22,6 +22,7 @@
 #define HSIZE 131072
 
 #ifdef HAS_GMM
+        #include "gmm.h"
 	#define GMM_CALL(_f)	_f
 #else
 	#define GMM_CALL(_f)	
