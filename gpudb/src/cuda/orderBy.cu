@@ -600,10 +600,10 @@ struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
         if(odNode->table->dataPos[i] == MEM){
             CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&column[i], attrSize *res->tupleNum));
 			gettimeofday(&t, NULL);
-			printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+			//printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
 			memcpy(col_buf, odNode->table->content[i], attrSize*res->tupleNum);
 			gettimeofday(&t, NULL);
-			printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+			//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
             CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(column[i], col_buf, attrSize*res->tupleNum, cudaMemcpyHostToDevice));
         }else if (odNode->table->dataPos[i] == GPU){
             column[i] = odNode->table->content[i];
@@ -837,7 +837,8 @@ struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
     }
 
     for(int i=0;i<res->totalAttr;i++){
-        CUDA_SAFE_CALL_NO_SYNC(cudaFree(column[i]));
+		if (odNode->table->dataPos[i] == MEM)
+        	CUDA_SAFE_CALL_NO_SYNC(cudaFree(column[i]));
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(result[i]));
     }
 

@@ -598,10 +598,10 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
     if(dataPos == MEM || dataPos == MMAP || dataPos == PINNED){
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&gpu_dim,primaryKeySize));
 		gettimeofday(&t, NULL);
-		printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+		//printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
 		memcpy(col_buf, jNode->rightTable->content[jNode->rightKeyIndex], primaryKeySize);
 		gettimeofday(&t, NULL);
-		printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+		//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
 
         CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_dim, col_buf, primaryKeySize,cudaMemcpyHostToDevice));
 
@@ -652,10 +652,10 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
     if(dataPos == MEM || dataPos == MMAP || dataPos == PINNED){
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&gpu_fact, foreignKeySize));
 		gettimeofday(&t, NULL);
-		printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+		//printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
 		memcpy(col_buf, jNode->leftTable->content[jNode->leftKeyIndex], foreignKeySize);
 		gettimeofday(&t, NULL);
-		printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+		//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
 
         CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, foreignKeySize,cudaMemcpyHostToDevice));
 
@@ -826,10 +826,10 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
                 if(dataPos == MEM || dataPos == MMAP || dataPos == PINNED){
                     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpu_fact, colSize));
 					gettimeofday(&t, NULL);
-					printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+					//printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
 					memcpy(col_buf, table, colSize);
 					gettimeofday(&t, NULL);
-					printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+					//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
                     CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize,cudaMemcpyHostToDevice));
                 }else{
                     gpu_fact = table;
@@ -865,10 +865,10 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
                 if(dataPos == MEM || dataPos == MMAP || dataPos == PINNED){
                     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpu_fact, colSize));
 					gettimeofday(&t, NULL);
-					printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+					//printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
 					memcpy(col_buf, table, colSize);
 					gettimeofday(&t, NULL);
-					printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+					//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
                     CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize,cudaMemcpyHostToDevice));
                 }else{
                     gpu_fact = table;
@@ -902,10 +902,10 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
                 if(dataPos == MEM || dataPos == MMAP || dataPos == PINNED){
                     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpu_fact, colSize));
 					gettimeofday(&t, NULL);
-					printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+					//printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
 					memcpy(col_buf, table, colSize);
 					gettimeofday(&t, NULL);
-					printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+					//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
                     CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize,cudaMemcpyHostToDevice));
                 }else{
                     gpu_fact = table;
@@ -942,10 +942,10 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
                 if(dataPos == MEM || dataPos == MMAP || dataPos == PINNED){
                     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpu_fact, colSize));
 					gettimeofday(&t, NULL);
-					printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+					//printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
 					memcpy(col_buf, table, colSize);
 					gettimeofday(&t, NULL);
-					printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+					//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
                     CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize,cudaMemcpyHostToDevice));
                 }else{
                     gpu_fact = table;
@@ -980,10 +980,10 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
                 if(dataPos == MEM || dataPos == MMAP || dataPos == PINNED){
                     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpu_fact, colSize));
 					gettimeofday(&t, NULL);
-					printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+					//printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
 					memcpy(col_buf, table, colSize);
 					gettimeofday(&t, NULL);
-					printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+					//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
                     CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize,cudaMemcpyHostToDevice));
                 }else{
                     gpu_fact = table;
@@ -1014,10 +1014,10 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
                 if(dataPos == MEM || dataPos == MMAP || dataPos == PINNED){
                     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpu_fact, colSize));
 					gettimeofday(&t, NULL);
-					printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+					//printf("[gvm] %lf intercepting diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
 					memcpy(col_buf, table, colSize);
 					gettimeofday(&t, NULL);
-					printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
+					//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
                     CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize,cudaMemcpyHostToDevice));
                 }else{
                     gpu_fact = table;
