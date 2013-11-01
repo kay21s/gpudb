@@ -1241,8 +1241,9 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 
             do{
             	GMM_CALL(cudaReference(0, HINT_READ));
-            	GMM_CALL(cudaReference(5, HINT_WRITE));
+            	//GMM_CALL(cudaReference(5, HINT_WRITE));
             	GMM_CALL(cudaReference(4, HINT_READ));
+            	GMM_CALL(cudaReference(6, HINT_WRITE));
 	            genScanFilter_rle<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],sn->tn->attrType[index], totalTupleNum, gpuExp, where->andOr, gpuFilter);
             } while(0);
         }
@@ -1587,8 +1588,9 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
             }else if (format == RLE){
                 do{
                 	GMM_CALL(cudaReference(0, HINT_READ));
-                	GMM_CALL(cudaReference(5, HINT_WRITE));
+                	//GMM_CALL(cudaReference(5, HINT_WRITE));
                 	GMM_CALL(cudaReference(4, HINT_READ));
+                	GMM_CALL(cudaReference(6, HINT_WRITE));
 	                genScanFilter_rle<<<grid,block>>>(column[whereIndex],sn->tn->attrSize[index],sn->tn->attrType[index], totalTupleNum, gpuExp, where->andOr, gpuFilter);
                 } while(0);
 
@@ -1647,7 +1649,7 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 
     count = tmp1+tmp2;
     res->tupleNum = count;
-    printf("[INFO]Number of selection results: %d\n",count);
+    printf("(INFO) Number of selection results: %d\n",count);
 
     CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuCount));
 

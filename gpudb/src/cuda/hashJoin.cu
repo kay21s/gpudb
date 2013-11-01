@@ -609,21 +609,17 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
         gpu_dim = jNode->rightTable->content[jNode->rightKeyIndex];
     }
 
-    do{
-    	GMM_CALL(cudaReference(0, HINT_READ));
-    	GMM_CALL(cudaReference(2, HINT_WRITE));
-	    count_hash_num<<<grid,block>>>(gpu_dim,jNode->rightTable->tupleNum,gpu_hashNum,hsize);
-    } while(0);
+	GMM_CALL(cudaReference(0, HINT_READ));
+	GMM_CALL(cudaReference(2, HINT_WRITE));
+	count_hash_num<<<grid,block>>>(gpu_dim,jNode->rightTable->tupleNum,gpu_hashNum,hsize);
     scanImpl(gpu_hashNum,hsize,gpu_psum, pp);
 
     CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_psum1,gpu_psum,sizeof(int)*hsize,cudaMemcpyDeviceToDevice));
 
-    do{
-    	GMM_CALL(cudaReference(0, HINT_READ));
-    	GMM_CALL(cudaReference(3, HINT_WRITE));
-    	GMM_CALL(cudaReference(2, HINT_DEFAULT));
-	    build_hash_table<<<grid,block>>>(gpu_dim,jNode->rightTable->tupleNum,gpu_psum1,gpu_bucket,hsize);
-    } while(0);
+	GMM_CALL(cudaReference(0, HINT_READ));
+	GMM_CALL(cudaReference(2, HINT_DEFAULT));
+	GMM_CALL(cudaReference(3, HINT_WRITE));
+	build_hash_table<<<grid,block>>>(gpu_dim,jNode->rightTable->tupleNum,gpu_psum1,gpu_bucket,hsize);
 
     if (dataPos == MEM || dataPos == MMAP || dataPos == PINNED)
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpu_dim));
@@ -666,17 +662,15 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuFactFilter,filterSize));
     CUDA_SAFE_CALL_NO_SYNC(cudaMemset(gpuFactFilter,0,filterSize));
 
-    if(format == UNCOMPRESSED)
-        do{
-        	GMM_CALL(cudaReference(1, HINT_READ));
-        	GMM_CALL(cudaReference(0, HINT_READ));
-        	GMM_CALL(cudaReference(3, HINT_READ));
-        	GMM_CALL(cudaReference(2, HINT_READ));
-        	GMM_CALL(cudaReference(5, HINT_WRITE));
-        	GMM_CALL(cudaReference(6, HINT_WRITE));
-	        count_join_result<<<grid,block>>>(gpu_hashNum, gpu_psum, gpu_bucket, gpu_fact, jNode->leftTable->tupleNum, gpu_count,gpuFactFilter,hsize);
-        } while(0);
-
+    if(format == UNCOMPRESSED) {
+		GMM_CALL(cudaReference(0, HINT_READ));
+		GMM_CALL(cudaReference(1, HINT_READ));
+		GMM_CALL(cudaReference(2, HINT_READ));
+		GMM_CALL(cudaReference(3, HINT_READ));
+		GMM_CALL(cudaReference(5, HINT_WRITE));
+		GMM_CALL(cudaReference(6, HINT_WRITE));
+		count_join_result<<<grid,block>>>(gpu_hashNum, gpu_psum, gpu_bucket, gpu_fact, jNode->leftTable->tupleNum, gpu_count,gpuFactFilter,hsize);
+    }
     else if(format == DICT){
         int dNum;
         struct dictHeader * dheader;
@@ -701,47 +695,35 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
         int * gpuDictFilter;
         CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuDictFilter, dNum * sizeof(int)));
 
-        do{
-        	GMM_CALL(cudaReference(1, HINT_READ));
-        	GMM_CALL(cudaReference(0, HINT_READ));
-        	GMM_CALL(cudaReference(3, HINT_READ));
-        	GMM_CALL(cudaReference(2, HINT_READ));
-        	GMM_CALL(cudaReference(5, HINT_WRITE));
-	        count_join_result_dict<<<grid,block>>>(gpu_hashNum, gpu_psum, gpu_bucket, gpuDictHeader, dNum, gpuDictFilter,hsize);
-        } while(0);
+		GMM_CALL(cudaReference(0, HINT_READ));
+		GMM_CALL(cudaReference(1, HINT_READ));
+		GMM_CALL(cudaReference(2, HINT_READ));
+		GMM_CALL(cudaReference(3, HINT_READ));
+		GMM_CALL(cudaReference(5, HINT_WRITE));
+		count_join_result_dict<<<grid,block>>>(gpu_hashNum, gpu_psum, gpu_bucket, gpuDictHeader, dNum, gpuDictFilter,hsize);
 
-        do{
-        	GMM_CALL(cudaReference(1, HINT_READ));
-        	GMM_CALL(cudaReference(0, HINT_READ));
-        	GMM_CALL(cudaReference(4, HINT_WRITE));
-	        transform_dict_filter<<<grid,block>>>(gpuDictFilter, gpu_fact, jNode->leftTable->tupleNum, dNum, gpuFactFilter);
-        } while(0);
+		GMM_CALL(cudaReference(0, HINT_READ));
+		GMM_CALL(cudaReference(1, HINT_READ));
+		GMM_CALL(cudaReference(4, HINT_WRITE));
+		transform_dict_filter<<<grid,block>>>(gpuDictFilter, gpu_fact, jNode->leftTable->tupleNum, dNum, gpuFactFilter);
 
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuDictFilter));
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuDictHeader));
 
-        do{
-        	GMM_CALL(cudaReference(1, HINT_WRITE));
-        	GMM_CALL(cudaReference(2, HINT_READ));
-	        filter_count<<<grid,block>>>(jNode->leftTable->tupleNum, gpu_count, gpuFactFilter);
-        } while(0);
-
+		GMM_CALL(cudaReference(1, HINT_WRITE));
+		GMM_CALL(cudaReference(2, HINT_READ));
+		filter_count<<<grid,block>>>(jNode->leftTable->tupleNum, gpu_count, gpuFactFilter);
     }else if (format == RLE){
+		GMM_CALL(cudaReference(0, HINT_READ));
+		GMM_CALL(cudaReference(1, HINT_READ));
+		GMM_CALL(cudaReference(2, HINT_READ));
+		GMM_CALL(cudaReference(3, HINT_READ));
+		GMM_CALL(cudaReference(5, HINT_WRITE));
+		count_join_result_rle<<<512,64>>>(gpu_hashNum, gpu_psum, gpu_bucket, gpu_fact, jNode->leftTable->tupleNum, gpuFactFilter,hsize);
 
-        do{
-        	GMM_CALL(cudaReference(1, HINT_READ));
-        	GMM_CALL(cudaReference(0, HINT_READ));
-        	GMM_CALL(cudaReference(3, HINT_READ));
-        	GMM_CALL(cudaReference(2, HINT_READ));
-        	GMM_CALL(cudaReference(5, HINT_WRITE));
-	        count_join_result_rle<<<512,64>>>(gpu_hashNum, gpu_psum, gpu_bucket, gpu_fact, jNode->leftTable->tupleNum, gpuFactFilter,hsize);
-        } while(0);
-
-        do{
-        	GMM_CALL(cudaReference(1, HINT_WRITE));
-        	GMM_CALL(cudaReference(2, HINT_READ));
-	        filter_count<<<grid, block>>>(jNode->leftTable->tupleNum, gpu_count, gpuFactFilter);
-        } while(0);
+		GMM_CALL(cudaReference(1, HINT_WRITE));
+		GMM_CALL(cudaReference(2, HINT_READ));
+		filter_count<<<grid, block>>>(jNode->leftTable->tupleNum, gpu_count, gpuFactFilter);
     }
 
     int tmp1, tmp2;
@@ -751,7 +733,7 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
     CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(&tmp2,&gpu_resPsum[threadNum-1],sizeof(int),cudaMemcpyDeviceToHost));
 
     res->tupleNum = tmp1 + tmp2;
-    printf("[INFO]Number of join results: %d\n",res->tupleNum);
+    printf("(INFO) Number of join results: %d\n",res->tupleNum);
 
     if(dataPos == MEM || dataPos == MMAP || dataPos == PINNED){
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpu_fact));
@@ -835,22 +817,20 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
                     gpu_fact = table;
                 }
 
-                if(attrSize == sizeof(int))
-                    do{
-                    	GMM_CALL(cudaReference(1, HINT_READ));
-                    	GMM_CALL(cudaReference(0, HINT_READ));
-                    	GMM_CALL(cudaReference(5, HINT_WRITE));
-                    	GMM_CALL(cudaReference(4, HINT_READ));
-	                    joinFact_int<<<grid,block>>>(gpu_resPsum,gpu_fact, attrSize, jNode->leftTable->tupleNum,gpuFactFilter,gpu_result);
-                    } while(0);
-                else
-                    do{
-                    	GMM_CALL(cudaReference(1, HINT_READ));
-                    	GMM_CALL(cudaReference(0, HINT_READ));
-                    	GMM_CALL(cudaReference(5, HINT_WRITE));
-                    	GMM_CALL(cudaReference(4, HINT_READ));
-	                    joinFact_other<<<grid,block>>>(gpu_resPsum,gpu_fact, attrSize, jNode->leftTable->tupleNum,gpuFactFilter,gpu_result);
-                    } while(0);
+                if(attrSize == sizeof(int)) {
+					GMM_CALL(cudaReference(0, HINT_READ));
+					GMM_CALL(cudaReference(1, HINT_READ));
+					GMM_CALL(cudaReference(4, HINT_READ));
+					GMM_CALL(cudaReference(5, HINT_WRITE));
+					joinFact_int<<<grid,block>>>(gpu_resPsum,gpu_fact, attrSize, jNode->leftTable->tupleNum,gpuFactFilter,gpu_result);
+                }
+                else {
+					GMM_CALL(cudaReference(0, HINT_READ));
+					GMM_CALL(cudaReference(1, HINT_READ));
+					GMM_CALL(cudaReference(4, HINT_READ));
+					GMM_CALL(cudaReference(5, HINT_WRITE));
+					joinFact_other<<<grid,block>>>(gpu_resPsum,gpu_fact, attrSize, jNode->leftTable->tupleNum,gpuFactFilter,gpu_result);
+                }
 
             }else if (format == DICT){
                 struct dictHeader * dheader;
@@ -874,24 +854,22 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
                     gpu_fact = table;
                 }
 
-                if (attrSize == sizeof(int))
-                    do{
-                    	GMM_CALL(cudaReference(1, HINT_READ));
-                    	GMM_CALL(cudaReference(0, HINT_READ));
-                    	GMM_CALL(cudaReference(2, HINT_READ));
-                    	GMM_CALL(cudaReference(7, HINT_WRITE));
-                    	GMM_CALL(cudaReference(6, HINT_READ));
-	                    joinFact_dict_int<<<grid,block>>>(gpu_resPsum,gpu_fact, gpuDictHeader,byteNum,attrSize, jNode->leftTable->tupleNum,gpuFactFilter,gpu_result);
-                    } while(0);
-                else
-                    do{
-                    	GMM_CALL(cudaReference(1, HINT_READ));
-                    	GMM_CALL(cudaReference(0, HINT_READ));
-                    	GMM_CALL(cudaReference(2, HINT_READ));
-                    	GMM_CALL(cudaReference(7, HINT_WRITE));
-                    	GMM_CALL(cudaReference(6, HINT_READ));
-	                    joinFact_dict_other<<<grid,block>>>(gpu_resPsum,gpu_fact, gpuDictHeader,byteNum,attrSize, jNode->leftTable->tupleNum,gpuFactFilter,gpu_result);
-                    } while(0);
+                if (attrSize == sizeof(int)) {
+					GMM_CALL(cudaReference(0, HINT_READ));
+					GMM_CALL(cudaReference(1, HINT_READ));
+					GMM_CALL(cudaReference(2, HINT_READ));
+					GMM_CALL(cudaReference(6, HINT_READ));
+					GMM_CALL(cudaReference(7, HINT_WRITE));
+					joinFact_dict_int<<<grid,block>>>(gpu_resPsum,gpu_fact, gpuDictHeader,byteNum,attrSize, jNode->leftTable->tupleNum,gpuFactFilter,gpu_result);
+                }
+                else {
+					GMM_CALL(cudaReference(0, HINT_READ));
+					GMM_CALL(cudaReference(1, HINT_READ));
+					GMM_CALL(cudaReference(2, HINT_READ));
+					GMM_CALL(cudaReference(6, HINT_READ));
+					GMM_CALL(cudaReference(7, HINT_WRITE));
+					joinFact_dict_other<<<grid,block>>>(gpu_resPsum,gpu_fact, gpuDictHeader,byteNum,attrSize, jNode->leftTable->tupleNum,gpuFactFilter,gpu_result);
+                }
 
                 CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuDictHeader));
 
@@ -918,19 +896,15 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
                 char * gpuRle;
                 CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuRle, jNode->leftTable->tupleNum * sizeof(int)));
 
-                do{
-                	GMM_CALL(cudaReference(1, HINT_WRITE));
-                	GMM_CALL(cudaReference(0, HINT_READ));
-	                unpack_rle<<<grid,block>>>(gpu_fact, gpuRle,jNode->leftTable->tupleNum, dNum);
-                } while(0);
+				GMM_CALL(cudaReference(0, HINT_READ));
+				GMM_CALL(cudaReference(1, HINT_WRITE));
+				unpack_rle<<<grid,block>>>(gpu_fact, gpuRle,jNode->leftTable->tupleNum, dNum);
 
-                do{
-                	GMM_CALL(cudaReference(1, HINT_READ));
-                	GMM_CALL(cudaReference(0, HINT_READ));
-                	GMM_CALL(cudaReference(5, HINT_WRITE));
-                	GMM_CALL(cudaReference(4, HINT_READ));
-	                joinFact_int<<<grid,block>>>(gpu_resPsum,gpuRle, attrSize, jNode->leftTable->tupleNum,gpuFactFilter,gpu_result);
-                } while(0);
+				GMM_CALL(cudaReference(0, HINT_READ));
+				GMM_CALL(cudaReference(1, HINT_READ));
+				GMM_CALL(cudaReference(4, HINT_READ));
+				GMM_CALL(cudaReference(5, HINT_WRITE));
+				joinFact_int<<<grid,block>>>(gpu_resPsum,gpuRle, attrSize, jNode->leftTable->tupleNum,gpuFactFilter,gpu_result);
 
                 CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuRle));
 
@@ -951,22 +925,20 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
                     gpu_fact = table;
                 }
 
-                if(attrType == sizeof(int))
-                    do{
-                    	GMM_CALL(cudaReference(1, HINT_READ));
-                    	GMM_CALL(cudaReference(0, HINT_READ));
-                    	GMM_CALL(cudaReference(5, HINT_WRITE));
-                    	GMM_CALL(cudaReference(4, HINT_READ));
-	                    joinDim_int<<<grid,block>>>(gpu_resPsum,gpu_fact, attrSize, jNode->leftTable->tupleNum, gpuFactFilter,gpu_result);
-                    } while(0);
-                else
-                    do{
-                    	GMM_CALL(cudaReference(1, HINT_READ));
-                    	GMM_CALL(cudaReference(0, HINT_READ));
-                    	GMM_CALL(cudaReference(5, HINT_WRITE));
-                    	GMM_CALL(cudaReference(4, HINT_READ));
-	                    joinDim_other<<<grid,block>>>(gpu_resPsum,gpu_fact, attrSize, jNode->leftTable->tupleNum, gpuFactFilter,gpu_result);
-                    } while(0);
+                if(attrType == sizeof(int)) {
+					GMM_CALL(cudaReference(0, HINT_READ));
+					GMM_CALL(cudaReference(1, HINT_READ));
+					GMM_CALL(cudaReference(4, HINT_READ));
+					GMM_CALL(cudaReference(5, HINT_WRITE));
+					joinDim_int<<<grid,block>>>(gpu_resPsum,gpu_fact, attrSize, jNode->leftTable->tupleNum, gpuFactFilter,gpu_result);
+                }
+                else {
+					GMM_CALL(cudaReference(0, HINT_READ));
+					GMM_CALL(cudaReference(1, HINT_READ));
+					GMM_CALL(cudaReference(4, HINT_READ));
+					GMM_CALL(cudaReference(5, HINT_WRITE));
+					joinDim_other<<<grid,block>>>(gpu_resPsum,gpu_fact, attrSize, jNode->leftTable->tupleNum, gpuFactFilter,gpu_result);
+                }
 
             }else if (format == DICT){
                 struct dictHeader * dheader;
@@ -989,24 +961,22 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
                     gpu_fact = table;
                 }
 
-                if(attrSize == sizeof(int))
-                    do{
-                    	GMM_CALL(cudaReference(1, HINT_READ));
-                    	GMM_CALL(cudaReference(0, HINT_READ));
-                    	GMM_CALL(cudaReference(2, HINT_READ));
-                    	GMM_CALL(cudaReference(7, HINT_WRITE));
-                    	GMM_CALL(cudaReference(6, HINT_READ));
-	                    joinDim_dict_int<<<grid,block>>>(gpu_resPsum,gpu_fact, gpuDictHeader,byteNum,attrSize, jNode->leftTable->tupleNum, gpuFactFilter,gpu_result);
-                    } while(0);
-                else
-                    do{
-                    	GMM_CALL(cudaReference(1, HINT_READ));
-                    	GMM_CALL(cudaReference(0, HINT_READ));
-                    	GMM_CALL(cudaReference(2, HINT_READ));
-                    	GMM_CALL(cudaReference(7, HINT_WRITE));
-                    	GMM_CALL(cudaReference(6, HINT_READ));
-	                    joinDim_dict_other<<<grid,block>>>(gpu_resPsum,gpu_fact, gpuDictHeader, byteNum, attrSize, jNode->leftTable->tupleNum, gpuFactFilter,gpu_result);
-                    } while(0);
+                if(attrSize == sizeof(int)) {
+                   	GMM_CALL(cudaReference(0, HINT_READ));
+                   	GMM_CALL(cudaReference(1, HINT_READ));
+                   	GMM_CALL(cudaReference(2, HINT_READ));
+                   	GMM_CALL(cudaReference(6, HINT_READ));
+                   	GMM_CALL(cudaReference(7, HINT_WRITE));
+                    joinDim_dict_int<<<grid,block>>>(gpu_resPsum,gpu_fact, gpuDictHeader,byteNum,attrSize, jNode->leftTable->tupleNum, gpuFactFilter,gpu_result);
+                }
+                else {
+					GMM_CALL(cudaReference(0, HINT_READ));
+					GMM_CALL(cudaReference(1, HINT_READ));
+					GMM_CALL(cudaReference(2, HINT_READ));
+					GMM_CALL(cudaReference(6, HINT_READ));
+					GMM_CALL(cudaReference(7, HINT_WRITE));
+					joinDim_dict_other<<<grid,block>>>(gpu_resPsum,gpu_fact, gpuDictHeader, byteNum, attrSize, jNode->leftTable->tupleNum, gpuFactFilter,gpu_result);
+                }
                 CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuDictHeader));
 
             }else if (format == RLE){
@@ -1023,13 +993,11 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
                     gpu_fact = table;
                 }
 
-                do{
-                	GMM_CALL(cudaReference(1, HINT_READ));
-                	GMM_CALL(cudaReference(0, HINT_READ));
-                	GMM_CALL(cudaReference(5, HINT_WRITE));
-                	GMM_CALL(cudaReference(4, HINT_READ));
-	                joinDim_rle<<<grid,block>>>(gpu_resPsum,gpu_fact, attrSize, jNode->leftTable->tupleNum, gpuFactFilter,gpu_result);
-                } while(0);
+                GMM_CALL(cudaReference(0, HINT_READ));
+                GMM_CALL(cudaReference(1, HINT_READ));
+                GMM_CALL(cudaReference(4, HINT_READ));
+                GMM_CALL(cudaReference(5, HINT_WRITE));
+	            joinDim_rle<<<grid,block>>>(gpu_resPsum,gpu_fact, attrSize, jNode->leftTable->tupleNum, gpuFactFilter,gpu_result);
             }
         }
         

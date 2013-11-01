@@ -452,7 +452,7 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
     else
         res->tupleNum = gbCount;
 
-    printf("[INFO]Number of groupBy results: %d\n",res->tupleNum);
+    printf("(INFO) Number of groupBy results: %d\n",res->tupleNum);
 
     char ** gpuResult = NULL;
     char ** result = NULL;
