@@ -430,8 +430,7 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
 		CUDA_SAFE_CALL_NO_SYNC(cudaMemset(gpuGbCount, 0, sizeof(int)));
 
 		GMM_CALL(cudaReference(0, HINT_READ));
-        GMM_CALL(cudaReference(2, HINT_DEFAULT));
-		GMM_CALL(cudaReference(2, HINT_WRITE));
+		GMM_CALL(cudaReference(2, HINT_DEFAULT));
 		count_group_num<<<grid,block>>>(gpu_hashNum, HSIZE, gpuGbCount);
 		CUDA_SAFE_CALL_NO_SYNC(cudaDeviceSynchronize());
 
