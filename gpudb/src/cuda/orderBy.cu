@@ -389,7 +389,78 @@ __global__ static void sort_key_float(float * key, int tupleNum,  float *result,
 /*
  * Naive sort. One thread per block.
  */
+__global__ static void sec_sort_key_int(int *key, int *psum, int *count ,int tupleNum, int *inputPos, int* outputPos)
+{
+	int tid = blockIdx.x;
+	int start = psum[tid];
+	int end = start + count[tid];
 
+	for(int i=start; i< end-1; i++){
+		int min = key[i];
+		int tmp = min;
+		int pos = i;
+		for(int j=i+1;j<end;j++){
+			if(min > key[j]){
+				min = key[j];
+				pos = j;
+			}
+		}
+		key[pos] = tmp;
+		outputPos[i] = inputPos[pos];
+		inputPos[pos] = inputPos[i];
+	}
+	outputPos[end-1] = inputPos[end-1];
+}
+
+__global__ static void sec_sort_key_float(float *key, int *psum, int *count ,int tupleNum, int *inputPos, int* outputPos)
+{
+	int tid = blockIdx.x;
+	int start = psum[tid];
+	int end = start + count[tid];
+
+	for(int i=start; i< end-1; i++){
+		float min = key[i];
+		float tmp = min;
+		int pos = i;
+		for(int j=i+1;j<end;j++){
+			if(min > key[j]){
+				min = key[j];
+				pos = j;
+			}
+		}
+		key[pos] = tmp;
+		outputPos[i] = inputPos[pos];
+		inputPos[pos] = inputPos[i];
+	}
+	outputPos[end-1] = inputPos[end-1];
+}
+
+__global__ static void sec_sort_key_string(char *key, int keySize, int *psum, int *count ,int tupleNum, int *inputPos, int* outputPos)
+{
+	int tid = blockIdx.x;
+	int start = psum[tid];
+	int end = start + count[tid];
+
+	for(int i=start; i< end-1; i++){
+		char min[128];
+		char tmp[128];
+		memcpy(min,key + i*keySize, keySize);
+		memcpy(tmp,key + i*keySize, keySize);
+		int pos = i;
+		for(int j=i+1;j<end;j++){
+			if(gpu_strcmp(min, key+j*keySize,keySize)>0){
+				memcpy(min,key + j*keySize, keySize);
+				pos = j;
+			}
+		}
+		memcpy(key+pos*keySize,tmp, keySize);
+		outputPos[i] = inputPos[pos];
+		inputPos[pos] = inputPos[i];
+	}
+	outputPos[end-1] = inputPos[end-1];
+}
+
+/*
 __global__ static void sec_sort_key_int(int *key, int *psum, int *count ,int tupleNum, int *inputPos, int* outputPos){
     int tid = blockIdx.x; 
     int start = psum[tid];
@@ -444,7 +515,7 @@ __global__ static void sec_sort_key_string(char *key, int keySize, int *psum, in
         outputPos[i] = inputPos[pos];
     }
 }
-
+*/
 
 __global__ static void set_key_string(char *key, int tupleNum){
 

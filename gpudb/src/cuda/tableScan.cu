@@ -1262,6 +1262,7 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 /*When the two consecutive predicates access different columns*/
 
                 if(prevFormat == DICT){
+<<<<<<< HEAD
 					if(dictInit == 1){
 						GMM_CALL(cudaReference(0, HINT_READ));
 						GMM_CALL(cudaReference(1, HINT_READ));
@@ -1279,6 +1280,30 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 						GMM_CALL(cudaReference(4, HINT_WRITE));
 						transform_dict_filter_and<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
 					}
+=======
+                    if(dictInit == 1){
+                        do{
+                        	GMM_CALL(cudaReference(0, HINT_READ));
+                        	GMM_CALL(cudaReference(1, HINT_READ));
+                        	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                        transform_dict_filter_init<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
+                        } while(0);
+                        dictInit = 0;
+                    }else if(dictFinal == OR)
+                        do{
+                        	GMM_CALL(cudaReference(0, HINT_READ));
+                        	GMM_CALL(cudaReference(1, HINT_READ));
+                        	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                        transform_dict_filter_or<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
+                        } while(0);
+                    else
+                        do{
+                        	GMM_CALL(cudaReference(0, HINT_READ));
+                        	GMM_CALL(cudaReference(1, HINT_READ));
+                        	GMM_CALL(cudaReference(4, HINT_WRITE));
+	                        transform_dict_filter_and<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
+                        } while(0);
+>>>>>>> f97fb3db369ac90846a3ba5119f78eb73bdccb6b
 
                     CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuDictFilter));
                     dictFinal = where->andOr;
