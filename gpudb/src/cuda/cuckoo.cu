@@ -779,7 +779,7 @@ struct tableNode * cuckooHashJoin(struct joinNode *jNode, struct statistic *pp){
 	do{
 		GMM_CALL(cudaReference(0, HINT_READ));
 		GMM_CALL(cudaReference(3, HINT_WRITE));
-		GMM_CALL(cudaReference(5, HINT_READ));
+		GMM_CALL(cudaReference(5, HINT_DEFAULT));
 		GMM_CALL(cudaReference(4, HINT_WRITE));
 		preshuffle<<<grid,block>>>(gpu_dim,jNode->rightTable->tupleNum,bucketNum,gpuBucketID,gpuBucketOffset,gpuBucketCount);
 	} while(0);

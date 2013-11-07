@@ -269,7 +269,7 @@ struct tableNode * inviJoin(struct joinNode *jNode, struct statistic *pp){
 		cudaEventRecord(startGPU,0);
 		do{
 			GMM_CALL(cudaReference(0, HINT_READ));
-			GMM_CALL(cudaReference(2, HINT_WRITE));
+			GMM_CALL(cudaReference(2, HINT_DEFAULT));
 			count_hash_num<<<grid,block>>>(gpu_dim,jNode->dimTable[k]->tupleNum,gpuHashNum[k]);
 		} while(0);
 
@@ -391,7 +391,7 @@ struct tableNode * inviJoin(struct joinNode *jNode, struct statistic *pp){
 	do{
 		GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
 		GMM_CALL(cudaReference(3, HINT_WRITE));
-		GMM_CALL(cudaReference(5, HINT_WRITE));
+		GMM_CALL(cudaReference(5, HINT_DEFAULT));
 		GMM_CALL(cudaReference(4, HINT_WRITE));
 		merge<<<grid,block>>>(gpuFilterAddr,jNode->factTable->tupleNum,jNode->dimNum,gpuFinalFilter, gpuCount,gpuTotalCount);
 	} while(0);
