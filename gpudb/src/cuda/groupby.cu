@@ -525,31 +525,33 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
 
     if(gbConstant !=1){
         do{
-        	GMM_CALL(cudaReference(11, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
-        	GMM_CALL(cudaReference(10, HINT_READ));
         	GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
-        	GMM_CALL(cudaReference(3, HINT_READ));
         	GMM_CALL(cudaReference(2, HINT_READ));
-        	GMM_CALL(cudaReference(5, HINT_READ));
+        	GMM_CALL(cudaReference(3, HINT_READ));
         	GMM_CALL(cudaReference(4, HINT_READ));
+        	GMM_CALL(cudaReference(5, HINT_READ));
+        	GMM_CALL(cudaReference(6, HINT_READ));
         	GMM_CALL(cudaReference(7, HINT_READ));
         	GMM_CALL(cudaReference(9, HINT_READ));
+        	GMM_CALL(cudaReference(10, HINT_READ));
+        	GMM_CALL(cudaReference(11, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
 	        agg_cal<<<grid,block>>>(gpuContent, gpuGbColNum, gpuFunc, gpuOp, gpuMathExp,gpuMathOffset, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum,  gpuResult);
         } while(0);
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbKey));
         CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpu_psum));
     }else
-		// kaibo: gpuGbKey and gpu_psum are not allocated when gbConstant == 1, so we should not reference them in ths case
+		// kaibo: gpuGbKey and gpu_psum are not allocated when gbConstant == 1, so we should not reference them in this case
         do{
-        	GMM_CALL(cudaReference(11, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
-        	//GMM_CALL(cudaReference(10, HINT_READ));
         	GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
-        	GMM_CALL(cudaReference(3, HINT_READ));
         	GMM_CALL(cudaReference(2, HINT_READ));
-        	GMM_CALL(cudaReference(5, HINT_READ));
+        	GMM_CALL(cudaReference(3, HINT_READ));
         	GMM_CALL(cudaReference(4, HINT_READ));
+        	GMM_CALL(cudaReference(5, HINT_READ));
+        	GMM_CALL(cudaReference(6, HINT_READ));
         	GMM_CALL(cudaReference(7, HINT_READ));
         	//GMM_CALL(cudaReference(9, HINT_READ));
+        	//GMM_CALL(cudaReference(10, HINT_READ));
+        	GMM_CALL(cudaReference(11, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
 	        agg_cal_cons<<<grid,block>>>(gpuContent, gpuGbColNum, gpuFunc, gpuOp, gpuMathExp,gpuMathOffset, gpuGbType, gpuGbSize, gpuTupleNum, NULL, NULL, gpuResult);
         } while(0);
 
