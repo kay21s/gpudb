@@ -1266,23 +1266,23 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
                 if(prevFormat == DICT){
                     if(dictInit == 1){
                         do{
-                        	GMM_CALL(cudaReference(1, HINT_READ));
                         	GMM_CALL(cudaReference(0, HINT_READ));
+                        	GMM_CALL(cudaReference(1, HINT_READ));
                         	GMM_CALL(cudaReference(4, HINT_WRITE));
 	                        transform_dict_filter_init<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
                         } while(0);
                         dictInit = 0;
                     }else if(dictFinal == OR)
                         do{
-                        	GMM_CALL(cudaReference(1, HINT_READ));
                         	GMM_CALL(cudaReference(0, HINT_READ));
+                        	GMM_CALL(cudaReference(1, HINT_READ));
                         	GMM_CALL(cudaReference(4, HINT_WRITE));
 	                        transform_dict_filter_or<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
                         } while(0);
                     else
                         do{
-                        	GMM_CALL(cudaReference(1, HINT_READ));
                         	GMM_CALL(cudaReference(0, HINT_READ));
+                        	GMM_CALL(cudaReference(1, HINT_READ));
                         	GMM_CALL(cudaReference(4, HINT_WRITE));
 	                        transform_dict_filter_and<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
                         } while(0);
