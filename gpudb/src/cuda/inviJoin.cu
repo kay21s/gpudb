@@ -391,12 +391,8 @@ struct tableNode * inviJoin(struct joinNode *jNode, struct statistic *pp){
 	do{
 		GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
 		GMM_CALL(cudaReference(3, HINT_WRITE));
-<<<<<<< HEAD
-=======
-		GMM_CALL(cudaReference(5, HINT_DEFAULT));
->>>>>>> f97fb3db369ac90846a3ba5119f78eb73bdccb6b
 		GMM_CALL(cudaReference(4, HINT_WRITE));
-		GMM_CALL(cudaReference(5, HINT_WRITE));
+		GMM_CALL(cudaReference(5, HINT_DEFAULT));
 		merge<<<grid,block>>>(gpuFilterAddr,jNode->factTable->tupleNum,jNode->dimNum,gpuFinalFilter, gpuCount,gpuTotalCount);
 	} while(0);
 	CUDA_SAFE_CALL_NO_SYNC(cudaDeviceSynchronize());
