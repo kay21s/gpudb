@@ -395,57 +395,53 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
         }
     }
 
-    if(gbConstant != 1){
+	if(gbConstant != 1){
 
-        CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuGbType, sizeof(int) * gb->groupByColNum));
-        CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuGbType,gb->groupByType, sizeof(int) * gb->groupByColNum, cudaMemcpyHostToDevice));
-        CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuGbSize, sizeof(int) * gb->groupByColNum));
-        CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuGbSize,gb->groupBySize, sizeof(int) * gb->groupByColNum, cudaMemcpyHostToDevice));
+		CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuGbType, sizeof(int) * gb->groupByColNum));
+		CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuGbType,gb->groupByType, sizeof(int) * gb->groupByColNum, cudaMemcpyHostToDevice));
+		CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuGbSize, sizeof(int) * gb->groupByColNum));
+		CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuGbSize,gb->groupBySize, sizeof(int) * gb->groupByColNum, cudaMemcpyHostToDevice));
 
 
-        CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuGbKey, gb->table->tupleNum * sizeof(int)));
+		CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuGbKey, gb->table->tupleNum * sizeof(int)));
 
-        CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuGbIndex, sizeof(int) * gb->groupByColNum));
-        CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuGbIndex, gb->groupByIndex,sizeof(int) * gb->groupByColNum, cudaMemcpyHostToDevice));
+		CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuGbIndex, sizeof(int) * gb->groupByColNum));
+		CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuGbIndex, gb->groupByIndex,sizeof(int) * gb->groupByColNum, cudaMemcpyHostToDevice));
 
-        CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&gpu_hashNum,sizeof(int)*HSIZE));
-        CUDA_SAFE_CALL_NO_SYNC(cudaMemset(gpu_hashNum,0,sizeof(int)*HSIZE));
+		CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void**)&gpu_hashNum,sizeof(int)*HSIZE));
+		CUDA_SAFE_CALL_NO_SYNC(cudaMemset(gpu_hashNum,0,sizeof(int)*HSIZE));
 
-        do{
-        	GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
-        	GMM_CALL(cudaReference(3, HINT_READ));
-        	GMM_CALL(cudaReference(2, HINT_READ));
-        	GMM_CALL(cudaReference(4, HINT_READ));
-        	GMM_CALL(cudaReference(7, HINT_WRITE));
-        	GMM_CALL(cudaReference(6, HINT_WRITE));
-	        build_groupby_key<<<grid,block>>>(gpuContent,gpuGbColNum, gpuGbIndex, gpuGbType,gpuGbSize,gpuTupleNum, gpuGbKey, gpu_hashNum);
-        } while(0);
-        CUDA_SAFE_CALL_NO_SYNC(cudaDeviceSynchronize());
+		GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
+		GMM_CALL(cudaReference(2, HINT_READ));
+		GMM_CALL(cudaReference(3, HINT_READ));
+		GMM_CALL(cudaReference(4, HINT_READ));
+		GMM_CALL(cudaReference(6, HINT_WRITE));
+		GMM_CALL(cudaReference(7, HINT_WRITE));
+		build_groupby_key<<<grid,block>>>(gpuContent,gpuGbColNum, gpuGbIndex, gpuGbType,gpuGbSize,gpuTupleNum, gpuGbKey, gpu_hashNum);
+		CUDA_SAFE_CALL_NO_SYNC(cudaDeviceSynchronize());
 
-        CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbType));
-        CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbSize));
-        CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbIndex));
+		CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbType));
+		CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbSize));
+		CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbIndex));
 
-        gbCount = 1;
+		gbCount = 1;
 
-        CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuGbCount,sizeof(int)));
-        CUDA_SAFE_CALL_NO_SYNC(cudaMemset(gpuGbCount, 0, sizeof(int)));
+		CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuGbCount,sizeof(int)));
+		CUDA_SAFE_CALL_NO_SYNC(cudaMemset(gpuGbCount, 0, sizeof(int)));
 
-        do{
-        	GMM_CALL(cudaReference(0, HINT_READ));
-        	GMM_CALL(cudaReference(2, HINT_WRITE));
-	        count_group_num<<<grid,block>>>(gpu_hashNum, HSIZE, gpuGbCount);
-        } while(0);
-        CUDA_SAFE_CALL_NO_SYNC(cudaDeviceSynchronize());
+		GMM_CALL(cudaReference(0, HINT_READ));
+		GMM_CALL(cudaReference(2, HINT_WRITE));
+		count_group_num<<<grid,block>>>(gpu_hashNum, HSIZE, gpuGbCount);
+		CUDA_SAFE_CALL_NO_SYNC(cudaDeviceSynchronize());
 
-        CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(&gbCount, gpuGbCount, sizeof(int), cudaMemcpyDeviceToHost));
+		CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(&gbCount, gpuGbCount, sizeof(int), cudaMemcpyDeviceToHost));
 
-        CUDA_SAFE_CALL(cudaMalloc((void**)&gpu_psum,HSIZE*sizeof(int)));
-        scanImpl(gpu_hashNum,HSIZE,gpu_psum,pp);
+		CUDA_SAFE_CALL(cudaMalloc((void**)&gpu_psum,HSIZE*sizeof(int)));
+		scanImpl(gpu_hashNum,HSIZE,gpu_psum,pp);
 
-        CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbCount));
-        CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpu_hashNum));
-    }
+		CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbCount));
+		CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpu_hashNum));
+	}
 
     if(gbConstant == 1)
         res->tupleNum = 1;
@@ -523,35 +519,34 @@ struct tableNode * groupBy(struct groupByNode * gb, struct statistic * pp){
 
     gpuGbColNum = res->totalAttr;
 
-    if(gbConstant !=1){
-        do{
-        	GMM_CALL(cudaReference(11, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
-        	GMM_CALL(cudaReference(10, HINT_READ));
-        	GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
-        	GMM_CALL(cudaReference(3, HINT_READ));
-        	GMM_CALL(cudaReference(2, HINT_READ));
-        	GMM_CALL(cudaReference(5, HINT_READ));
-        	GMM_CALL(cudaReference(4, HINT_READ));
-        	GMM_CALL(cudaReference(7, HINT_READ));
-        	GMM_CALL(cudaReference(9, HINT_READ));
-	        agg_cal<<<grid,block>>>(gpuContent, gpuGbColNum, gpuFunc, gpuOp, gpuMathExp,gpuMathOffset, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum,  gpuResult);
-        } while(0);
-        CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbKey));
-        CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpu_psum));
-    }else
+	if(gbConstant !=1){
+		GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
+		GMM_CALL(cudaReference(2, HINT_READ));
+		GMM_CALL(cudaReference(3, HINT_READ));
+		GMM_CALL(cudaReference(4, HINT_READ));
+		GMM_CALL(cudaReference(5, HINT_READ));
+		GMM_CALL(cudaReference(6, HINT_READ));
+		GMM_CALL(cudaReference(7, HINT_READ));
+		GMM_CALL(cudaReference(9, HINT_READ));
+		GMM_CALL(cudaReference(10, HINT_READ));
+		GMM_CALL(cudaReference(11, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
+		agg_cal<<<grid,block>>>(gpuContent, gpuGbColNum, gpuFunc, gpuOp, gpuMathExp,gpuMathOffset, gpuGbType, gpuGbSize, gpuTupleNum, gpuGbKey, gpu_psum,  gpuResult);
+		CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuGbKey));
+		CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpu_psum));
+	}else {
 		// kaibo: gpuGbKey and gpu_psum are not allocated when gbConstant == 1, so we should not reference them in ths case
-        do{
-        	GMM_CALL(cudaReference(11, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
-        	//GMM_CALL(cudaReference(10, HINT_READ));
-        	GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
-        	GMM_CALL(cudaReference(3, HINT_READ));
-        	GMM_CALL(cudaReference(2, HINT_READ));
-        	GMM_CALL(cudaReference(5, HINT_READ));
-        	GMM_CALL(cudaReference(4, HINT_READ));
-        	GMM_CALL(cudaReference(7, HINT_READ));
-        	//GMM_CALL(cudaReference(9, HINT_READ));
-	        agg_cal_cons<<<grid,block>>>(gpuContent, gpuGbColNum, gpuFunc, gpuOp, gpuMathExp,gpuMathOffset, gpuGbType, gpuGbSize, gpuTupleNum, NULL, NULL, gpuResult);
-        } while(0);
+		GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
+		GMM_CALL(cudaReference(2, HINT_READ));
+		GMM_CALL(cudaReference(3, HINT_READ));
+		GMM_CALL(cudaReference(4, HINT_READ));
+		GMM_CALL(cudaReference(5, HINT_READ));
+		GMM_CALL(cudaReference(6, HINT_READ));
+		GMM_CALL(cudaReference(7, HINT_READ));
+		//GMM_CALL(cudaReference(9, HINT_READ));
+		//GMM_CALL(cudaReference(10, HINT_READ));
+		GMM_CALL(cudaReference(11, HINT_READ|HINT_PTARRAY|HINT_PTAWRITE));
+		agg_cal_cons<<<grid,block>>>(gpuContent, gpuGbColNum, gpuFunc, gpuOp, gpuMathExp,gpuMathOffset, gpuGbType, gpuGbSize, gpuTupleNum, NULL, NULL, gpuResult);
+	}
 
     for(int i=0; i<gb->table->totalAttr;i++){
         if(gb->table->dataPos[i]==MEM)

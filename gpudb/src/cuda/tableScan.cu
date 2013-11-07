@@ -1217,12 +1217,10 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 
             CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuDictFilter, dNum * sizeof(int)));
 
-            do{
-            	GMM_CALL(cudaReference(0, HINT_READ));
-            	GMM_CALL(cudaReference(5, HINT_WRITE));
-            	GMM_CALL(cudaReference(4, HINT_READ));
-	            genScanFilter_dict_init<<<grid,block>>>(gpuDictHeader,sn->tn->attrSize[index],sn->tn->attrType[index],dNum, gpuExp,gpuDictFilter);
-            } while(0);
+            GMM_CALL(cudaReference(0, HINT_READ));
+            GMM_CALL(cudaReference(4, HINT_READ));
+            GMM_CALL(cudaReference(5, HINT_WRITE));
+	        genScanFilter_dict_init<<<grid,block>>>(gpuDictHeader,sn->tn->attrSize[index],sn->tn->attrType[index],dNum, gpuExp,gpuDictFilter);
 
             CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuDictHeader));
 
@@ -1264,28 +1262,23 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 /*When the two consecutive predicates access different columns*/
 
                 if(prevFormat == DICT){
-                    if(dictInit == 1){
-                        do{
-                        	GMM_CALL(cudaReference(1, HINT_READ));
-                        	GMM_CALL(cudaReference(0, HINT_READ));
-                        	GMM_CALL(cudaReference(4, HINT_WRITE));
-	                        transform_dict_filter_init<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
-                        } while(0);
-                        dictInit = 0;
-                    }else if(dictFinal == OR)
-                        do{
-                        	GMM_CALL(cudaReference(1, HINT_READ));
-                        	GMM_CALL(cudaReference(0, HINT_READ));
-                        	GMM_CALL(cudaReference(4, HINT_WRITE));
-	                        transform_dict_filter_or<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
-                        } while(0);
-                    else
-                        do{
-                        	GMM_CALL(cudaReference(1, HINT_READ));
-                        	GMM_CALL(cudaReference(0, HINT_READ));
-                        	GMM_CALL(cudaReference(4, HINT_WRITE));
-	                        transform_dict_filter_and<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
-                        } while(0);
+					if(dictInit == 1){
+						GMM_CALL(cudaReference(0, HINT_READ));
+						GMM_CALL(cudaReference(1, HINT_READ));
+						GMM_CALL(cudaReference(4, HINT_WRITE));
+						transform_dict_filter_init<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
+						dictInit = 0;
+					}else if(dictFinal == OR) {
+						GMM_CALL(cudaReference(0, HINT_READ));
+						GMM_CALL(cudaReference(1, HINT_READ));
+						GMM_CALL(cudaReference(4, HINT_WRITE));
+						transform_dict_filter_or<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
+					} else {
+						GMM_CALL(cudaReference(0, HINT_READ));
+						GMM_CALL(cudaReference(1, HINT_READ));
+						GMM_CALL(cudaReference(4, HINT_WRITE));
+						transform_dict_filter_and<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter,byteNum);
+					}
 
                     CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuDictFilter));
                     dictFinal = where->andOr;
@@ -1318,12 +1311,10 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
                     CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpuDictHeader,dheader,sizeof(struct dictHeader), cudaMemcpyHostToDevice));
                     CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuDictFilter, dNum * sizeof(int)));
 
-                    do{
-                    	GMM_CALL(cudaReference(0, HINT_READ));
-                    	GMM_CALL(cudaReference(5, HINT_WRITE));
-                    	GMM_CALL(cudaReference(4, HINT_READ));
-	                    genScanFilter_dict_init<<<grid,block>>>(gpuDictHeader,sn->tn->attrSize[index],sn->tn->attrType[index],dNum, gpuExp,gpuDictFilter);
-                    } while(0);
+                    GMM_CALL(cudaReference(0, HINT_READ));
+                    GMM_CALL(cudaReference(4, HINT_READ));
+                    GMM_CALL(cudaReference(5, HINT_WRITE));
+	                genScanFilter_dict_init<<<grid,block>>>(gpuDictHeader,sn->tn->attrSize[index],sn->tn->attrType[index],dNum, gpuExp,gpuDictFilter);
                     dictFilter= -1;
                     CUDA_SAFE_CALL_NO_SYNC(cudaFree(gpuDictHeader));
 
@@ -1569,15 +1560,15 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
                     if(where->andOr == AND)
                         do{
                         	GMM_CALL(cudaReference(0, HINT_READ));
-                        	GMM_CALL(cudaReference(5, HINT_WRITE));
                         	GMM_CALL(cudaReference(4, HINT_READ));
+                        	GMM_CALL(cudaReference(5, HINT_WRITE));
 	                        genScanFilter_dict_and<<<grid,block>>>(gpuDictHeader,sn->tn->attrSize[index],sn->tn->attrType[index],dNum, gpuExp,gpuDictFilter);
                         } while(0);
                     else
                         do{
                         	GMM_CALL(cudaReference(0, HINT_READ));
-                        	GMM_CALL(cudaReference(5, HINT_WRITE));
                         	GMM_CALL(cudaReference(4, HINT_READ));
+                        	GMM_CALL(cudaReference(5, HINT_WRITE));
 	                        genScanFilter_dict_or<<<grid,block>>>(gpuDictHeader,sn->tn->attrSize[index],sn->tn->attrType[index],dNum, gpuExp,gpuDictFilter);
                         } while(0);
                 }
@@ -1601,23 +1592,23 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
         if(prevFormat == DICT){
             if (dictInit == 1){
                 do{
-                	GMM_CALL(cudaReference(1, HINT_READ));
                 	GMM_CALL(cudaReference(0, HINT_READ));
+                	GMM_CALL(cudaReference(1, HINT_READ));
                 	GMM_CALL(cudaReference(4, HINT_WRITE));
 	                transform_dict_filter_init<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter, byteNum);
                 } while(0);
                 dictInit = 0;
             }else if(dictFinal == AND)
                 do{
-                	GMM_CALL(cudaReference(1, HINT_READ));
                 	GMM_CALL(cudaReference(0, HINT_READ));
+                	GMM_CALL(cudaReference(1, HINT_READ));
                 	GMM_CALL(cudaReference(4, HINT_WRITE));
 	                transform_dict_filter_and<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter, byteNum);
                 } while(0);
             else
                 do{
-                	GMM_CALL(cudaReference(1, HINT_READ));
                 	GMM_CALL(cudaReference(0, HINT_READ));
+                	GMM_CALL(cudaReference(1, HINT_READ));
                 	GMM_CALL(cudaReference(4, HINT_WRITE));
 	                transform_dict_filter_or<<<grid,block>>>(gpuDictFilter, column[prevWhere], totalTupleNum, dNum, gpuFilter, byteNum);
                 } while(0);
@@ -1737,8 +1728,8 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 
                 if (sn->tn->attrSize[i] == sizeof(int))
                     do{
-                    	GMM_CALL(cudaReference(1, HINT_READ));
                     	GMM_CALL(cudaReference(0, HINT_READ));
+                    	GMM_CALL(cudaReference(1, HINT_READ));
                     	GMM_CALL(cudaReference(5, HINT_READ));
                     	GMM_CALL(cudaReference(7, HINT_READ));
                     	GMM_CALL(cudaReference(8, HINT_WRITE));
@@ -1746,8 +1737,8 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
                     } while(0);
                 else
                     do{
-                    	GMM_CALL(cudaReference(1, HINT_READ));
                     	GMM_CALL(cudaReference(0, HINT_READ));
+                    	GMM_CALL(cudaReference(1, HINT_READ));
                     	GMM_CALL(cudaReference(5, HINT_READ));
                     	GMM_CALL(cudaReference(7, HINT_READ));
                     	GMM_CALL(cudaReference(8, HINT_WRITE));
@@ -1763,8 +1754,8 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
                 CUDA_SAFE_CALL_NO_SYNC(cudaMalloc((void **)&gpuRle, totalTupleNum * sizeof(int)));
 
                 do{
-                	GMM_CALL(cudaReference(1, HINT_WRITE));
                 	GMM_CALL(cudaReference(0, HINT_READ));
+                	GMM_CALL(cudaReference(1, HINT_WRITE));
 	                unpack_rle<<<grid,block>>>(scanCol[i], gpuRle,totalTupleNum, dNum);
                 } while(0);
 
