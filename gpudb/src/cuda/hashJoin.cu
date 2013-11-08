@@ -610,7 +610,7 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
     }
 
 	GMM_CALL(cudaReference(0, HINT_READ));
-	GMM_CALL(cudaReference(2, HINT_WRITE));
+	GMM_CALL(cudaReference(2, HINT_DEFAULT));
 	count_hash_num<<<grid,block>>>(gpu_dim,jNode->rightTable->tupleNum,gpu_hashNum,hsize);
     scanImpl(gpu_hashNum,hsize,gpu_psum, pp);
 
