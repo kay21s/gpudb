@@ -297,7 +297,7 @@ def generate_loader():
         print >>fo, "\n}\n"
 
    # print >>fo, "int main(int argc, char ** argv){\n"
-    print >>fo, "int call(int argc, char ** argv){\n"
+    print >>fo, "int main(int argc, char ** argv){\n"
     print >>fo, "\tFILE * in = NULL, *out = NULL;"
     print >>fo, "\tint table;"
     print >>fo, "\tint setPath = 0;"
@@ -2140,6 +2140,9 @@ def generate_code(tree):
     print >>fo, "\tprintf(\"Total Time: %lf\\n\", timeE/(1000*1000));"
     print >>fo, "}\n"
     print >>fo, "int main(int argc, char ** argv){"
+    print >>fo, "\tif (argc != 3) {"
+    print >>fo, "\t\tprintf(\"Usage: GPUDATABASE \#number_of_run_times --datadir \#dir\\n\");"
+    print >>fo, "\t}"
     print >>fo, "\tint i, times = atoi(argv[1]);"
     print >>fo, "\tfor (i = 0; i < times; i ++) {"
     print >>fo, "\t\tprintf(\"------------------------\");"

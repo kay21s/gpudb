@@ -921,7 +921,7 @@ void lineorder (FILE *fp, char *outName){
 
 }
 
-int call(int argc, char ** argv){
+int main(int argc, char ** argv){
 
 	FILE * in = NULL, *out = NULL;
 	int table;

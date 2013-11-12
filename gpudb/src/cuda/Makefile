@@ -23,7 +23,7 @@ else
     LDFLAGS   := -lcudart -lrt
 endif
 
-GMMPATH := `pwd`/../../../../syma/src
+GMMPATH := ../../../gdb/src
 LDFLAGS += -L$(GMMPATH)
 CFLAGS := -I$(GMMPATH)
 
@@ -45,7 +45,7 @@ gmm: tableScan.cu hashJoin.cu cuckoo.cu inviJoin.cu materialize.cu groupby.cu or
 	$(NVCC) -c -g $(GENCODE_FLAGS) $(CFLAGS) -DHAS_GMM tableScan.cu hashJoin.cu cuckoo.cu inviJoin.cu materialize.cu groupby.cu orderBy.cu 
 
 run:
-	LD_PRELOAD=/home/kai/projects/lib-intercept/libicept.so ./GPUDATABASE 1 --datadir ../../data
+	LD_PRELOAD=../../../lib-intercept/libicept.so ./GPUDATABASE 1 --datadir ../../data
 
 run2:
 	LD_PRELOAD=$(GMMPATH)/libgmm.so ./GPUDATABASE 1 --datadir ../../data
