@@ -2140,7 +2140,7 @@ def generate_code(tree):
     print >>fo, "\tprintf(\"Total Time: %lf\\n\", timeE/(1000*1000));"
     print >>fo, "}\n"
     print >>fo, "int main(int argc, char ** argv){"
-    print >>fo, "\tif (argc != 3) {"
+    print >>fo, "\tif (argc != 4) {"
     print >>fo, "\t\tprintf(\"Usage: GPUDATABASE \#number_of_run_times --datadir \#dir\\n\");"
     print >>fo, "\t}"
     print >>fo, "\tint i, times = atoi(argv[1]);"

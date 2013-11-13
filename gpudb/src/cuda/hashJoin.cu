@@ -31,6 +31,8 @@
 #include "scanImpl.cu"
 #ifdef HAS_GMM
 	#include "gmm.h"
+#else
+	#define GMM_BUFFER_COW 0
 #endif
 
 #define CHECK_POINTER(p)   do {                     \
@@ -812,7 +814,7 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
 					memcpy(col_buf, table, colSize);
 					gettimeofday(&t, NULL);
 					//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
-                    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize,cudaMemcpyHostToDevice));
+                    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize, (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
                 }else{
                     gpu_fact = table;
                 }
@@ -849,7 +851,7 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
 					memcpy(col_buf, table, colSize);
 					gettimeofday(&t, NULL);
 					//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
-                    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize,cudaMemcpyHostToDevice));
+                    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize, (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
                 }else{
                     gpu_fact = table;
                 }
@@ -884,7 +886,7 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
 					memcpy(col_buf, table, colSize);
 					gettimeofday(&t, NULL);
 					//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
-                    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize,cudaMemcpyHostToDevice));
+                    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize, (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
                 }else{
                     gpu_fact = table;
                 }
@@ -920,7 +922,7 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
 					memcpy(col_buf, table, colSize);
 					gettimeofday(&t, NULL);
 					//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
-                    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize,cudaMemcpyHostToDevice));
+                    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize, (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
                 }else{
                     gpu_fact = table;
                 }
@@ -956,7 +958,7 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
 					memcpy(col_buf, table, colSize);
 					gettimeofday(&t, NULL);
 					//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
-                    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize,cudaMemcpyHostToDevice));
+                    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize, (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
                 }else{
                     gpu_fact = table;
                 }
@@ -988,7 +990,7 @@ struct tableNode * hashJoin(struct joinNode *jNode, struct statistic *pp){
 					memcpy(col_buf, table, colSize);
 					gettimeofday(&t, NULL);
 					//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
-                    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize,cudaMemcpyHostToDevice));
+                    CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(gpu_fact, col_buf, colSize, (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
                 }else{
                     gpu_fact = table;
                 }
