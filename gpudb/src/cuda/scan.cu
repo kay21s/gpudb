@@ -78,7 +78,7 @@ static void preallocBlockSums(unsigned int maxNumElements)
         numElts = numBlocks;
     } while (numElts > 1);
 
-    //printf("level = %d\n", level);
+    printf("level = %d\n", level);
 
     g_scanBlockSums = (int**) malloc(level * sizeof(int*));
     g_numLevelsAllocated = level;
@@ -128,7 +128,7 @@ static void prescanArrayRecursive(int *outArray, const int *inArray, int numElem
     else
         numThreads = floorPow2(numElements);
 
-    //printf("blocks(%u) threads(%u) elements(%d)\n", numBlocks, numThreads, numElements);
+    printf("blocks(%u) threads(%u) elements(%d)\n", numBlocks, numThreads, numElements);
 
     unsigned int numEltsPerBlock = numThreads * 2;
 
