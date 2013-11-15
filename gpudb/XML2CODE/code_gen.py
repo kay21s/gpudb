@@ -801,7 +801,7 @@ def generate_code(tree):
             print >>fo, "extern struct tableNode* inviJoin(struct joinNode *, struct statistic *);"
         print >>fo, "extern struct tableNode* groupBy(struct groupByNode *,struct statistic *);"
         print >>fo, "extern struct tableNode* orderBy(struct orderByNode *, struct statistic *);"
-        print >>fo, "extern void materializeCol(struct materializeNode * mn, struct statistic *);"
+        print >>fo, "extern char* materializeCol(struct materializeNode * mn, struct statistic *);"
 
     else:
         print >>fo, "#include <CL/cl.h>"
