@@ -47,6 +47,9 @@ gmm: tableScan.cu hashJoin.cu cuckoo.cu inviJoin.cu materialize.cu groupby.cu or
 run:
 	LD_PRELOAD=../../../lib-intercept/libicept.so ./GPUDATABASE 1 --datadir ../../data
 
+run1:
+	./GPUDATABASE 1 --datadir ../../data
+
 run2:
 	LD_PRELOAD=$(GMMPATH)/libgmm.so ./GPUDATABASE 1 --datadir ../../data
 

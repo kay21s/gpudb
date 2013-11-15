@@ -5,8 +5,8 @@ import os
 import string
 
 # analysis parameters
-input_dir = "/home/kai/projects/trace/file"
-output_dir = "/home/kai/projects/trace/anal"
+input_dir = "../trace/file"
+output_dir = "../trace/anal"
 
 solo_files = [f for f in os.listdir(input_dir) if os.path.isfile(os.path.join(input_dir, f))]
 solos = []

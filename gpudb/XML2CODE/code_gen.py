@@ -826,9 +826,13 @@ def generate_code(tree):
     print >>fo, "\t\texit(-1);      \\"
     print >>fo, "\t}} while(0)\n"
 
+    print >>fo, "char *col_buf;"
+
 #	 print >>fo, "int main(int argc, char ** argv){"
     print >>fo, "int call(int argc, char ** argv){"
 
+    print >>fo, "\tcol_buf = (char *)malloc(sizeof(char) * 500000000);"
+    print >>fo, "\tmemset(col_buf, '0', 500000000);"
     if CODETYPE == 1:
         print >>fo, "\tint psc = 0;"
         print >>fo, "\tvoid * clTmp;"

@@ -49,7 +49,8 @@
  *  0 if they are equal
  *  -1 if buf2 is larger
  */
-char *col_buf;
+
+extern char *col_buf;
 
 __device__ static inline int stringCmp(char* buf1, char *buf2, int size){
     int i;
@@ -951,8 +952,6 @@ __global__ void static unpack_rle(char * fact, char * rle, long tupleNum, int dN
 
 struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 
-	col_buf = (char *)malloc(sizeof(char) * 500000000);
-	memset(col_buf, '0', 500000000);
 	struct timeval t;
 
     struct timespec start,end;
@@ -1084,7 +1083,7 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 				memcpy(col_buf, sn->tn->content[index], sn->tn->attrTotalSize[index]);
 				gettimeofday(&t, NULL);
 				//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
-                CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(column[whereIndex], col_buf, sn->tn->attrTotalSize[index], (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
+                CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(column[whereIndex], sn->tn->content[index], sn->tn->attrTotalSize[index], (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
             } else if (sn->tn->dataPos[index] == UVA) {
                 column[whereIndex] = sn->tn->content[index];
 			}
@@ -1212,7 +1211,7 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 				memcpy(col_buf, sn->tn->content[index], sn->tn->attrTotalSize[index]);
 				gettimeofday(&t, NULL);
 				//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
-                CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(column[whereIndex], col_buf, sn->tn->attrTotalSize[index], (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
+                CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(column[whereIndex], sn->tn->content[index], sn->tn->attrTotalSize[index], (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
             } else if (sn->tn->dataPos[index] == UVA) {
                 column[whereIndex] = sn->tn->content[index];
 			}
@@ -1234,7 +1233,7 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 				memcpy(col_buf, sn->tn->content[index], sn->tn->attrTotalSize[index]);
 				gettimeofday(&t, NULL);
 				//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
-                CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(column[whereIndex], col_buf, sn->tn->attrTotalSize[index], (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
+                CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(column[whereIndex], sn->tn->content[index], sn->tn->attrTotalSize[index], (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
             } else if (sn->tn->dataPos[index] == UVA) {
                 column[whereIndex] = sn->tn->content[index];
 			}
@@ -1299,7 +1298,7 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 						memcpy(col_buf, sn->tn->content[index], sn->tn->attrTotalSize[index]);
 						gettimeofday(&t, NULL);
 						//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
-                        CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(column[whereIndex], col_buf, sn->tn->attrTotalSize[index], (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
+                        CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(column[whereIndex], sn->tn->content[index], sn->tn->attrTotalSize[index], (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
                     } else if (sn->tn->dataPos[index] == UVA) {
                         column[whereIndex] = sn->tn->content[index];
 					}
@@ -1327,7 +1326,7 @@ struct tableNode * tableScan(struct scanNode *sn, struct statistic *pp){
 						memcpy(col_buf, sn->tn->content[index], sn->tn->attrTotalSize[index]);
 						gettimeofday(&t, NULL);
 						//printf("[gvm] %lf intercepted diskIO\n", t.tv_sec + t.tv_usec / 1000000.0);
-                        CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(column[whereIndex], col_buf, sn->tn->attrTotalSize[index], (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
+                        CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(column[whereIndex], sn->tn->content[index], sn->tn->attrTotalSize[index], (enum cudaMemcpyKind)(cudaMemcpyHostToDevice|GMM_BUFFER_COW)));
                     } else if (sn->tn->dataPos[index] == UVA) {
                         column[whereIndex] = sn->tn->content[index];
 					}

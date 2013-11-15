@@ -100,6 +100,8 @@ cudaError_t cudaMemcpy(void *dst, const void *src, size_t count, enum cudaMemcpy
 
 	ret = nv_cudaMemcpy(dst, src, count, kind);
 
+	cudaThreadSynchronize();
+
 	gettimeofday(&t, NULL);
 	printf("[gvm] %lf intercepted cudaMemcpy( %lx %lx %ld %d ) = %d\n", t.tv_sec + t.tv_usec / 1000000.0, (unsigned long)dst, (unsigned long)src, count, kind, (int)ret);
 
