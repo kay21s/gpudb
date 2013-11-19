@@ -87,12 +87,10 @@ char * materializeCol(struct materializeNode * mn, struct statistic * pp){
     dim3 grid(512);
     dim3 block(128);
 
-    do{
-    	GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
-    	GMM_CALL(cudaReference(2, HINT_READ));
-    	GMM_CALL(cudaReference(5, HINT_WRITE));
-	    materialize<<<grid,block>>> (gpuContent, tn->totalAttr, gpuAttrSize, tn->tupleNum, tn->tupleSize, gpuResult);
-    } while(0);
+    GMM_CALL(cudaReference(0, HINT_READ|HINT_PTARRAY|HINT_PTAREAD));
+    GMM_CALL(cudaReference(2, HINT_READ));
+    GMM_CALL(cudaReference(5, HINT_WRITE));
+	materialize<<<grid,block>>> (gpuContent, tn->totalAttr, gpuAttrSize, tn->tupleNum, tn->tupleSize, gpuResult);
 
     CUDA_SAFE_CALL_NO_SYNC(cudaMemcpy(res, gpuResult, size, cudaMemcpyDeviceToHost));
 
