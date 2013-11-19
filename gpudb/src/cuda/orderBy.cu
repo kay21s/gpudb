@@ -821,10 +821,10 @@ struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
 			GMM_CALL(cudaReference(4, HINT_WRITE));
 			gather_col_int<<<8,128>>>(gpuPos,(int*)column[secIndex],newNum, gpuTupleNum, (int*)gpuKey2);
 
-			GMM_CALL(cudaReference(0, HINT_READ));
+			GMM_CALL(cudaReference(0, HINT_DEFAULT));
 			GMM_CALL(cudaReference(1, HINT_READ));
 			GMM_CALL(cudaReference(2, HINT_READ));
-			GMM_CALL(cudaReference(4, HINT_READ));
+			GMM_CALL(cudaReference(4, HINT_DEFAULT));
 			GMM_CALL(cudaReference(5, HINT_WRITE));
 			sec_sort_key_int<<<cpuKeyNum,1>>>((int*)gpuKey2, keyPsum, keyCount , gpuTupleNum, gpuPos, gpuPos2);
         }else if (secType == FLOAT){
@@ -833,10 +833,10 @@ struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
 			GMM_CALL(cudaReference(4, HINT_WRITE));
 			gather_col_float<<<8,128>>>(gpuPos,(float*)column[secIndex],newNum, gpuTupleNum, (float*)gpuKey2);
 
-			GMM_CALL(cudaReference(0, HINT_READ));
+			GMM_CALL(cudaReference(0, HINT_DEFAULT));
 			GMM_CALL(cudaReference(1, HINT_READ));
 			GMM_CALL(cudaReference(2, HINT_READ));
-			GMM_CALL(cudaReference(4, HINT_READ));
+			GMM_CALL(cudaReference(4, HINT_DEFAULT));
 			GMM_CALL(cudaReference(5, HINT_WRITE));
 			sec_sort_key_float<<<cpuKeyNum,1>>>((float*)gpuKey2, keyPsum, keyCount , gpuTupleNum, gpuPos, gpuPos2);
         }else if (secType == STRING){
@@ -845,10 +845,10 @@ struct tableNode * orderBy(struct orderByNode * odNode, struct statistic *pp){
 			GMM_CALL(cudaReference(5, HINT_WRITE));
 			gather_col_string<<<8,128>>>(gpuPos,column[secIndex],newNum, gpuTupleNum, keySize2,gpuKey2);
 
-			GMM_CALL(cudaReference(0, HINT_READ));
+			GMM_CALL(cudaReference(0, HINT_DEFAULT));
 			GMM_CALL(cudaReference(2, HINT_READ));
 			GMM_CALL(cudaReference(3, HINT_READ));
-			GMM_CALL(cudaReference(5, HINT_READ));
+			GMM_CALL(cudaReference(5, HINT_DEFAULT));
 			GMM_CALL(cudaReference(6, HINT_WRITE));
 			sec_sort_key_string<<<cpuKeyNum,1>>>(gpuKey2, keySize2, keyPsum, keyCount , gpuTupleNum, gpuPos, gpuPos2);
         }
