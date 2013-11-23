@@ -828,8 +828,7 @@ def generate_code(tree):
 
     print >>fo, "char *col_buf;"
 
-#	 print >>fo, "int main(int argc, char ** argv){"
-    print >>fo, "int call(int argc, char ** argv){"
+    print >>fo, "int main(int argc, char ** argv){"
 
     print >>fo, "\tcol_buf = (char *)malloc(sizeof(char) * 500000000);"
     print >>fo, "\tmemset(col_buf, '0', 500000000);"
@@ -2142,17 +2141,8 @@ def generate_code(tree):
     print >>fo, "\tprintf(\"PCIe Time: %lf\\n\",pp.pcie);"
     print >>fo, "\tprintf(\"Kernel Time: %lf\\n\",pp.kernel);"
     print >>fo, "\tprintf(\"Total Time: %lf\\n\", timeE/(1000*1000));"
+    print >>fo, "\treturn 0;"
     print >>fo, "}\n"
-    print >>fo, "int main(int argc, char ** argv){"
-    print >>fo, "\tif (argc != 4) {"
-    print >>fo, "\t\tprintf(\"Usage: GPUDATABASE \#number_of_run_times --datadir \#dir\\n\");"
-    print >>fo, "\t}"
-    print >>fo, "\tint i, times = atoi(argv[1]);"
-    print >>fo, "\tfor (i = 0; i < times; i ++) {"
-    print >>fo, "\t\tprintf(\"------------------------\");"
-    print >>fo, "\t\tcall(argc, argv);"
-    print >>fo, "\t}"
-    print >>fo, "}"
 
     fo.close()
 

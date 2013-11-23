@@ -23,7 +23,8 @@ else
     LDFLAGS   := -lcudart -lrt
 endif
 
-GMMPATH := ../../../gdb/src
+DATAPATH := /home/kai/projects/gpudb/gpudb/data
+GMMPATH := /home/kai/projects/gpudb/gdb/src
 LDFLAGS += -L$(GMMPATH)
 CFLAGS := -I$(GMMPATH)
 
@@ -45,13 +46,13 @@ gmm: tableScan.cu hashJoin.cu cuckoo.cu inviJoin.cu materialize.cu groupby.cu or
 	$(NVCC) -c -g $(GENCODE_FLAGS) $(CFLAGS) -DHAS_GMM tableScan.cu hashJoin.cu cuckoo.cu inviJoin.cu materialize.cu groupby.cu orderBy.cu 
 
 run:
-	LD_PRELOAD=../../../lib-intercept/libicept.so ./GPUDATABASE 1 --datadir ../../data
+	LD_PRELOAD=../../../lib-intercept/libicept.so ./GPUDATABASE --datadir ../../data
 
 run1:
-	./GPUDATABASE 1 --datadir ../../data
+	./GPUDATABASE --datadir $(DATAPATH)
 
 run2:
-	LD_PRELOAD=$(GMMPATH)/libgmm.so ./GPUDATABASE 1 --datadir ../../data
+	LD_PRELOAD=$(GMMPATH)/libgmm.so ./GPUDATABASE --datadir $(DATAPATH)
 
 clean:
 	rm -rf *.o GPUDATABASE
