@@ -7,6 +7,12 @@ rootpath = os.getcwd()
 
 solo_dir = rootpath + r'/trace/file/'
 
+stat_num = 5
+print 'Query\tSolo Run(ms)\t',
+for i in range(1, stat_num+1):
+	print i,'\t',
+print ''
+
 files = os.listdir(solo_dir)
 files.sort()
 for file in files:

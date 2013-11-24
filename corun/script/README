@@ -1,13 +1,17 @@
 Corun Instructions
 
 1) Run the prog_gen.py in gpudb directory to get all the query programs in corun/query_progs
-2) After runing prog_gen.py, all the solo run performance trace are in trace/file, if need it again, then use solorun.py
+2) Solorun: run solorun.py, all the solo run performance trace are in trace/file
 3) Corun: run corun.py and wait, all the corun trace will be stored in corun/output
-4) After corun.py complete, run present_totaltime.py to analyze the trace in corun/output and get three files for plot : result_corun, speedup0, speedup1, and it will also generate plot_corun.plt
-5) "gnuplot plot_corun.plt", get the speedup.png
 
-6) If you want to corun just two queries, such as q1_1/q1_2, do "./testcorun.py q1_1 q1_2", their trace will be stored in corun/output/q1_1.q1_2, then you can replot the png.
-7) Any error happens when running will be recoreded in the error file in each corun output directory, run "find_crush.py" to see which coruns are not successful.
+4) If you want to corun just two queries, such as q1_1/q1_2, do "./testcorun.py q1_1 q1_2", their trace will be stored in corun/output/q1_1.q1_2, then you can replot the png.
+5) Any error happens when running will be recoreded in the error file in each corun output directory, run "find_crush.py" to see which coruns are not successful.
+
+STATISTICS
+1) present_totaltime.py - generate result_corun, speedup0, speedup1, and plot_corun.plt
+2) number_solorun.py - generate solorun statistics
+3) number_corun.py - generate corun statistics, modify the "statisc_1" variable to generate two types of statistics
+4) find_crush.py - find all crushed coruns by looking at the error file in each output directory
 
 
 IMPORTANT: 

@@ -57,14 +57,14 @@ stat_num = stat_e - stat_s + 1
 # two statistics, 0 or 1 to change
 statistic_1 = 1
 if statistic_1:
-	print "Left	Right	Left Combo Runtime(ms)	Right Combo Runtime(ms)\t",
-	for i in range(0, stat_num):
+	print "Left\tRight\tLeft Combo Runtime(ms)\tRight Combo Runtime(ms)\t",
+	for i in range(1, stat_num+1):
 		print 'Left ', i, '\t',
-	for i in range(0, stat_num):
+	for i in range(1, stat_num+1):
 		print 'Right ', i, '\t',
 	print ''
 else:
-	print "Left	Right	Left Combo Runtime(ms)	Right Combo Runtime(ms)	Combo Speedup	Left Slowdown	Right Slowdown"
+	print "Left\tRight\tLeft Combo Runtime(ms)\tRight Combo Runtime(ms)\tCombo Speedup\tLeft Slowdown\tRight Slowdown"
 
 
 files = os.listdir(co_dir)
