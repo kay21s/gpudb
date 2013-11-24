@@ -34,6 +34,6 @@ for file in os.listdir(rootpath+"/gpudb/test/ssb_test/"):
 		os.system(make_command)
 		cmd = r'cp GPUDATABASE ' + rootpath + r'/corun/query_progs/' + file[:-4]
 		os.system(cmd)
-		output = file[0:-3] + 'solo'
-		cmd = ldpreload + rootpath + r'/gpudb/src/cuda/GPUDATABASE --datadir ' + rootpath+r'/gpudb/data' + r' > ' + rootpath+r'/trace/file/'+output
-		os.system(cmd)
+		#output = file[0:-3] + 'solo'
+		#cmd = ldpreload + rootpath + r'/gpudb/src/cuda/GPUDATABASE --datadir ' + rootpath+r'/gpudb/data' + r' > ' + rootpath+r'/trace/file/'+output
+		#os.system(cmd)

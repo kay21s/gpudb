@@ -23,8 +23,8 @@ else
     LDFLAGS   := -lcudart -lrt
 endif
 
-DATAPATH := /home/kai/projects/gpudb/gpudb/data
-GMMPATH := /home/kai/projects/gpudb/gdb/src
+DATAPATH := /home/kai/gpudb/gpudb/data
+GMMPATH := /home/kai/gpudb/gdb/src
 LDFLAGS += -L$(GMMPATH)
 CFLAGS := -I$(GMMPATH)
 

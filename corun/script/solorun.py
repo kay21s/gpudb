@@ -21,8 +21,14 @@ else:
 
 os.chdir(querypath)
 
+time = 5
+
 for query in os.listdir(querypath):
+	# load the column
 	cmd = preloadlib + './' + query + ' --datadir ' + datapath
 	os.system(cmd)
-	cmd = preloadlib + './' + query + ' --datadir ' + datapath + ' > ' + outpath + query + '.solo'
+	cmd = 'rm -f ' + outpath + query + '.solo'
 	os.system(cmd)
+	for i in range(0, 5):
+		cmd = preloadlib + './' + query + ' --datadir ' + datapath + ' >> ' + outpath + query + '.solo'
+		os.system(cmd)
