@@ -55,7 +55,7 @@ stat_e = 4
 stat_num = stat_e - stat_s + 1
 
 # two statistics, 0 or 1 to change
-statistic_1 = 0
+statistic_1 = 1
 if statistic_1:
 	print "Left	Right	Left Combo Runtime(ms)	Right Combo Runtime(ms)\t",
 	for i in range(0, stat_num):
@@ -67,7 +67,9 @@ else:
 	print "Left	Right	Left Combo Runtime(ms)	Right Combo Runtime(ms)	Combo Speedup	Left Slowdown	Right Slowdown"
 
 
-for file in os.listdir(co_dir):
+files = os.listdir(co_dir)
+files.sort()
+for file in files:
 #	print file, ' ',
 	os.chdir(co_dir+file)
 	err = open('error').read()
@@ -147,8 +149,8 @@ for file in os.listdir(co_dir):
 			print query_name[i],'\t',
 		for i in range(0, len(query_name)):
 			print avg_time[i],'\t',
-		print speedup,'\t',
+		print round(speedup,2),'\t',
 		for i in range(0, len(query_name)):
-			print avg_time[i]/solo_dict[query_name[i]],'\t',
+			print round(avg_time[i]/solo_dict[query_name[i]],2),'\t',
 		print ''
 
