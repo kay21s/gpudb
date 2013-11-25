@@ -22,13 +22,17 @@ for file in files:
 		time_list = []
 		for line in open(solo_dir+file, "r").readlines():
 			if line[:12] == 'Total Time: ':
+				# the first time data is not used since it loads data into memory
+				if num == 0:
+					num += 1
+					continue
 				time = float(line[12:])
 				time_list.append(round(time,2))
 				avg += time
 				num += 1
-		avg = round(avg/num, 2)
+		avg = round(avg/(num-1), 2)
 		print file[:-5],'\t',avg,'\t',
-		for i in range(0, int(num)):
+		for i in range(0, int(num-1)):
 			print time_list[i],'\t',
 		print ''
 

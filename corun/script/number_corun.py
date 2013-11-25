@@ -16,11 +16,14 @@ for file in os.listdir(solo_dir):
 		time_list = []
 		for line in open(solo_dir+file, "r").readlines():
 			if line[:12] == 'Total Time: ':
+				if num == 0:
+					num += 1
+					continue
 				time = float(line[12:])
 				time_list.append(round(time,2))
 				avg += time
 				num += 1
-		avg = round(avg/num, 2)
+		avg = round(avg/(num-1), 2)
 		solo_dict[file[:-5]] = avg
 
 #print solo_dict
@@ -48,10 +51,10 @@ for i in range(0,max_len):
 	fout = open("speedup"+str(i), "w+")
 	ind_file.append(fout)
 
-# 2-4 means we get the 2,3,4 Total time to calculate
+# 2-6 means we get the 2,3,4,5,6 corun performance as the valid ones for statistics
 # For fully overlap
 stat_s = 2
-stat_e = 4
+stat_e = 6
 stat_num = stat_e - stat_s + 1
 
 # two statistics, 0 or 1 to change
@@ -109,7 +112,7 @@ for file in files:
 		if lines is None:
 			print 'error', query, file
 			sys.exit(0)
-		# we only count for lines 2,3,4  for fully overlap
+		# we only count for lines 2,3,4,5,6  for fully overlap
 		for line in lines:
 			if line[:12] == 'Total Time: ':
 				num += 1
@@ -122,8 +125,8 @@ for file in files:
 		if num == 0:
 			print 'deadlock', query, file
 			sys.exit(0)
-		if num != 5:
-			print 'supposed to be 5 times', num, query, file
+		if num != stat_e + 1:
+			print 'end before finding the required number of queries', num, query, file
 			sys.exit(0)
 		#speedup_right += 1/(time/num)
 		#speedup_left += solo_dict[query]

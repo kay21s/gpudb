@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import os
-import time
+import shutil
 
 os.chdir("../../")
 rootpath = os.getcwd()
@@ -9,8 +9,8 @@ outpath = rootpath + r'/trace/file/'
 querypath = rootpath + r'/corun/query_progs/'
 datapath = rootpath + r'/gpudb/data/'
 
-LOAD_GMM = 1
-
+rep = 6
+LOAD_GMM = 0
 if LOAD_GMM:
 	preloadlib=r'LD_PRELOAD='+rootpath+r'/gdb/src/libgmm.so '
 else:
@@ -19,9 +19,11 @@ else:
 #preloadlib = 'LD_PRELOAD=' + rootpath + r'/lib-intercept/libicept.so '
 #preloadlib = 'LD_PRELOAD=' + rootpath + r'/gdb/src/libgmm.so '
 
-os.chdir(querypath)
+if os.path.exists(outpath):
+	shutil.rmtree(outpath)
+os.mkdir(outpath)
 
-time = 5
+os.chdir(querypath)
 
 for query in os.listdir(querypath):
 	# load the column
@@ -29,6 +31,6 @@ for query in os.listdir(querypath):
 	os.system(cmd)
 	cmd = 'rm -f ' + outpath + query + '.solo'
 	os.system(cmd)
-	for i in range(0, 5):
+	for i in range(0, rep):
 		cmd = preloadlib + './' + query + ' --datadir ' + datapath + ' >> ' + outpath + query + '.solo'
 		os.system(cmd)
