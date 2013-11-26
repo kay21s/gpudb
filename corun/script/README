@@ -1,19 +1,37 @@
 Corun Instructions
 
-1) Run the prog_gen.py in gpudb directory to get all the query programs in corun/query_progs
-2) Solorun: run solorun.py, all the solo run performance trace are in trace/file
-3) Corun: run corun.py and wait, all the corun trace will be stored in corun/output
+1) Run the prog_gen.py in gpudb directory to get all the query programs in corun/query_progs.
+2) Solorun: run solorun.py, all the solo run performance trace are in trace/file.
+3) Corun: run corun.py and wait, all the corun trace will be stored in corun/output.
 
-4) If you want to corun just two queries, such as q1_1/q1_2, do "./testcorun.py q1_1 q1_2", their trace will be stored in corun/output/q1_1.q1_2, then you can replot the png.
-5) Any error happens when running will be recoreded in the error file in each corun output directory, run "find_crush.py" to see which coruns are not successful.
+4) If you want to corun just two queries, such as q1_1/q1_2, do "./testcorun.py q1_1 q1_2", 
+their trace will be stored in corun/output/q1_1.q1_2, then you can replot the png.
+5) Any error happens when running will be recoreded in the error file in each corun output 
+directory, run "find_crush.py" to see which coruns are not successful.
 
 STATISTICS
 1) present_totaltime.py - generate result_corun, speedup0, speedup1, and plot_corun.plt
-2) number_solorun.py - generate solorun statistics
-3) number_corun.py - generate corun statistics, modify the "statisc_1" variable to generate two types of statistics
-4) find_crush.py - find all crushed coruns by looking at the error file in each output directory
+2) number_solorun.py - generate solorun statistics.
+3) number_corun.py - generate corun statistics, modify the "statisc_1" variable to generate 
+two types of statistics.
+4) find_crush.py - find all crushed coruns by looking at the error file in each output 
+directory, find all coruns with evictions by finding "evicting" words in traces.
+5) sf_space_anal.py - analyze solo-run memory spaces and co-run memory spaces for all query
+combinations. The default GPU memory size is set to 1.4GB, if the maximum memory consumption
+is higher than the GPU memory, there will be a '*' to mark the query/combo in results.
+
+UTILITIY
+1) save_context.py - save current traces (trace/file/, corun/output/, corun/query_progs) into 
+corun/result/ directory. When run with "./save_context.py abc", it will create a directory, 
+which will be corun/result/abc/ and save all contexts into it. Note that it prevents 
+overwrite previous contexts with the same name.
+2) restore_context.py - restore previous saved context, When run with './restore_context.py
+ abc', it will copy all traces and query programs in corun/result/abc/ into their original
+places.
 
 
 IMPORTANT: 
-1) Before corun, please modify the GMM_LOAD variable in prog_gen.py, corun.py, solorun.py, testcorun.py before using them to indicate the load library
-2) When corun with libgmm, modify the Makefile in gpudb/cuda/src to use absolute path, so that the no matter where the query program is, it will find the right library.
+1) Before corun, please modify the GMM_LOAD variable in prog_gen.py, corun.py, solorun.py, 
+testcorun.py before using them to indicate the load library
+2) When corun with libgmm, modify the Makefile in gpudb/cuda/src to use absolute path, so 
+that the no matter where the query program is, it will find the right library.

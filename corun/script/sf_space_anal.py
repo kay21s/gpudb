@@ -46,7 +46,7 @@ for (query, space) in space_dict:
 	else:
 		print ''
 print '--------------------------------'
-print 'Larger than GPU memory : ', num, len(space_dict)
+print 'Larger than GPU memory : ', num, '/', len(space_dict)
 
 
 querys = []
@@ -69,4 +69,4 @@ for i in range(0, len(querys)):
 		total +=1
 
 print '--------------------------------'
-print 'Larger than GPU memory : ', num, total
+print 'Larger than GPU memory : ', num, '/', total

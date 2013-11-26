@@ -75,9 +75,6 @@ files.sort()
 for file in files:
 #	print file, ' ',
 	os.chdir(co_dir+file)
-	err = open('error').read()
-	if len(err) <> 0:
-		continue
 
 
 	q_static = {}
@@ -89,6 +86,11 @@ for file in files:
 		else:
 			querys.append(q)
 			q_static[q] = 1
+
+	err = open('error').read()
+	if len(err) <> 0:
+		print querys[0],'\t',querys[1]
+		continue
 
 	# 1) speedup = (1/co_q1 + 1/co_q2)/(1/(solo_q1 + solo_q2)) = (1/co_q1+1/co_q2) * (solo_q1+solo_q2)
 	#speedup_right = 0.0 # (1/co_q1 + 1/co_q2)
