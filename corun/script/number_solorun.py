@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import os
+import sys
 import time
 
 os.chdir("../../")
@@ -7,9 +8,9 @@ rootpath = os.getcwd()
 
 solo_dir = rootpath + r'/trace/file/'
 
-stat_num = 5
+stat_num = 6
 print 'Query\tSolo Run(ms)\t',
-for i in range(1, stat_num+1):
+for i in range(1, stat_num):
 	print i,'\t',
 print ''
 
@@ -30,6 +31,9 @@ for file in files:
 				time_list.append(round(time,2))
 				avg += time
 				num += 1
+		if num != stat_num:
+			print num, '<', stat_num
+			sys.exit(0)
 		avg = round(avg/(num-1), 2)
 		print file[:-5],'\t',avg,'\t',
 		for i in range(0, int(num-1)):

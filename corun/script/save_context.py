@@ -28,5 +28,5 @@ cmd = 'cp -r ' + query_path + ' ' + the_path
 os.system(cmd)
 
 os.chdir(rootpath + '/corun/script/')
-cmd = 'cp result_corun speedup0 speedup1 plot_corun.plot speedup.png ' + the_path
+cmd = 'cp -f result_corun speedup0 speedup1 plot_corun.plot speedup.png ' + the_path
 os.system(cmd)
