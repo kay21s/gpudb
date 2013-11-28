@@ -1,5 +1,5 @@
 set xlabel "Time (ms)"
 set ylabel "Bytes"
 set terminal png size 1200, 500
-set output "./png/q1_3.png
-plot "./vis/q1_3_memusage.vis" using 1:2 title "usage" with lines lw 2, "./vis/q1_3_memspace.vis" using 1:2 title "space" with lines, "./vis/q1_3_memcpy.vis" using 1:2 title "copy" with lines
+set output "./png/q3_4.png
+plot "./vis/q3_4_memusage.vis" using 1:2 title "usage" with lines lw 2, "./vis/q3_4_memspace.vis" using 1:2 title "space" with lines, "./vis/q3_4_memcpy.vis" using 1:2 title "copy" with lines

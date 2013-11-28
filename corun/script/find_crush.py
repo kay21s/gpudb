@@ -10,7 +10,9 @@ os.chdir(outpath)
 
 crush_corun = []
 evict_corun = []
-for dir in os.listdir("."):
+coruns = []
+for dir in os.listdir('.'):
+	coruns.append(dir)
 	err = open(dir+'/error').read()
 	if len(err) <> 0:
 		crush_corun.append(dir)
@@ -28,7 +30,23 @@ for dir in os.listdir("."):
 		if flag == 1:
 			break
 
+coruns.sort()
 
+print 'Coruns:\t \t Crush \t Evict'
+print '-----------------------------------'
+for corun in coruns:
+	querys = corun.split('.')
+	for q in querys:
+		print q, '\t',
+	if corun in crush_corun:
+		print '*\t',
+	else:
+		print ' \t',
+	if corun in evict_corun:
+		print '+\t',
+	print ''
+
+'''
 if crush_corun:
 	crush_corun.sort()
 	print 'Crushed Coruns :'
@@ -49,3 +67,4 @@ if evict_corun:
 else:
 	print 'No Coruns have eviction'
 	print '---------------------------'
+'''

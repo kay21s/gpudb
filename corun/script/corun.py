@@ -14,7 +14,7 @@ datapath = rootpath + r'/gpudb/data/'
 # corun for #rep times
 rep = '9'
 
-LOAD_GMM = 0
+LOAD_GMM = 1
 if LOAD_GMM:
 	preloadlib=r'LD_PRELOAD='+rootpath+r'/gdb/src/libgmm.so '
 else:
@@ -60,7 +60,7 @@ for plan in plans:
 		print script
 		os.system(script)
 
-	time.sleep(15)
+	time.sleep(25)
 	cmd=' '
 	os.system(cmd) # like press an enter for the last '&'
 	for query in querys:

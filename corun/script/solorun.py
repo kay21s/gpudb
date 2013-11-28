@@ -10,7 +10,7 @@ querypath = rootpath + r'/corun/query_progs/'
 datapath = rootpath + r'/gpudb/data/'
 
 rep = 6
-LOAD_GMM = 0
+LOAD_GMM = 1
 if LOAD_GMM:
 	preloadlib=r'LD_PRELOAD='+rootpath+r'/gdb/src/libgmm.so '
 else:

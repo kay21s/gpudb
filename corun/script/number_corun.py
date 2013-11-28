@@ -57,13 +57,20 @@ stat_s = 2
 stat_e = 6
 stat_num = stat_e - stat_s + 1
 
+# we only print 3 times
+print_runnum = 3
+
 # two statistics, 0 or 1 to change
-statistic_1 = 1
+if len(sys.argv) == 2 and (sys.argv[1] == '0' or sys.argv[1] == '1'):
+	statistic_1 = int(sys.argv[1])
+else:
+	statistic_1 = 1
+
 if statistic_1:
 	print "Left\tRight\tLeft Combo Runtime(ms)\tRight Combo Runtime(ms)\t",
-	for i in range(1, stat_num+1):
+	for i in range(1, print_runnum+1):
 		print 'Left ', i, '\t',
-	for i in range(1, stat_num+1):
+	for i in range(1, print_runnum+1):
 		print 'Right ', i, '\t',
 	print ''
 else:
@@ -89,7 +96,7 @@ for file in files:
 
 	err = open('error').read()
 	if len(err) <> 0:
-		print querys[0],'\t',querys[1]
+		print querys[0][0:4],'\t',querys[1][0:4]
 		continue
 
 	# 1) speedup = (1/co_q1 + 1/co_q2)/(1/(solo_q1 + solo_q2)) = (1/co_q1+1/co_q2) * (solo_q1+solo_q2)
@@ -143,9 +150,9 @@ for file in files:
 			print query_name[i],'\t',
 		for i in range(0, len(query_name)):
 			print avg_time[i],'\t',
-		for i in range(0, len(individual[0])):
+		for i in range(0, print_runnum):
 			print individual[0][i],'\t',
-		for i in range(0, len(individual[1])):
+		for i in range(0, print_runnum):
 			print individual[1][i],'\t',
 		print ''
 
