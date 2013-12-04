@@ -54,5 +54,8 @@ run1:
 run2:
 	LD_PRELOAD=$(GMMPATH)/libgmm.so ./GPUDATABASE --datadir $(DATAPATH)
 
+corun:
+	LD_PRELOAD=$(GMMPATH)/libgmm.so ./GPUDATABASE --datadir $(DATAPATH) & LD_PRELOAD=$(GMMPATH)/libgmm.so ./GPUDATABASE --datadir $(DATAPATH)
+
 clean:
 	rm -rf *.o GPUDATABASE

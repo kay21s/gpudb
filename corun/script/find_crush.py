@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import os
+import sys
 import time
 
 os.chdir("../../")
@@ -36,8 +37,9 @@ print 'Coruns:\t \t Crush \t Evict'
 print '-----------------------------------'
 for corun in coruns:
 	querys = corun.split('.')
-	for q in querys:
-		print q, '\t',
+	if len(sys.argv) == 1:
+		for q in querys:
+			print q, '\t',
 	if corun in crush_corun:
 		print '*\t',
 	else:
