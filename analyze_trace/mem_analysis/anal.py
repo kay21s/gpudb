@@ -99,9 +99,10 @@ def anal_memusage(log_events, alloc_events, file):
 	# search for cudaLaunch events; for each, compute used memory size
 	# and the length of usage
 	for idx,event in enumerate(log_events):
-		if event[2] == "cudaLaunch" and event[1] == "intercepted":
+		if event[2] == "cudaLaunch" and event[1] == "intercepting":
 			start_time = event[0]
-			end_time = start_time
+		if event[2] == "cudaLaunch" and event[1] == "intercepted":
+			end_time = event[0]
 			size_used = 0
 
 			# get the size of memory used by the kernel
@@ -133,14 +134,14 @@ def anal_memusage(log_events, alloc_events, file):
 
 			# get the termination time of kernel execution by moving forward
 			i = idx + 1
-			while i < nr_events:
-				if log_events[i][2] == "cudaThreadSynchronize" and log_events[i][1] == "intercepted":
-					end_time = log_events[i][0]
-					break
-				i += 1
-			if i >= nr_events:
-				print "error when search forward; no cudaThreadSynchronize after kernel launch"
-				sys.exit(1)
+			#while i < nr_events:
+			#	if log_events[i][2] == "cudaThreadSynchronize" and log_events[i][1] == "intercepted":
+			#		end_time = log_events[i][0]
+			#		break
+			#	i += 1
+			#if i >= nr_events:
+			#	print "error when search forward; no cudaThreadSynchronize after kernel launch"
+			#	sys.exit(1)
 
 #			if size_used > 0:
 			memusage.append([start_time, end_time, size_used])

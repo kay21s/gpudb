@@ -1,0 +1,98 @@
+[gvm] 1386645568.169408 BEGIN
+[2793 error] ---- 8800040
+[2793 error] ---- 5297152
+[2793 error] ---- 4198400
+[2793 error] ---- 4104
+[2793 error] ---- 8
+[2793 error] ---- 4104
+[2793 error] ---- 2101248
+(INFO) Number of selection results: 31882
+[2793 error] ---- 12784090
+[2793 error] ---- 8624680
+TableScan Time: 17.052331
+[2793 error] ---- 320040
+[2793 error] ---- 160896
+[2793 error] ---- 161952
+[2793 error] ---- 161952
+[2793 error] ---- 160
+[2793 error] ---- 81056
+[2793 error] ---- 81056
+(INFO) Number of selection results: 4102
+[2793 error] ---- 257304
+TableScan Time: 1.511435
+[2793 error] ---- 258600
+[2793 error] ---- 262400
+[2793 error] ---- 256
+[2793 error] ---- 131328
+[2793 error] ---- 513656
+[2793 error] ---- 484601216
+[2793 error] ---- 8396800
+[2793 error] ---- 8208
+[2793 error] ---- 16
+[2793 error] ---- 8208
+[2793 error] ---- 4202496
+(INFO) Number of join results: 2394962
+[2793 error] ---- 265980756
+[2793 error] ---- 493663864
+[2793 error] ---- 493663864
+[2793 error] ---- 493663864
+HashJoin Time: 514.261895
+[2793 error] ---- 49176
+[2793 error] ---- 65600
+[2793 error] ---- 64
+[2793 error] ---- 32832
+[2793 error] ---- 81992
+[2793 error] ---- 23452352
+[2793 error] ---- 8396800
+[2793 error] ---- 8208
+[2793 error] ---- 16
+[2793 error] ---- 8208
+[2793 error] ---- 4202496
+(INFO) Number of join results: 490907
+[2793 error] ---- 39746973
+[2793 error] ---- 25317628
+[2793 error] ---- 25317628
+HashJoin Time: 6.952029
+[2793 error] ---- 26608
+[2793 error] ---- 32800
+[2793 error] ---- 32
+[2793 error] ---- 16416
+[2793 error] ---- 47056
+[2793 error] ---- 5944504
+[2793 error] ---- 3931900
+[2793 error] ---- 3844
+[2793 error] ---- 3844
+[2793 error] ---- 8
+[2793 error] ---- 3844
+[2793 error] ---- 3844
+[2793 error] ---- 1967868
+(INFO) Number of join results: 490907
+[2793 error] ---- 5901512
+[2793 error] ---- 12763986
+[2793 error] ---- 7854916
+HashJoin Time: 3.887439
+[2793 error] ---- 10833383
+[2793 error] ---- 524292
+[2793 error] ---- 1049600
+[2793 error] ---- 1024
+[2793 error] ---- 525312
+(INFO) Number of groupBy results: 280
+[2793 error] ---- 10838275
+GroupBy Time: 5.107357
+type: int
+[2793 error] ---- 2048
+[2793 error] ---- 6144
+[2793 error] ---- 2052
+[2793 error] ---- 2076
+[2793 error] ---- 56
+sectype: string
+[2793 error] ---- 9176
+[2793 error] ---- 8760
+[2793 error] ---- 11628
+OrderBy Time: 6.500754
+[2793 error] ---- 9556
+Materialization Time: 0.407047
+Disk Load Time: 0.963470
+PCIe Time: 0.000000
+Kernel Time: 0.000000
+Total Time: 556.917118

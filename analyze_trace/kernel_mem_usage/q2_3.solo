@@ -1,0 +1,92 @@
+[gvm] 1386645581.716818 BEGIN
+[2843 error] ---- 10400040
+[2843 error] ---- 5297152
+[2843 error] ---- 4198400
+[2843 error] ---- 4104
+[2843 error] ---- 8
+[2843 error] ---- 4104
+[2843 error] ---- 2101248
+(INFO) Number of selection results: 794
+[2843 error] ---- 12504298
+[2843 error] ---- 8500328
+TableScan Time: 14.978315
+[2843 error] ---- 320040
+[2843 error] ---- 160896
+[2843 error] ---- 161952
+[2843 error] ---- 161952
+[2843 error] ---- 160
+[2843 error] ---- 81056
+[2843 error] ---- 81056
+(INFO) Number of selection results: 3972
+[2843 error] ---- 256784
+TableScan Time: 1.481694
+[2843 error] ---- 7272
+[2843 error] ---- 8200
+[2843 error] ---- 8
+[2843 error] ---- 4104
+[2843 error] ---- 13624
+[2843 error] ---- 484098560
+[2843 error] ---- 8396800
+[2843 error] ---- 8208
+[2843 error] ---- 16
+[2843 error] ---- 8208
+[2843 error] ---- 4202496
+(INFO) Number of join results: 58676
+[2843 error] ---- 244674390
+[2843 error] ---- 484318720
+[2843 error] ---- 484318720
+[2843 error] ---- 484318720
+HashJoin Time: 454.066734
+[2843 error] ---- 32272
+[2843 error] ---- 32800
+[2843 error] ---- 32
+[2843 error] ---- 16416
+[2843 error] ---- 64048
+[2843 error] ---- 769472
+[2843 error] ---- 471500
+[2843 error] ---- 460
+[2843 error] ---- 235980
+(INFO) Number of join results: 11559
+[2843 error] ---- 1102339
+[2843 error] ---- 751164
+[2843 error] ---- 751164
+HashJoin Time: 1.910948
+[2843 error] ---- 26608
+[2843 error] ---- 32800
+[2843 error] ---- 32
+[2843 error] ---- 16416
+[2843 error] ---- 47056
+[2843 error] ---- 192792
+[2843 error] ---- 94300
+[2843 error] ---- 92
+[2843 error] ---- 47196
+(INFO) Number of join results: 11559
+[2843 error] ---- 149800
+[2843 error] ---- 301402
+[2843 error] ---- 185812
+HashJoin Time: 1.027612
+[2843 error] ---- 767075
+[2843 error] ---- 524292
+[2843 error] ---- 1049600
+[2843 error] ---- 1024
+[2843 error] ---- 525312
+(INFO) Number of groupBy results: 7
+[2843 error] ---- 767326
+GroupBy Time: 1.040202
+type: int
+[2843 error] ---- 32
+[2843 error] ---- 96
+[2843 error] ---- 36
+[2843 error] ---- 60
+[2843 error] ---- 56
+sectype: string
+[2843 error] ---- 167
+[2843 error] ---- 192
+[2843 error] ---- 330
+OrderBy Time: 15.813202
+[2843 error] ---- 274
+Materialization Time: 0.210794
+Disk Load Time: 0.350728
+PCIe Time: 0.000000
+Kernel Time: 0.000000
+Total Time: 491.082306

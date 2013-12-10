@@ -1,0 +1,46 @@
+[gvm] 1386645588.096094 BEGIN
+[2883 error] ---- 20448
+[2883 error] ---- 20464
+[2883 error] ---- 20500
+[2883 error] ---- 20
+[2883 error] ---- 10260
+(INFO) Number of selection results: 31
+[2883 error] ---- 30812
+TableScan Time: 6.094628
+[2883 error] ---- 479889712
+[2883 error] ---- 479889712
+[2883 error] ---- 479889712
+[2883 error] ---- 479889712
+[2883 error] ---- 242042008
+[2883 error] ---- 4198400
+[2883 error] ---- 4104
+[2883 error] ---- 8
+[2883 error] ---- 4104
+[2883 error] ---- 2101248
+(INFO) Number of selection results: 3273117
+[2883 error] ---- 495079332
+[2883 error] ---- 495079332
+[2883 error] ---- 495079332
+TableScan Time: 451.046563
+[2883 error] ---- 252
+[2883 error] ---- 256
+[2883 error] ---- 500
+[2883 error] ---- 30379744
+[2883 error] ---- 8396800
+[2883 error] ---- 8208
+[2883 error] ---- 16
+[2883 error] ---- 8208
+[2883 error] ---- 4202496
+(INFO) Number of join results: 42532
+[2883 error] ---- 30549368
+[2883 error] ---- 30549368
+HashJoin Time: 6.422465
+(INFO) Number of groupBy results: 1
+[2883 error] ---- 340352
+GroupBy Time: 0.938323
+[2883 error] ---- 20
+Materialization Time: 0.167595
+Disk Load Time: 14.001510
+PCIe Time: 0.000000
+Kernel Time: 0.000000
+Total Time: 478.798083

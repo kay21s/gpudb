@@ -26,5 +26,7 @@ for file in os.listdir(rootpath + "/gpudb/test/ssb_test/"):
 		output = file[0:-3] + 'solo'
 		#! New GMM add
 		#os.chdir(rootpath + "/gpudb-explore/src")
+		cmd = ldpreload + rootpath+r'/gpudb/src/cuda/GPUDATABASE --datadir '+ rootpath+r'/gpudb/data'
+		os.system(cmd)
 		cmd = ldpreload + rootpath+r'/gpudb/src/cuda/GPUDATABASE --datadir '+ rootpath+r'/gpudb/data' + r' > ' + rootpath+r'/trace/file/'+output
 		os.system(cmd)

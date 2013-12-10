@@ -1,0 +1,108 @@
+[gvm] 1386645589.304697 BEGIN
+[2893 error] ---- 4200040
+[2893 error] ---- 4200040
+[2893 error] ---- 2400128
+[2893 error] ---- 2402600
+[2893 error] ---- 2352
+[2893 error] ---- 2352
+[2893 error] ---- 8
+[2893 error] ---- 2352
+[2893 error] ---- 2352
+[2893 error] ---- 1202472
+(INFO) Number of selection results: 2370
+[2893 error] ---- 5423828
+[2893 error] ---- 3609608
+TableScan Time: 11.471031
+[2893 error] ---- 280040
+[2893 error] ---- 280040
+[2893 error] ---- 160896
+[2893 error] ---- 161952
+[2893 error] ---- 161952
+[2893 error] ---- 160
+[2893 error] ---- 81056
+[2893 error] ---- 81056
+(INFO) Number of selection results: 164
+[2893 error] ---- 362536
+[2893 error] ---- 241552
+TableScan Time: 1.589423
+[2893 error] ---- 28156
+[2893 error] ---- 20464
+[2893 error] ---- 20500
+[2893 error] ---- 20
+[2893 error] ---- 10260
+(INFO) Number of selection results: 31
+[2893 error] ---- 30812
+[2893 error] ---- 30812
+TableScan Time: 0.483690
+[2893 error] ---- 25864
+[2893 error] ---- 32800
+[2893 error] ---- 32
+[2893 error] ---- 16416
+[2893 error] ---- 44824
+[2893 error] ---- 484135744
+[2893 error] ---- 8396800
+[2893 error] ---- 8208
+[2893 error] ---- 16
+[2893 error] ---- 8208
+[2893 error] ---- 4202496
+(INFO) Number of join results: 465398
+[2893 error] ---- 248816840
+[2893 error] ---- 485945608
+[2893 error] ---- 485945608
+[2893 error] ---- 485945608
+HashJoin Time: 457.332247
+[2893 error] ---- 1680
+[2893 error] ---- 2048
+[2893 error] ---- 2992
+[2893 error] ---- 5588176
+[2893 error] ---- 3726900
+[2893 error] ---- 3644
+[2893 error] ---- 3644
+[2893 error] ---- 8
+[2893 error] ---- 3644
+[2893 error] ---- 3644
+[2893 error] ---- 1865268
+(INFO) Number of join results: 3908
+[2893 error] ---- 8416284
+[2893 error] ---- 3763944
+[2893 error] ---- 5600448
+[2893 error] ---- 5600448
+HashJoin Time: 4.244192
+[2893 error] ---- 252
+[2893 error] ---- 256
+[2893 error] ---- 500
+[2893 error] ---- 48152
+[2893 error] ---- 32800
+[2893 error] ---- 32
+[2893 error] ---- 16416
+(INFO) Number of join results: 55
+[2893 error] ---- 71646
+[2893 error] ---- 71646
+[2893 error] ---- 32360
+[2893 error] ---- 47868
+HashJoin Time: 0.825104
+[2893 error] ---- 526116
+[2893 error] ---- 524292
+[2893 error] ---- 1049600
+[2893 error] ---- 1024
+[2893 error] ---- 525312
+(INFO) Number of groupBy results: 4
+[2893 error] ---- 526400
+GroupBy Time: 1.098769
+type: int
+[2893 error] ---- 16
+[2893 error] ---- 48
+[2893 error] ---- 20
+[2893 error] ---- 20
+[2893 error] ---- 16
+sectype: float
+[2893 error] ---- 48
+[2893 error] ---- 56
+[2893 error] ---- 320
+OrderBy Time: 0.599339
+[2893 error] ---- 272
+Materialization Time: 0.176565
+Disk Load Time: 0.512968
+PCIe Time: 0.000000
+Kernel Time: 0.000000
+Total Time: 478.472007

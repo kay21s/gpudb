@@ -187,7 +187,6 @@ cudaError_t cudaLaunch(const void *entry)
 	gettimeofday(&t, NULL);
 	printf("[gvm] %lf intercepted cudaLaunch\n", t.tv_sec + t.tv_usec / 1000000.0);
 
-	cudaThreadSynchronize();
 
 	return ret;
 }
@@ -207,12 +206,12 @@ cudaError_t cudaThreadSynchronize(void)
 	}
 
 	gettimeofday(&t, NULL);
-	printf("[gvm] %lf intercepting cudaThreadSynchronize\n", t.tv_sec + t.tv_usec / 1000000.0);
+	//printf("[gvm] %lf intercepting cudaThreadSynchronize\n", t.tv_sec + t.tv_usec / 1000000.0);
 
 	ret = nv_cudaThreadSynchronize();
 
 	gettimeofday(&t, NULL);
-	printf("[gvm] %lf intercepted cudaThreadSynchronize\n", t.tv_sec + t.tv_usec / 1000000.0);
+	//printf("[gvm] %lf intercepted cudaThreadSynchronize\n", t.tv_sec + t.tv_usec / 1000000.0);
 
 	return ret;
 }
