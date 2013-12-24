@@ -23,17 +23,22 @@ else:
 #preloadlib = 'LD_PRELOAD=' + rootpath + r'/gdb/src/libgmm.so'
 
 # corun for #rep times
-rep = '7'
+rep = '9'
 
 
 if sys.argv[1] is None or sys.argv[2] is None:
 	print 'must specify the query'
 	sys.exit()
 
-print sys.argv[1], sys.argv[2]
+
+plan = ''
+for i in range(1, len(sys.argv)):
+	plan = plan + sys.argv[i] + ' '
+
+print plan
 
 plans = []
-plans.append(sys.argv[1] + ' ' + sys.argv[2])
+plans.append(plan)
 
 for plan in plans:
 	output = outpath + '/' + plan.strip().replace(' ', '.')
@@ -46,6 +51,11 @@ for plan in plans:
 	querys = plan.strip().split(" ")
 	os.chdir(querypath)
 	print plan
+	# Solorun the querys to load data into memory first
+	for query in querys:
+		cmd = preloadlib + ' ./' + query + ' --datadir ' + datapath
+		os.system(cmd)
+	# Now we corun the querys
 	for query in querys:
 		if running_query.has_key(query) is True:
 			oo = output + '/' + query + '_' + str(running_query[query])
@@ -59,7 +69,7 @@ for plan in plans:
 		print script
 		os.system(script)
 
-	time.sleep(15)
+	time.sleep(45)
 	cmd=' '
 	os.system(cmd) # like press an enter for the last '&'
 	for query in querys:

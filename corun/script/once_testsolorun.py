@@ -7,6 +7,7 @@ os.chdir("../../")
 rootpath = os.getcwd()
 
 preloadlib=r'LD_PRELOAD='+rootpath+r'/gdb/src/libgmm.so '
+#preloadlib = ''
 querypath = rootpath + r'/corun/query_progs/'
 datapath = ' --datadir ' + rootpath + r'/gpudb/data/'
 
@@ -17,5 +18,6 @@ else:
 	sys.exit(0)
 
 cmd = preloadlib + q + datapath
+print cmd
 os.system(cmd)
 

@@ -34,9 +34,9 @@ for file in os.listdir(co_dir):
 	length = len(file.split('.'))
 	max_len = max(max_len, length)
 
-if max_len <> 2:
-	print "query corun number is supposed to be 2"
-	sys.exit(0)
+#if max_len <> 2:
+#	print "query corun number is supposed to be 2"
+#	sys.exit(0)
 
 # this is used to record the slow down of each query in the corun
 # for example, when max_len = 2, it means at most 2 queries corun together
@@ -81,6 +81,7 @@ files = os.listdir(co_dir)
 files.sort()
 for file in files:
 #	print file, ' ',
+	err = 0
 	os.chdir(co_dir+file)
 
 
@@ -94,10 +95,14 @@ for file in files:
 			querys.append(q)
 			q_static[q] = 1
 
+	'''
 	err = open('error').read()
 	if len(err) <> 0:
-		print querys[0][0:4],'\t',querys[1][0:4]
+		for i in range(0, max_len):
+			print querys[i][0:4].replace('_', ''),'\t',
+		print ''
 		continue
+	'''
 
 	# 1) speedup = (1/co_q1 + 1/co_q2)/(1/(solo_q1 + solo_q2)) = (1/co_q1+1/co_q2) * (solo_q1+solo_q2)
 	#speedup_right = 0.0 # (1/co_q1 + 1/co_q2)
@@ -135,8 +140,9 @@ for file in files:
 			print 'deadlock', query, file
 			sys.exit(0)
 		if num != stat_e + 1:
-			print 'end before finding the required number of queries', num, query, file
-			sys.exit(0)
+			#print 'end before finding the required number of queries', num, query, file
+			err = 1
+			break
 		#speedup_right += 1/(time/num)
 		#speedup_left += solo_dict[query]
 		query = query[0:4] # discard the last '_1' in like q3_1_1, which happens in same query corun
@@ -145,20 +151,25 @@ for file in files:
 		speedup += solo_dict[query]/(time/stat_num)
 		query_no += 1
 
+	if err == 1:
+		for i in range(0, max_len):
+			print file.split('.')[i].replace('_', ''),'\t',
+		print ''
+		continue
+
 	if statistic_1:
 		for i in range(0, len(query_name)):
-			print query_name[i],'\t',
+			print query_name[i].replace('_', ''),'\t',
 		for i in range(0, len(query_name)):
 			print avg_time[i],'\t',
-		for i in range(0, print_runnum):
-			print individual[0][i],'\t',
-		for i in range(0, print_runnum):
-			print individual[1][i],'\t',
+		for j in range(0, max_len):
+			for i in range(0, print_runnum):
+				print individual[j][i],'\t',
 		print ''
 
 	else:
 		for i in range(0, len(query_name)):
-			print query_name[i],'\t',
+			print query_name[i].replace('_', ''),'\t',
 		for i in range(0, len(query_name)):
 			print avg_time[i],'\t',
 		print round(speedup,2),'\t',

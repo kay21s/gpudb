@@ -6,6 +6,7 @@ import shutil
 os.chdir("../../")
 rootpath = os.getcwd()
 
+#plan_file = rootpath + r'/corun/exec_plan/4q.plan'
 plan_file = rootpath + r'/corun/exec_plan/2q.plan'
 outpath = rootpath + r'/corun/output/'
 querypath = rootpath + r'/corun/query_progs/'
@@ -46,6 +47,7 @@ for plan in plans:
 	for query in querys:
 		cmd = preloadlib + ' ./' + query + ' --datadir ' + datapath
 		os.system(cmd)
+	i = 0
 	# Now we corun the querys
 	for query in querys:
 		if running_query.has_key(query) is True:
@@ -56,20 +58,10 @@ for plan in plans:
 			running_query[query] = 1
 
 		cmd = preloadlib + ' ./' + query + ' --datadir ' + datapath + ' >> ' + oo + ' 2>>' + output+'error'
-		script = rootpath+'/corun/script/reprun.py ' + rep + ' ' + cmd + ' &'
+		i += 1
+		if i == len(querys):
+			script = rootpath+'/corun/script/reprun.py ' + rep + ' ' + cmd
+		else:
+			script = rootpath+'/corun/script/reprun.py ' + rep + ' ' + cmd + ' &'
 		print script
 		os.system(script)
-
-	time.sleep(30)
-	cmd=' '
-	os.system(cmd) # like press an enter for the last '&'
-	for query in querys:
-		cmd = r'ps -C ' + query + ' -o pid=|xargs'
-		pid = os.popen(cmd).read().strip()
-		if pid:
-			cmd ='kill -9 ' + pid
-			os.system(cmd)
-			oo = query+' is killed, ' + pid
-			print oo
-		#cmd = oo+ ' > ' + output + '/'
-		#os.system(oo)
